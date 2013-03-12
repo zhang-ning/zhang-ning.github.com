@@ -173,7 +173,7 @@ If you define more than one category you are defining a category hierarchy "set"
 Example:
 
     ---
-    title :  Hello World
+    title :  欢迎来到小冰和张宁的网站
     categories : [lessons, beginner]
     ---
 
