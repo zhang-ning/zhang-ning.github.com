@@ -2,6 +2,7 @@
 layout : clean
 title: "第一次使用jekyll生成博客站点"
 comments: true
+image : /assets/imges/post_1.jpeg
 ---
 
 {{page.title}}

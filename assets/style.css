@@ -1,3 +1,26 @@
-.banner-img{
-	
+.link{
+	color: #000;
+}
+
+.glass-box{
+	padding: 5px;
+	border-radius: 5px;
+	background: #fff;
+	opacity: 0.7
+}
+.post-img{
+	width: 240px;
+	height: 135px;
+}
+.post{
+	margin: 20px 0;
+	list-style: none;
+}
+.post .thumbnail{
+	display: inline-block;
+	vertical-align: top;
+}
+.inline-block{
+	display: inline-block;
+	padding: 10px;
 }

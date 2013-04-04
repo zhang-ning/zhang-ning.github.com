@@ -2,6 +2,7 @@
 layout : clean
 title : "Git hub page 开始页面"
 comments: true
+image : /assets/imges/beautifulgirl.png
 ---
 
 ### Welcome to 张宁的博客.
