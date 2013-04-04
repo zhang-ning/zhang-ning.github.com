@@ -2,6 +2,14 @@
 	color: #000;
 }
 
+.text-over{
+	/*width: 170px;*/
+	overflow: hidden;
+	text-overflow:ellipsis;
+	display: block;
+	white-space: nowrap;
+}
+
 .glass-box{
 	padding: 5px;
 	border-radius: 5px;
