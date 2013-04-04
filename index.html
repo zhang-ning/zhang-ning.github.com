@@ -3,20 +3,44 @@ layout: clean
 title: test page
 ---
 
-
-<ul class="span8">
-{% for post in site.posts %}
-<li class="post">
-  <a class="thumbnail" href="{{ post.url }}">
-  	<img class="post-img" src="{{ post.image }}" alt="{{ post.title }}">
-  </a>
-  <div class="inline-block">
-  	<a class="link" href="{{ post.url }}">
-    	<strong class="text-over"> {{ post.title }} </strong>
-  	</a >
-  	<p class="muted">{{post.date | date_to_string }}</p>
+<div class="tabbable tabs-left">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#lA" data-toggle="tab">Programing</a></li>
+    <li><a href="#lB" data-toggle="tab">Music</a></li>
+    <li><a href="#lC" data-toggle="tab">Moive</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="lA">
+      <ul class="span6">
+		{% for post in site.posts %}
+		<li class="post">
+		  <a class="thumbnail" href="{{ post.url }}">
+		  	<img class="post-img" src="{{ post.image }}" alt="{{ post.title }}">
+		  </a>
+		  <div class="inline-block">
+		  	<a class="link" href="{{ post.url }}">
+		    	<strong class="text-over"> {{ post.title }} </strong>
+		  	</a >
+		  	<p class="muted">{{post.date | date_to_string }}</p>
+		  </div>
+		  
+		</li>
+		{% endfor %}
+	  </ul >
+    </div>
+    <div class="tab-pane" id="lB">
+     <div class="span6">
+     	<embed src="http://player.yinyuetai.com/video/player/638313/v_0.swf" quality="high" width="480" height="334" align="middle"  allowScriptAccess="sameDomain" allowfullscreen="true" type="application/x-shockwave-flash"></embed>
+     </div>
+      
+    </div>
+    <div class="tab-pane" id="lC">
+      <p>What up girl, this is Section C.</p>
+    </div>
   </div>
-  
-</li>
-{% endfor %}
-</ul >
+</div>
+<div class="video span12">
+	
+	
+	<!-- <embed src="http://static1.mtime.cn/static/flash/outplayer.swf?vid=43949&mid=112225" quality="high" width="480" height="334" align="middle"  allowScriptAccess="sameDomain" allowfullscreen="true" type="application/x-shockwave-flash"></embed> -->
+</div>
