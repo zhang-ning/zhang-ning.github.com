@@ -1,5 +1,5 @@
 ---
-layout : clean
+layout : post
 title : "Twitter Bootstrap 学习笔记"
 comments: true
 image : /assets/imges/bootstrap.jpg

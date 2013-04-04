@@ -1,5 +1,5 @@
 ---
-layout : clean
+layout : post
 title : "Google AngularJS 学习笔记"
 comments: true
 image : /assets/imges/angularjs.jpg

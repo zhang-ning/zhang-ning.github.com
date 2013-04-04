@@ -5,13 +5,14 @@ title: test page
 
 <div class="tabbable tabs-left">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#lA" data-toggle="tab">Programing</a></li>
+    <li class="active"><a href="#lA" data-toggle="tab">Blog</a></li>
     <li><a href="#lB" data-toggle="tab">Music</a></li>
-    <li><a href="#lC" data-toggle="tab">Moive</a></li>
+    <li><a href="#lC" data-toggle="tab">Video</a></li>
+    <li><a href="#lD" data-toggle="tab">DOTA</a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="lA">
-      <ul class="span6">
+      <ul class="span12">
 		{% for post in site.posts %}
 		<li class="post">
 		  <a class="thumbnail" href="{{ post.url }}">
@@ -21,7 +22,12 @@ title: test page
 		  	<a class="link" href="{{ post.url }}">
 		    	<strong class="text-over"> {{ post.title }} </strong>
 		  	</a >
+		  	
+		  	<p class="post-summary span6"> {{post.summary}} </p>
+
 		  	<p class="muted">{{post.date | date_to_string }}</p>
+
+		  	
 		  </div>
 		  
 		</li>
@@ -35,7 +41,10 @@ title: test page
       
     </div>
     <div class="tab-pane" id="lC">
-      <p>What up girl, this is Section C.</p>
+      <p class="span6">video coming soon...</p>
+    </div>
+    <div class="tab-pane" id="lD">
+      <p class="span6">dota coming soon...</p>
     </div>
   </div>
 </div>

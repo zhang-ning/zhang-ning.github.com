@@ -24,9 +24,17 @@
 	margin: 20px 0;
 	list-style: none;
 }
+.post-summary{
+	height: 40px;
+	overflow: hidden;
+}
+.share-box a:hover{
+	text-decoration: none;
+}
 .post .thumbnail{
 	display: inline-block;
 	vertical-align: top;
+	box-shadow: 1px 1px 10px 1px #ddd;
 }
 .inline-block{
 	display: inline-block;

@@ -1,5 +1,5 @@
 ---
-layout : clean
+layout : post
 title : "Git hub page 开始页面"
 comments: true
 image : /assets/imges/jekyll.png
