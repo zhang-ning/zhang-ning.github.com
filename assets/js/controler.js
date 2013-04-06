@@ -93,8 +93,8 @@
 	}
 
 	var prefix = (function(){
-		var b = window.navigator.userAgent.match(/chrome|firefox|msie/i)[0];
-		return /chrome/i.test(b) ? '-webkit-' : /firefox/i.test(b) ? '-moz-' : '-ms-'; 
+		var b = window.navigator.userAgent.match(/safari|chrome|firefox|msie/i)[0];
+		return /chrome|safari/i.test(b) ? '-webkit-' : /firefox/i.test(b) ? '-moz-' : '-ms-'; 
 	})();
 
 	window.addEventListener('load',function(){
