@@ -40,3 +40,40 @@
 	display: inline-block;
 	padding: 10px;
 }
+.scale-stage{
+	position: absolute;
+	width: 100%;
+	height:100%;
+	top:0;
+	left: 0;
+	background: #fff;
+	z-index: 1;
+}
+.relative{
+	position: relative;
+	overflow: hidden;
+}
+
+#main-page{
+	position: relative;
+	overflow: hidden;
+}
+
+.transition{
+	-webkit-transition: all .6s ease-in-out 0s;
+	   -moz-transition: all .6s ease-in-out 0s;
+	    -ms-transition: all .6s ease-in-out 0s;
+	     -o-transition: all .6s ease-in-out 0s;
+	        transition: all .6s ease-in-out 0s;
+}
+.scale-none{
+	-webkit-transform: scale(0);
+	   -moz-transform: scale(0);
+	    -ms-transform: scale(0);
+	     -o-transform: scale(0);
+	        transform: scale(0);
+}
+
+body{
+	overflow: hidden;
+}

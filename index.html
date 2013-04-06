@@ -5,21 +5,21 @@ title: test page
 
 <div class="tabbable tabs-left">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#lA" data-toggle="tab">Blog</a></li>
-    <li><a href="#lB" data-toggle="tab">Music</a></li>
-    <li><a href="#lC" data-toggle="tab">Video</a></li>
-    <li><a href="#lD" data-toggle="tab">DOTA</a></li>
+    <li id="blog-tab" class="active"><a href="#/blog" data-toggle="tab">Blog</a></li>
+    <li id="music-tab"><a href="#/music" data-toggle="tab">Music</a></li>
+    <li id="video-tab"><a href="#/video" data-toggle="tab">Video</a></li>
+    <li id="dota-tab"><a href="#/dota" data-toggle="tab">DOTA</a></li>
   </ul>
   <div class="tab-content">
-    <div class="tab-pane active" id="lA">
+    <div class="tab-pane active" id="blog-content">
       <ul class="span10">
 		{% for post in site.posts %}
 		<li class="post">
-		  <a class="thumbnail" href="{{ post.url }}">
+		  <a class="thumbnail" href="#/post{{ post.url }}">
 		  	<img class="post-img" src="{{ post.image }}" alt="{{ post.title }}">
 		  </a>
 		  <div class="inline-block">
-		  	<a class="link" href="{{ post.url }}">
+		  	<a class="link" href="#/post{{ post.url }}">
 		    	<strong class="text-over"> {{ post.title }} </strong>
 		  	</a >
 		  	
@@ -27,38 +27,38 @@ title: test page
 
 		  	<p class="muted">{{post.date | date_to_string }}</p>
 
-		  	
+		  	<!-- <img class="" src="https://secure.gravatar.com/avatar/2b08baef75e556ee00ac24eecb2b1b0f?s=140&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" > -->
 		  </div>
 		  
 		</li>
 		{% endfor %}
 	  </ul >
     </div>
-    <div class="tab-pane" id="lB">
+    <div class="tab-pane" id="music-content">
+     <p class="span6">music comming soon..</p>
      <div class="span10">
-     	<video width="100%" height="500px" controls="controls" type="video/mp4">
+     	<!-- <video width="100%" height="500px" controls="controls" type="video/mp4">
         <source src="http://hc.yinyuetai.com/uploads/videos/common/FC6C013DCDED1A49D8235F39E1679709.flv">
         Sorry - your browser is not supported!
-      </video>
+      </video> -->
 
      </div>
-
-      
     </div>
-    <div class="tab-pane" id="lC">
+    <div class="tab-pane" id="video-content">
       <p class="span6">video coming soon...</p>
       
       <div class="span10">
-      <object width="480" height="410" autoactive="true" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" ><param name="movie" value="http://static1.mtime.cn/static/flash/outplayer.swf?vid=43743&amp;mid=115128&amp;refurl=http://movie.mtime.com/115128/trailer/43743.html&amp;title=巨人捕手杰克 中国版预告片" /><param name="quality" value="high" /><param name="allowFullScreen" value="true" /><param name="menu" value="false" /><param name="wmode" value="transparent" /><param name="allowScriptAccess" value="sameDomain" /><embed wmode="transparent" allowscriptaccess="sameDomain" allowFullScreen="true" play="true" src="http://static1.mtime.cn/static/flash/outplayer.swf?vid=43743&amp;mid=115128&amp;refurl=http://movie.mtime.com/115128/trailer/43743.html&amp;title=巨人捕手杰克 中国版预告片" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="480" height="410"/></object>
+      <!-- <object width="480" height="410" autoactive="true" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" ><param name="movie" value="http://static1.mtime.cn/static/flash/outplayer.swf?vid=43743&amp;mid=115128&amp;refurl=http://movie.mtime.com/115128/trailer/43743.html&amp;title=巨人捕手杰克 中国版预告片" /><param name="quality" value="high" /><param name="allowFullScreen" value="true" /><param name="menu" value="false" /><param name="wmode" value="transparent" /><param name="allowScriptAccess" value="sameDomain" /><embed wmode="transparent" allowscriptaccess="sameDomain" allowFullScreen="true" play="true" src="http://static1.mtime.cn/static/flash/outplayer.swf?vid=43743&amp;mid=115128&amp;refurl=http://movie.mtime.com/115128/trailer/43743.html&amp;title=巨人捕手杰克 中国版预告片" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="480" height="410"/></object> -->
 
      </div>
-
     </div>
-    <div class="tab-pane" id="lD">
+    <div class="tab-pane" id="dota-content">
       <p class="span6">dota coming soon...</p>
     </div>
   </div>
 </div>
+
+
 <div class="video span12">
 	
 	

@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -23,7 +23,7 @@
   </head>
   <body>
 
-    <a style="position: fixed; top: 0; right: 0; z-index:2000;" href="https://github.com/zhang-ning" _orighref="https://github.com/zhang-ning" _tkworked="true"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+    <!-- <a style="position: fixed; top: 0; right: 0; z-index:2000;" href="https://github.com/zhang-ning" _orighref="https://github.com/zhang-ning" _tkworked="true"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a> -->
 
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -33,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="/">Beside River</a>
+          <a class="brand" href="#/home/">Beside River</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="/"></a></li>
@@ -42,16 +42,20 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="relative">
+      <div class="container transition" id="home-page">
       {{content}}
-      <div id="disqus_thread"></div>
+      </div>
+      <div class="scale-stage transition scale-none" id="detail-page">
+        <iframe src="" frameborder="0" width="100%" height="100%">
+          
+        </iframe>
+      </div>
     </div>
-	
-    
   </body>
 </html>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
-<script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
-
-<!-- <script src="http://besiderivercom.disqus.com/embed.js" type="text/javascript" async="true"></script> -->
+<!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script> -->
+<!-- <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script> -->
+<!-- <script src="/assets/lib/angular.min.js"></script> -->
+<script src="/assets/js/controler.js"></script>
