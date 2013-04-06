@@ -97,7 +97,7 @@
 		return /chrome|safari/i.test(b) ? '-webkit-' : /firefox/i.test(b) ? '-moz-' : '-ms-'; 
 	})();
 
-	window.addEventListener('load',function(){
+	//window.addEventListener('load',function(){
 
 		var home = River('#home-page');
 		var detail = River('#detail-page');
@@ -176,6 +176,6 @@
 
 		needAnimate(false);
 		pageDrive();
-	})
+	//})
 
 })()
