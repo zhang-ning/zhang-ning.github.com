@@ -147,6 +147,9 @@
 			if(/post/.test(url)){
 				goToDetail();
 				detail.getRef().children[0].src = url.slice(4);
+				// detail.getRef().children[0].addEventListener('load',function(){
+				// 	console.log(11);
+				// });
 			}else if(/tab/.test(url)){
 				goToTab(url.slice(4));
 			}else{
