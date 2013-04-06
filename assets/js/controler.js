@@ -147,10 +147,10 @@
 			if(/post/.test(url)){
 				goToDetail();
 				detail.getRef().children[0].src = url.slice(4);
-			}else if(/home/.test(url)){
+			}else if(/tab/.test(url)){
+				goToTab(url.slice(4));
+			}else{
 				backToHome();
-			}else {
-				goToTab(url);
 			}
 		}
 
