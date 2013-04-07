@@ -17,7 +17,7 @@ image : /assets/imges/post_1.jpeg
 
 下面来一段代码看看好不好用
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 (function(){
   var a = "123";
   console.log("hello world !")
@@ -42,8 +42,6 @@ image : /assets/imges/post_1.jpeg
 	};
 })()
 {% endhighlight %}
-
-
 
 
 > ## 这是一个标题
