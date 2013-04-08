@@ -1,12 +1,15 @@
 <html>
   <head>
+    <link rel="stylesheet" href="/assets/style.css">
     <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
   </head>
-  <body>
+  <body class="bg-color">
     <div class="container">
-      <div class="share-box">  
+      
+      <div class="content-area">
+        <div class="share-box">  
           <a href="http://v.t.sina.com.cn/share/share.php?url=http://besideriver.com&title={{page.title}}&content=gb2312&amp;pic=http://besideriver.com{{page.image}}&amp;ralateUid={{page.weibo}}" title="分享到新浪微博" target="_blank">
             <img src="http://s.yytcdn.com/images/external/sina24.png" alt="新浪微博">
           </a>
@@ -26,9 +29,10 @@
           <a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http%3A%2F%2Fwww.yinyuetai.com%2Fvideo%2F638313&amp;desc=Fly+To+Love+%E5%AE%8C%E6%95%B4%E7%89%88-LUNAFLY+%E9%AB%98%E6%B8%85MV-%E9%9F%B3%E6%82%A6%E5%8F%B0" title="分享到QQ空间" target="_blank">
             <img src="http://s.yytcdn.com/images/external/qzone24.png" alt="QQ空间">
           </a>
+        </div>
+        {{content}}
       </div>
-      <div>{{content}}</div>
-      <div id="disqus_thread" class=""></div>
+      <div id="disqus_thread" class="content-area"></div>
     </div>
   </body>
 </html>
