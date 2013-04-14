@@ -24,19 +24,9 @@
 	top: 50%;
 	left: 50%;
 	margin: -23px 0 0 -23px;
-	opacity: .5;
 }
-.hover-tag:hover .play{
-	background-position: 0 -46px;
-	opacity: 1;
-}
-.hover-tag:hover p{
-	color: auto;
-	text-decoration: none;
-}
-.auto-cover{
-	height: 100%;
-	width: 100%;
+.play :hover{
+	background-position: 0 50;
 }
 
 .bs{
@@ -119,13 +109,6 @@
 	    -ms-transition: all .6s ease-in-out 0s;
 	     -o-transition: all .6s ease-in-out 0s;
 	        transition: all .6s ease-in-out 0s;
-}
-.short-trans{
-	-webkit-transition: opacity .1s ease-in-out 0s;
-	   -moz-transition: opacity .1s ease-in-out 0s;
-	    -ms-transition: opacity .1s ease-in-out 0s;
-	     -o-transition: opacity .1s ease-in-out 0s;
-	        transition: opacity .1s ease-in-out 0s;
 }
 .scale-none{
 	-webkit-transform: scale(0);
