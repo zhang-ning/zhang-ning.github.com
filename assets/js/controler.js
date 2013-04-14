@@ -130,7 +130,7 @@
 		}
 
 		var goToDetail = function () {
-			home.attr('style',prefix + 'transform:scale(4)')
+			home.attr('style',prefix + 'transform:scale(5)')
 			detail.attr('style',prefix + 'transform:scale(1)')
 		}
 
