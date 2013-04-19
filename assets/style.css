@@ -15,8 +15,30 @@
 .video{
 	height: 210px;
 }
+.wrap{
+	height: 100%;
+	overflow: hidden;
+	padding-top: 60px;
+}
+.full-s{
+	height: 100%;
+	overflow: auto;
+}
+
+@media (max-width: 979px) and (min-width: 768px){
+	.wrap{
+		padding-top: 0px;	
+	}
+}
+@media (max-width: 767px){
+	.wrap{
+		padding-top: 0px;	
+	}
+}
+
 .play{
 	background-image: url(/assets/imges/video_play_medium.png);
+	background-image: url(/assets/imges/video_play_medium.svg);
 	height: 46px;
 	width: 46px;
 	display: block;
@@ -43,7 +65,7 @@
 	box-shadow: 0 1px 3px rgba(0,0,0,.3);
 }
 .bg-color{
-    background: #f3f4f5;
+    background: #f0f0f0 repeat -70% 0;
 }
 
 .text-over{
@@ -135,6 +157,8 @@
 	        transform: scale(0);
 }
 
-body{
+
+html,body{
+	height: 100%;
 	overflow: hidden;
 }
