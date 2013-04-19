@@ -18,21 +18,24 @@
 .wrap{
 	height: 100%;
 	overflow: hidden;
-	padding-top: 60px;
+	margin-top: 60px;
 }
 .full-s{
 	height: 100%;
 	overflow: auto;
 }
+.overflow-s{
+	overflow: scroll;
+}
 
 @media (max-width: 979px) and (min-width: 768px){
 	.wrap{
-		padding-top: 0px;	
+		margin-top: 0px;	
 	}
 }
 @media (max-width: 767px){
 	.wrap{
-		padding-top: 0px;	
+		margin-top: 0px;	
 	}
 }
 
