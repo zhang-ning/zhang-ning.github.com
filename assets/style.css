@@ -28,6 +28,7 @@
 .full-s{
 	height: 100%;
 	overflow: auto;
+	-webkit-overflow-scrolling:touch;
 }
 .full-s .container{
 	padding-bottom: 80px;
