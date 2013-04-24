@@ -27,7 +27,10 @@
 }
 .full-s{
 	height: 100%;
-	overflow: hidden;
+	overflow: auto;
+}
+.full-s .container{
+	padding-bottom: 80px;
 }
 .overflow-s{
 	overflow: scroll;
@@ -45,8 +48,7 @@
 }
 
 .play{
-	background-image: url(/assets/imges/video_play_medium.png);
-	background-image: url(/assets/imges/video_play_medium.svg);
+	background-image: url(http://besideriver.com/assets/imges/video_play_medium.svg);
 	height: 46px;
 	width: 46px;
 	display: block;

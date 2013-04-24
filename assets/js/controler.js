@@ -154,6 +154,9 @@
 				goToTab(url.slice(4));
 			}else{
 				backToHome();
+				setTimeout(function() {
+					detail.getRef().children[0].src = '';
+				}, 600);
 			}
 		}
 

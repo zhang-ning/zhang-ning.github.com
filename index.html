@@ -3,7 +3,7 @@ layout: clean
 title: test page
 ---
 
-<div class="tabbable tabs-left">
+<div class="tabbable tabs-left container">
   <ul class="nav nav-tabs">
     <li id="blog-tab" class="active"><a href="#/tab/blog" data-toggle="tab">Blog</a></li>
     <li id="music-tab"><a href="#/tab/music" data-toggle="tab">Music</a></li>
@@ -13,9 +13,9 @@ title: test page
   <div class="tab-content">
   
     <div class="tab-pane active" id="blog-content">
+      <ul class="span10 bs">
       {% for post in site.posts %}
         {% if post.type == null %}
-        <ul class="span10 bs">
     		<li class="post">
     		  <a class="thumbnail" href="#/post{{ post.url }}">
     		  	<img class="post-img" src="{{ post.image }}" alt="{{ post.title }}">
@@ -28,9 +28,9 @@ title: test page
     		  	<p class="muted">{{post.date | date_to_string }}</p>
     		  </div> 
     		</li>
-  	   </ul >
        {% endif %}
      {% endfor %}
+     </ul >
     </div>
     
     
@@ -77,11 +77,4 @@ title: test page
     
   
   </div>
-</div>
-
-
-<div class="video span12">
-	
-	
-	<!-- <embed src="http://static1.mtime.cn/static/flash/outplayer.swf?vid=43949&mid=112225" quality="high" width="480" height="334" align="middle"  allowScriptAccess="sameDomain" allowfullscreen="true" type="application/x-shockwave-flash"></embed> -->
 </div>
