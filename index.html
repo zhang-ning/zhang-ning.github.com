@@ -11,83 +11,79 @@ title: test page
     <li id="dota-tab"><a href="#/tab/dota" data-toggle="tab">DOTA</a></li>
   </ul>
   <div class="tab-content">
+  
     <div class="tab-pane active" id="blog-content">
-      <ul class="span10 bs">
-		{% for post in site.posts %}
-		<li class="post">
-		  <a class="thumbnail" href="#/post{{ post.url }}">
-		  	<img class="post-img" src="{{ post.image }}" alt="{{ post.title }}">
-		  </a>
-		  <div class="inline-block">
-		  	<a class="link" href="#/post{{ post.url }}">
-		    	<strong class="text-over"> {{ post.title }} </strong>
-		  	</a >
-		  	
-		  	<p class="post-summary span6"> {{post.summary}} </p>
-
-		  	<p class="muted">{{post.date | date_to_string }}</p>
-
-		  	<!-- <img class="" src="https://secure.gravatar.com/avatar/2b08baef75e556ee00ac24eecb2b1b0f?s=140&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" > -->
-		  </div>
-		  
-		</li>
-		{% endfor %}
-	  </ul >
+      {% for post in site.posts %}
+        {% if post.type == null %}
+        <ul class="span10 bs">
+    		<li class="post">
+    		  <a class="thumbnail" href="#/post{{ post.url }}">
+    		  	<img class="post-img" src="{{ post.image }}" alt="{{ post.title }}">
+    		  </a>
+    		  <div class="inline-block">
+    		  	<a class="link" href="#/post{{ post.url }}">
+    		    	<strong class="text-over"> {{ post.title }} </strong>
+    		  	</a>
+    		  	<p class="post-summary span6"> {{post.summary}} </p>
+    		  	<p class="muted">{{post.date | date_to_string }}</p>
+    		  </div> 
+    		</li>
+  	   </ul >
+       {% endif %}
+     {% endfor %}
     </div>
+    
+    
     <div class="tab-pane" id="music-content">
-
-        <div class="span5 media-box">
-          <a href="#" class="relative-block hover-tag auto-cover">
+      {% for post in site.posts %}
+        {% if post.type == "music" %}
+        <div class="media-box">
+          <a href="#/post{{ post.url }}" class="relative-block hover-tag">
           <span class="play short-trans"></span>
-          <img class="auto-cover" src="/images/music-1.jpeg" alt="">
+          <img class="media-img" src="{{ post.image }}" alt="">
         </a>
         </div>
-        <div class="span5 media-box">
-          <a href="#" class="relative-block hover-tag auto-cover">
-          <span class="play short-trans"></span>
-          <img class="auto-cover" src="/assets/imges/video-mf.jpg" alt="">
-          </a>
-        </div>
-        <div class="span5 media-box"></div>
-        <div class="span5 media-box"></div>
-        <div class="span5 media-box"></div>
-        <div class="span5 media-box"></div>
-
-     <div class="span10">
-     	<!-- <video width="100%" height="500px" controls="controls" type="video/mp4">
-        <source src="http://hc.yinyuetai.com/uploads/videos/common/FC6C013DCDED1A49D8235F39E1679709.flv">
-        Sorry - your browser is not supported!
-      </video> -->
-
-     </div>
+       {% endif %}
+      {% endfor %}
     </div>
+    
+    
     <div class="tab-pane" id="video-content">
-
-      <div class="span6 media-box video">
-        
-      </div>
-      <div class="span4 media-box video">
-      </div>
-      <div class="span5 media-box video">
-      </div>
-      <div class="span5 media-box video">
-      </div>
-      <div class="span4 media-box video">
-      </div>
-      <div class="span6 media-box video">
-      </div>
-      
-      <div class="span10">
-      <!-- <object width="480" height="410" autoactive="true" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" ><param name="movie" value="http://static1.mtime.cn/static/flash/outplayer.swf?vid=43743&amp;mid=115128&amp;refurl=http://movie.mtime.com/115128/trailer/43743.html&amp;title=巨人捕手杰克 中国版预告片" /><param name="quality" value="high" /><param name="allowFullScreen" value="true" /><param name="menu" value="false" /><param name="wmode" value="transparent" /><param name="allowScriptAccess" value="sameDomain" /><embed wmode="transparent" allowscriptaccess="sameDomain" allowFullScreen="true" play="true" src="http://static1.mtime.cn/static/flash/outplayer.swf?vid=43743&amp;mid=115128&amp;refurl=http://movie.mtime.com/115128/trailer/43743.html&amp;title=巨人捕手杰克 中国版预告片" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="480" height="410"/></object> -->
-
-     </div>
+      {% for post in site.posts %}
+        {% if post.type == "video" %}
+        <div class="media-box">
+          <a href="#/post{{ post.url }}" class="relative-block hover-tag">
+          <span class="play short-trans"></span>
+          <img class="media-img" src="{{ post.image }}" alt="">
+        </a>
+        </div>
+       {% endif %}
+      {% endfor %}
     </div>
+    
+    
     <div class="tab-pane" id="dota-content">
-      
-      <div class="span2 media-box video"></div>
-      <div class="span6 media-box video"></div>
-      <div class="span2 media-box video"></div>
+      {% for post in site.posts %}
+        {% if post.type == "dota" %}
+        <ul class="span10 bs">
+        <li class="post">
+          <a class="thumbnail" href="#/post{{ post.url }}">
+            <img class="post-img" src="{{ post.image }}" alt="{{ post.title }}">
+          </a>
+          <div class="inline-block">
+            <a class="link" href="#/post{{ post.url }}">
+              <strong class="text-over"> {{ post.title }} </strong>
+            </a>
+            <p class="post-summary span6"> {{post.summary}} </p>
+            <p class="muted">{{post.date | date_to_string }}</p>
+          </div> 
+        </li>
+       </ul >
+       {% endif %}
+      {% endfor %}
     </div>
+    
+  
   </div>
 </div>
 
