@@ -65,20 +65,12 @@ title: test page
     <div class="tab-pane" id="dota-content">
       {% for post in site.posts %}
         {% if post.type == "dota" %}
-        <ul class="span10 bs">
-        <li class="post">
-          <a class="thumbnail" href="#/post{{ post.url }}">
-            <img class="post-img" src="{{ post.image }}" alt="{{ post.title }}">
-          </a>
-          <div class="inline-block">
-            <a class="link" href="#/post{{ post.url }}">
-              <strong class="text-over"> {{ post.title }} </strong>
-            </a>
-            <p class="post-summary span6"> {{post.summary}} </p>
-            <p class="muted">{{post.date | date_to_string }}</p>
-          </div> 
-        </li>
-       </ul >
+        <div class="media-box">
+          <a href="#/post{{ post.url }}" class="relative-block hover-tag">
+          <span class="play short-trans"></span>
+          <img class="media-img" src="{{ post.image }}" alt="">
+        </a>
+        </div>
        {% endif %}
       {% endfor %}
     </div>
