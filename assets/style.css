@@ -19,6 +19,7 @@
 }
 .movie{
 	width: 100%;
+	min-height: 500px;
 }
 .wrap{
 	height: 100%;
