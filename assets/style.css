@@ -19,14 +19,46 @@
 }
 .movie{
 	width: 100%;
-	min-height: 500px;
+	height: 100%;
+}
+.moviepanel{
+	position: absolute;
+	top: 6%;
+	left: 50%;
+	margin-left: -370px;
+	height: 368px;
+	width: 740px;
+	z-index: -500;
+	opacity: 0;
+}
+.helper-cover{
+	position: absolute;
+	top:0;
+	width: 100%;
+	height:338px;
+	z-index: 10;
+}
+.helper-cover:hover .close-btn{
+	opacity: 1;
+}
+.close-btn{
+	opacity: 0;
+	background: url(http://trailers.apple.com/global/images/close_button.png) transparent;
+	width: 26px;
+	height: 26px;
+	margin: -4px 0 0 -13px;
+	cursor: pointer;
+}
+.close-btn:hover{
+	background-position-y: 30px;
 }
 .wrap{
 	height: 100%;
 	overflow: hidden;
-	margin-top: 60px;
+	margin-top: 40px;
 }
 .full-s{
+	padding-top: 20px;
 	height: 100%;
 	overflow: auto;
 	-webkit-overflow-scrolling:touch;
@@ -41,6 +73,11 @@
 @media (max-width: 979px) and (min-width: 768px){
 	.wrap{
 		margin-top: 0px;	
+	}
+}
+@media (max-width: 979px){
+	.bg-color .navbar-fixed-top{
+		margin-bottom:0px;
 	}
 }
 @media (max-width: 767px){
@@ -60,6 +97,38 @@
 	margin: -23px 0 0 -23px;
 	opacity: .5;
 }
+.play-btn.btn{
+	margin: 10px 0;
+	
+}
+.paly-bar{
+	position: fixed;
+	top:100px;
+	left: 20%;
+	z-index: 10;
+}
+
+.overlaypanelscreen{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left: 0;
+	opacity: 0.6;
+	background: #000;
+	z-index: 100;
+}
+
+.off{
+	z-index: -100;
+	opacity: 0;
+}
+
+.movie-on{
+	opacity: 1;
+	z-index: 500
+}
+
 .hover-tag:hover .play{
 	background-position: 0 -46px;
 	opacity: 1;
@@ -140,6 +209,12 @@
 	background: #fff;
 	z-index: 1;
 }
+.mv-stage{
+	min-height: 654px;
+}
+.galss{
+	background: rgba(255,255,255,.1)
+}
 .relative{
 	position: relative;
 	overflow: hidden;
@@ -156,6 +231,13 @@
 	    -ms-transition: all .6s ease-in-out 0s;
 	     -o-transition: all .6s ease-in-out 0s;
 	        transition: all .6s ease-in-out 0s;
+}
+.opa-trans{
+	-webkit-transition: opacity .3s ease-in-out 0s;
+	   -moz-transition: opacity .3s ease-in-out 0s;
+	    -ms-transition: opacity .3s ease-in-out 0s;
+	     -o-transition: opacity .3s ease-in-out 0s;
+	        transition: opacity .3s ease-in-out 0s;
 }
 .short-trans{
 	-webkit-transition: opacity .1s ease-in-out 0s;
