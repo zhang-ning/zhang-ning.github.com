@@ -6,7 +6,7 @@
     margin-bottom: 10px;
     background: #fff;
     float: left;
-    margin: 10px;
+    margin: 0 10px 10px 0px;
     border-radius: 4px;
 }
 
@@ -40,6 +40,9 @@
 }
 .helper-cover .close-btn{
 	opacity: 1;
+}
+#home-page .nav-tabs{
+	margin: 0;
 }
 .close-btn{
 	opacity: 0;
