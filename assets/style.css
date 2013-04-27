@@ -38,7 +38,7 @@
 	height:100%;
 	z-index: 10;
 }
-.helper-cover:hover .close-btn{
+.helper-cover .close-btn{
 	opacity: 1;
 }
 .close-btn{
