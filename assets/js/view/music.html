@@ -1,0 +1,16 @@
+---
+title: "music list page"
+---
+
+<div class="type-continer">
+  {% for post in site.posts %}
+    {% if post.type == "music" %}
+    <div class="media-box">
+      <a href="#/post/music{{ post.url }}" class="relative-block hover-tag thumbnail">
+      <span class="play short-trans"></span>
+      <img class="media-img" src="{{ post.image }}" alt="">
+    </a>
+    </div>
+   {% endif %}
+  {% endfor %}
+</div>

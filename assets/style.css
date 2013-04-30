@@ -226,6 +226,9 @@
 	position: relative;
 	overflow: hidden;
 }
+.thumb{
+	float: left;
+}
 
 .transition{
 	-webkit-transition: all .6s ease-in-out 0s;
@@ -233,6 +236,13 @@
 	    -ms-transition: all .6s ease-in-out 0s;
 	     -o-transition: all .6s ease-in-out 0s;
 	        transition: all .6s ease-in-out 0s;
+}
+.transition-short{
+	-webkit-transition: all .4s ease-in-out 0s;
+	   -moz-transition: all .4s ease-in-out 0s;
+	    -ms-transition: all .4s ease-in-out 0s;
+	     -o-transition: all .4s ease-in-out 0s;
+	        transition: all .4s ease-in-out 0s;
 }
 .opa-trans{
 	-webkit-transition: opacity .3s ease-in-out 0s;

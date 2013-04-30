@@ -3,78 +3,34 @@ layout: clean
 title: test page
 ---
 
-<div class="tabbable tabs-left container">
-  <ul class="nav nav-tabs">
-    <li id="blog-tab" class="active"><a href="#/tab/blog" data-toggle="tab">Blog</a></li>
-    <li id="music-tab"><a href="#/tab/music" data-toggle="tab">Music</a></li>
-    <li id="video-tab"><a href="#/tab/video" data-toggle="tab">Video</a></li>
-    <li id="dota-tab"><a href="#/tab/dota" data-toggle="tab">DOTA</a></li>
-  </ul>
-  <div class="tab-content">
-  
-    <div class="tab-pane active" id="blog-content">
-      <ul class="bs">
-      {% for post in site.posts %}
-        {% if post.type == null %}
-    		<li class="post">
-    		  <a class="thumbnail" href="#/post{{ post.url }}">
-    		  	<img class="post-img" src="{{ post.image }}" alt="{{ post.title }}">
-    		  </a>
-    		  <div class="inline-block">
-    		  	<a class="link" href="#/post{{ post.url }}">
-    		    	<strong class="text-over"> {{ post.title }} </strong>
-    		  	</a>
-    		  	<p class="post-summary span6"> {{post.summary}} </p>
-    		  	<p class="muted">{{post.date | date_to_string }}</p>
-    		  </div> 
-    		</li>
-       {% endif %}
-     {% endfor %}
-     </ul >
+<div id="home-stage" class="transition-short">
+  <section class="gl-container inline-block">
+    <header>
+      <h1>
+        Welcome to Beside River
+        <p>Jonathan and River 's web site.</p>
+      </h1>
+    </header>
+    <ul class="galary">
+      <li class="item transition"><a href="#/type/blog">Blgo</a></li>
+      <li class="item transition"><a href="#/type/music">Music</a></li>
+      <li class="item transition"><a href="#/type/video">Video</a></li>
+      <li class="item transition"><a href="#/type/dota">Dota</a></li>
+      <li class="item transition"><a href="#/type/about-us">About Us</a></li>
+    </ul>
+    <nav> 
+      <span class="gl-next circle gl-nav">&lt;</span>
+      <span class="gl-prev circle gl-nav">&gt;</span>
+    </nav>
+  </section>
+
+  <section class="main-content inline-block">
+    <div class="container">
+       
+      <div class="grid2col" id="buckets">
+        
+      </div>
     </div>
-    
-    
-    <div class="tab-pane" id="music-content">
-      {% for post in site.posts %}
-        {% if post.type == "music" %}
-        <div class="media-box">
-          <a href="#/post{{ post.url }}" class="relative-block hover-tag thumbnail">
-          <span class="play short-trans"></span>
-          <img class="media-img" src="{{ post.image }}" alt="">
-        </a>
-        </div>
-       {% endif %}
-      {% endfor %}
-    </div>
-    
-    
-    <div class="tab-pane" id="video-content">
-      {% for post in site.posts %}
-        {% if post.type == "video" %}
-        <div class="media-box">
-          <a href="#/post{{ post.url }}" class="relative-block hover-tag thumbnail">
-          <span class="play short-trans"></span>
-          <img class="media-img" src="{{ post.image }}" alt="">
-        </a>
-        </div>
-       {% endif %}
-      {% endfor %}
-    </div>
-    
-    
-    <div class="tab-pane" id="dota-content">
-      {% for post in site.posts %}
-        {% if post.type == "dota" %}
-        <div class="media-box">
-          <a href="#/post{{ post.url }}" class="relative-block hover-tag thumbnail">
-          <span class="play short-trans"></span>
-          <img class="media-img" src="{{ post.image }}" alt="">
-        </a>
-        </div>
-       {% endif %}
-      {% endfor %}
-    </div>
-    
-  
-  </div>
+  </section>
 </div>
+

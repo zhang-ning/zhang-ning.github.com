@@ -26,11 +26,18 @@ var prefix = (function(){
 
 
 function River(ref){
+  
   if(typeof ref === 'string'){
     ref = document.querySelector(ref);
   }
 
   return {
+    previous: function(){
+      return River(ref.previousElementSibling);
+    },
+    next: function(){
+      return River(ref.nextElementSibling);
+    },
     addClass: function(c){
       var h = ref.className;
       var cn = new RegExp(c);
@@ -79,6 +86,12 @@ function River(ref){
       ref.appendChild(d.getRef());
       return this;
     },
+    empty:function(){
+      while(ref.firstChild) {
+        ref.removeChild(ref.firstChild);
+      }
+      return this;
+    },
     animate:function(p,v,t){
       var deffer = getInstanceOf(Deffer);
 
@@ -108,6 +121,54 @@ River.compail = function(string){
   var div = document.createElement('div');
   div.innerHTML = string;
   return River(div.children[0]);
+}
+
+River.selectAll = function(ref){
+  
+  if(typeof ref === 'string'){
+    var dom = document.querySelectorAll(ref);
+    for (var i = 0; i < dom.length; i++) {
+      
+      //generate a new River;
+      var river = this(dom[i]);
+      river.index = i ;
+
+      //avoid this scope fall in caous 
+      var d = this.rivers;
+
+      //over write previous and next method
+      river.previous = function(){
+        var currentIndex = this.index;
+
+        if(currentIndex-1 >= 0 ){
+          currentIndex--;
+        }else{
+          currentIndex = d.length-1;
+        }
+        return d[currentIndex] ;
+      }
+
+      river.next = function(){
+        var currentIndex = this.index;
+        
+        if(currentIndex+1 < d.length){
+          currentIndex++
+        }else{
+          currentIndex = 0;
+        }
+        return d[currentIndex];
+      };
+
+      this.rivers.push(river);
+
+    };
+  }
+  return this.rivers;
+}
+
+River.rivers = [];
+River.compoment = function(name,implement){
+  this.rivers[name] = implement;
 }
 
 River.http = {

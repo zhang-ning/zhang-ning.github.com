@@ -1,0 +1,17 @@
+---
+title: "blog list page"
+---
+
+<div class="type-continer">
+{% for post in site.posts %}
+  {% if post.type == null %}
+  <article class="column first content">
+    <a class="block rounded" href="#/post/blog{{ post.url }}">
+      <h1 class="">{{ post.title }}</h1>
+      <p class="text-over">{{post.summary}}<br><span class="more">Learn more</span></p>
+      <img class="bottom" src="{{post.image}}" width="272px" height="168px" alt="">
+    </a>
+  </article>
+  {% endif %}
+{% endfor %}
+</div>
