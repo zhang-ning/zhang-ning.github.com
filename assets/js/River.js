@@ -75,7 +75,10 @@ function River(ref){
       return this;
     },
     bind:function(eve,callback){
-      ref.addEventListener(eve,callback)
+      var __this = this;
+      ref.addEventListener(eve,function(){
+        callback.call(__this);
+      })
       return this;
     },
     remove:function(){
@@ -124,7 +127,7 @@ River.compail = function(string){
 }
 
 River.selectAll = function(ref){
-  
+  var result = [];
   if(typeof ref === 'string'){
     var dom = document.querySelectorAll(ref);
     for (var i = 0; i < dom.length; i++) {
@@ -134,7 +137,7 @@ River.selectAll = function(ref){
       river.index = i ;
 
       //avoid this scope fall in caous 
-      var d = this.rivers;
+      var d = result;
 
       //over write previous and next method
       river.previous = function(){
@@ -159,16 +162,28 @@ River.selectAll = function(ref){
         return d[currentIndex];
       };
 
-      this.rivers.push(river);
+      result.push(river);
 
     };
   }
-  return this.rivers;
+  for (var x in this.apps) {
+    result[x] = this.apps[x];
+  };
+
+  return result;
 }
 
-River.rivers = [];
+River.apps = {
+  bind : function(eve,imp){
+    for (var i = 0; i < this.length; i++) {
+      this[i].bind(eve,imp);
+    };
+    return this;
+  }
+};
+
 River.compoment = function(name,implement){
-  this.rivers[name] = implement;
+  this.apps[name] = implement;
 }
 
 River.http = {

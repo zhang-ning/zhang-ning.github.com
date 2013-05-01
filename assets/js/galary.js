@@ -9,45 +9,61 @@
       var lastLeft , lastCenter , lastRight , leftOut, rightOut;
 
       if( this.length >= 3 ){
-        lastCenter = this[0].addClass('gl-center');
-        lastLeft =  lastCenter.previous().addClass('gl-left');
-        leftOut = lastLeft.previous().addClass('gl-l-out');
-        lastRight = lastCenter.next().addClass('gl-right');
-        rightOut = lastRight.next().addClass('gl-r-out');
+        _byIndex.call(this,0);
       };
 
+
+      var __this = this ;
+
+      function _byIndex (i){
+        lastCenter = this[i].attr('class','item transition gl-center');
+        lastLeft =  lastCenter.previous().attr('class','item transition gl-left');
+        leftOut = lastLeft.previous().attr('class','item transition gl-l-out');
+        lastRight = lastCenter.next().attr('class','item transition gl-right');
+        rightOut = lastRight.next().attr('class','item transition gl-r-out');
+      }
+
       function _previous () {
-        rightOut = lastRight.attr('class','item transition gl-r-out');
-        lastRight = lastCenter.attr('class','item transition gl-right');
-        lastCenter = lastLeft.attr('class','item transition gl-center');
-        lastLeft = leftOut.attr('class','item transition gl-left');
-        leftOut = leftOut.previous().attr('class','item transition gl-l-out');
+        _byIndex.call(__this,lastCenter.previous().index);
+        return lastCenter.index;
       };
 
       function _next () {
-        leftOut = lastLeft.attr('class','item transition gl-l-out');
-        lastLeft = lastCenter.attr('class','item transition gl-left');
-        lastCenter = lastRight.attr('class','item transition gl-center');
-        lastRight = rightOut.attr('class','item transition gl-right'); 
-        rightOut = rightOut.next().attr('class','item transition gl-r-out');
-
+        _byIndex.call(__this,lastCenter.next().index);
+        return lastCenter.index;
       };
+
 
       return {
         previous : _previous,
-        next : _next
+        next : _next,
+        getByIndex : function(i){
+          _byIndex.call(__this,i);
+        }
       }
 
     });
 
 
     var galary = r.selectAll('.galary .item').galary();
+    var nav = r.selectAll('.dot-nav');
+
+    var activeNav = nav[0].addClass('active');
 
     r('.gl-prev').bind('click', function(){
-      galary.previous();
-    })
+      activeNav.removeClass('active');
+      activeNav = nav[galary.previous()].addClass('active');
+    });
+
     r('.gl-next').bind('click', function(){
-      galary.next();
-    })
+      activeNav.removeClass('active');
+      activeNav = nav[galary.next()].addClass('active');
+    });
+
+    nav.bind.call(nav,'click',function(){
+      activeNav.removeClass('active');
+      galary.getByIndex(this.index);
+      activeNav = this.addClass('active');
+    });
     
 })(River);

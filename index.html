@@ -2,7 +2,23 @@
 layout: clean
 title: test page
 ---
-
+<style>
+  a.dota{
+    background-image: url(http://www.cr173.com/up/2011-5/20115520201522009623.jpg);
+  }
+  a.music{
+    background-image: url(http://bizhi.zhuoku.com/2010/09/28/music/music14.jpg);
+  }
+  a.video{
+    background-image: url(http://www.nwtc.edu/atnwtc/student-involvement/PublishingImages/Movie%20Lounge.jpg);
+  }
+  a.blog{
+    background-image: url(http://www.blogtrepreneur.com/wp-content/uploads/blog_directory.jpg);
+  }
+  a.about-us{
+    background-image: url(http://merushikharmetal.com/images/about-us.jpg);
+  }
+</style>
 <div id="home-stage" class="transition-short">
   <section class="gl-container inline-block">
     <header>
@@ -12,15 +28,20 @@ title: test page
       </h1>
     </header>
     <ul class="galary">
-      <li class="item transition"><a href="#/type/blog">Blgo</a></li>
-      <li class="item transition"><a href="#/type/music">Music</a></li>
-      <li class="item transition"><a href="#/type/video">Video</a></li>
-      <li class="item transition"><a href="#/type/dota">Dota</a></li>
-      <li class="item transition"><a href="#/type/about-us">About Us</a></li>
+      <li class="item transition"><a class="blog" href="#/type/blog"><span class="sbin">Blog</span></a></li>
+      <li class="item transition"><a class="music" href="#/type/music"><span class="sbin">music</span></a></li>
+      <li class="item transition"><a class="video" href="#/type/video"><span class="sbin">video</span></a></li>
+      <li class="item transition"><a class="dota" href="#/type/dota"><span class="sbin">dota</span></a></li>
+      <li class="item transition"><a class="about-us" href="#/type/about-us"><span class="sbin">about us</span></a></li>
     </ul>
     <nav> 
-      <span class="gl-next circle gl-nav">&lt;</span>
-      <span class="gl-prev circle gl-nav">&gt;</span>
+      <span class="gl-prev circle gl-nav">&lt;</span>
+      <span class="dot-nav">B</span>
+      <span class="dot-nav">M</span>
+      <span class="dot-nav">V</span>
+      <span class="dot-nav">D</span>
+      <span class="dot-nav">A</span>
+      <span class="gl-next circle gl-nav">&gt;</span>
     </nav>
   </section>
 
