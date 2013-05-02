@@ -222,7 +222,7 @@ nav{
 }
 #buckets .more{
   color: #08c;
-  background: url(images/morearrow_08c.svg) no-repeat 100% 50%;
+  background: url(../images/morearrow_08c.svg) no-repeat 100% 50%;
   padding-right: 10px;
 }
 #buckets h1 {
