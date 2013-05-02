@@ -59,14 +59,26 @@
 	overflow: hidden;
 	margin-top: 40px;
 }
+time{
+	font-style: italic;
+	color: #ddd;
+	font-size: 12px;
+}
+.summary{
+	display: inline-block;
+	vertical-align: top;
+	white-space: normal;
+}
+.clear-fix{
+	clear: both;
+}
 .full-s{
-	padding-top: 20px;
 	height: 100%;
 	overflow: auto;
 	-webkit-overflow-scrolling:touch;
 }
 .full-s .container{
-	padding-bottom: 80px;
+	
 }
 .overflow-s{
 	overflow: scroll;
@@ -228,6 +240,11 @@
 }
 .thumb{
 	float: left;
+}
+
+.type-continer{
+	background: #fff;
+	box-shadow: 0 0 4px rgba(0,0,0,.3);
 }
 
 .transition{

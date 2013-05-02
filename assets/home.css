@@ -211,17 +211,26 @@ nav{
   height: 168px;
 }
 #buckets p{
-  width: 155px; 
+  white-space: normal;
   color: rgb(0,0,0);
+  font-size: 14px;
+}
+.blog-article{
+  min-height: 200px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(0,0,0,.1);
 }
 #buckets .more{
   color: #08c;
+  background: url(images/morearrow_08c.svg) no-repeat 100% 50%;
+  padding-right: 10px;
 }
 #buckets h1 {
   font-size: 1.2em;
   font-weight: normal;
   margin-top: -2px;
   margin-bottom: 5px;
+  display: inline;
 }
 #buckets .column a {
   padding: 20px 20px 0 40px;
