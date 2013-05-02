@@ -18,6 +18,9 @@ nav{
  padding: 20px;
  margin-top: 30px;
 }
+.paddingtop ,#home-stage .gl-container.paddingtop{
+  padding-top: 20px;
+}
 .circle{
   border-radius: 30px;
 }
