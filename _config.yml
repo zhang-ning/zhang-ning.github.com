@@ -1,4 +1,5 @@
 auto: auto
 disqus_name: besiderivercom
 site-address: "http://besideriver.com"
-pygments: true
+pygments: false
+markdown: rdiscount
