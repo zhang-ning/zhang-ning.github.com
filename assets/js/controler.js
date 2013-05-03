@@ -64,7 +64,7 @@
 			brand.attr('href','#/type/' + url.slice(5).split('/')[0] );
 			goToDetail();
 			detail.getRef().children[0].src = url.match(/\/\d.*/)[0];
-			page.style( prefix + 'transform' , 'translateX(-50%)');
+			page.attr( 'style', prefix + 'transform:translateX(-50%)');
 		}else if(/type/.test(url)){
 			brand.attr('href','#/home/');
 			backToHome();
@@ -80,9 +80,9 @@
 			setTimeout(function() {
 				detail.getRef().children[0].src = '';
 			}, 600);
-			page.style( prefix + 'transform' , 'translateX(-50%)');
+			page.attr( 'style', prefix + 'transform:translateX(-50%)');
 		}else if(/home/.test(window.location.hash.slice(2))){
-        page.style( prefix + 'transform' , 'translateX(0)');
+        page.attr( 'style', prefix + 'transform:translateX(0)');
     }
 	}
 
