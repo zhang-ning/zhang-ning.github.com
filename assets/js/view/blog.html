@@ -8,9 +8,8 @@ title: "blog list page"
   <article class="blog-article block">
     <h1 class="">{{ post.title }}</h1>
     <time>{{post.date | date: "%d %B %Y" }}</time>
-    <a class="block row" href="#/post/blog{{ post.url }}">
-      <p class="span6">{{post.summary}}<br><span class="more">Learn more</span></p>
-      <p class="span3"><img class="pull-right" src="{{ post.image }}" alt=""></p>
+    <a class="block" href="#/post/blog{{ post.url }}">
+      <p >{{post.summary}}<br><span class="more">Learn more</span></p>
     </a>
     
   </article>

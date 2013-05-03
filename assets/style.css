@@ -245,6 +245,7 @@ time{
 .type-continer{
 	background: #fff;
 	box-shadow: 0 0 4px rgba(0,0,0,.3);
+	counter-reset: flag;
 }
 
 .transition{

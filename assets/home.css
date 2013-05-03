@@ -222,7 +222,21 @@ nav{
   min-height: 200px;
   padding: 20px 0;
   border-top: 1px solid rgba(0,0,0,.1);
+  position: relative;
 }
+.blog-article:before{
+  content: counter(flag);
+  counter-increment: flag;
+  font-style: italic;
+  font-size: 6em;
+  position: absolute;
+  top: 92px;
+  left: 16px;
+  color: #000;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+
 #buckets .more{
   color: #08c;
   background: url(../images/morearrow_08c.svg) no-repeat 100% 50%;
