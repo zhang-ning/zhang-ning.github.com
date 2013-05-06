@@ -219,7 +219,6 @@ nav{
   font-size: 14px;
 }
 .blog-article{
-  min-height: 200px;
   padding: 20px 0;
   border-top: 1px solid rgba(0,0,0,.1);
   position: relative;
@@ -272,7 +271,7 @@ nav{
 
 .block{
   display: block;
-  padding: 20px 20px 0 40px;
+  padding: 20px 5px 5px 40px;
 }
 .content,.rounded{
   border-radius: 4px;
