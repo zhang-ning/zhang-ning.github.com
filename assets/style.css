@@ -1,3 +1,9 @@
+.i-b{
+	display: inline-block;
+}
+.avnter{
+	margin: 0 5px;
+}
 .link{
 	color: #000;
 }
