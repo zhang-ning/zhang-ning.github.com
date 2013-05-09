@@ -42,8 +42,8 @@
 	}
 
 	var goToDetail = function () {
-		home.attr('style',prefix + 'transform:scale(5)')
-		detail.attr('style',prefix + 'transform:scale(1)')
+		home.attr('style',prefix + 'transform:scale(5)');
+		detail.attr('style',prefix + 'transform:scale(1)');
 	}
 
 	var goToTab = function (url){
@@ -55,12 +55,7 @@
 	}
 
 	var loadTmp = function(name) {
-		loading.addClass('show');
-		var defer = River.http.get('assets/js/view/'+ name +'.html'); 
-		defer.done(function(){
-			loading.removeClass('show');
-		});
-		return defer;
+		return River.http.get('assets/js/view/'+ name +'.html');;
 	}
 
 	var Buffer = {};
@@ -72,23 +67,6 @@
 			goToDetail();
 			detail.getRef().children[0].src = url.match(/\/\d.*/)[0];
 			page.attr( 'style', prefix + 'transform:translateX(-50%)');
-		}else if(/type/.test(url)){
-			brand.attr('href','#/home/');
-			backToHome();
-			var p = url.slice(5);
-			if(!Buffer[p]){
-				loadTmp(p).done(function(xhr){
-					Buffer[p] = River.compail(xhr.responseText);
-					bucket.empty().append(Buffer[p]);
-					page.attr( 'style', prefix + 'transform:translateX(-50%)');
-				})
-			}else{
-				bucket.empty().append(Buffer[p]);
-				page.attr( 'style', prefix + 'transform:translateX(-50%)');
-			}
-			setTimeout(function() {
-				detail.getRef().children[0].src = '';
-			}, 600);
 		}else if(/home/.test(window.location.hash.slice(2))){
         page.attr( 'style', prefix + 'transform:translateX(0)');
     }
@@ -107,13 +85,56 @@
 	}
 
 
+	function goBlogList (){
+		var url = window.location.hash.slice(2);
+		if(/type/.test(url)){
+			brand.attr('href','#/home/');
+			backToHome();
+			var p = url.slice(5);
+			if(!Buffer[p]){
+				loading.addClass('show');
+				loadTmp(p).done(function(xhr){
+					Buffer[p] = River.compail(xhr.responseText);
+					bucket.empty().append(Buffer[p]);
+					loading.removeClass('show');
+					page.attr( 'style', prefix + 'transform:translateX(-50%)');
+				})
+			}else{
+				bucket.empty().append(Buffer[p]);
+				page.attr( 'style', prefix + 'transform:translateX(-50%)');
+			}
+			setTimeout(function() {
+				detail.getRef().children[0].src = '';
+			}, 600);
+		}
+	}
+
+	function getBlogList(){
+		var url = window.location.hash.slice(2);
+		if(/type/.test(url)){
+			brand.attr('href','#/home/');
+			backToHome();
+			var p = url.slice(5);
+			loadTmp(p).done(function(xhr){
+				Buffer[p] = River.compail(xhr.responseText);
+				bucket.empty().append(Buffer[p]);
+			})
+			page.attr( 'style', prefix + 'transform:translateX(-50%)');
+		}
+	}
+
+
 
 	window.addEventListener('hashchange',function(){
+	 //need animation
 		needAnimate(true);
 		pageDrive();
+		goBlogList();
 	})
 
+	//no animation
 	needAnimate(false);
 	pageDrive();
+	getBlogList();
 
 })(River)
