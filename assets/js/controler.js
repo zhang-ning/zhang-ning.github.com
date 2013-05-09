@@ -12,6 +12,8 @@
 	var brand = River('.brand');
 	var page = r('#home-stage');
 
+	var loading = r('.mask');
+
 
 	var tabs = {
 		blog : {
@@ -53,7 +55,12 @@
 	}
 
 	var loadTmp = function(name) {
-		return River.http.get('assets/js/view/'+ name +'.html');
+		loading.addClass('show');
+		var defer = River.http.get('assets/js/view/'+ name +'.html'); 
+		defer.done(function(){
+			loading.removeClass('show');
+		});
+		return defer;
 	}
 
 	var Buffer = {};
@@ -73,14 +80,15 @@
 				loadTmp(p).done(function(xhr){
 					Buffer[p] = River.compail(xhr.responseText);
 					bucket.empty().append(Buffer[p]);
+					page.attr( 'style', prefix + 'transform:translateX(-50%)');
 				})
 			}else{
 				bucket.empty().append(Buffer[p]);
+				page.attr( 'style', prefix + 'transform:translateX(-50%)');
 			}
 			setTimeout(function() {
 				detail.getRef().children[0].src = '';
 			}, 600);
-			page.attr( 'style', prefix + 'transform:translateX(-50%)');
 		}else if(/home/.test(window.location.hash.slice(2))){
         page.attr( 'style', prefix + 'transform:translateX(0)');
     }

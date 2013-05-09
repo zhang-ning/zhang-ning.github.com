@@ -6,13 +6,20 @@ function getInstanceOf (obj) {
 
 var Deffer = {
   resolve : function(data){
-    this.donecallback(data);
+    var callbacks = this.donecallback;
+    for (var i = 0; i < callbacks.length; i++) {
+      callbacks[i](data);
+    };
   },
   reject : function(data){
     this.failcallback(data);
   },
   done : function(callback){
-    this.donecallback = callback;
+    if(!this.donecallback){
+      this.donecallback = [];
+    }
+    this.donecallback.push(callback);
+    return this;
   },
   fail : function(callback){
     this.failcallback = callback;
