@@ -7,6 +7,9 @@
 	visibility: hidden;
 	opacity: 0;
 }
+.iblock{
+	display: inline-block;
+}
 .show{
 	visibility: visible;
 	opacity: 1;
@@ -31,6 +34,7 @@
 	background: #fff;
 	width: 160px;
 	padding: 10px;
+	display: inline-block;
 }
 .avnter img{
 	margin: 0;
