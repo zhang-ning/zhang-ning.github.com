@@ -46,24 +46,15 @@
 
 
     var galary = r.selectAll('.galary .item').galary();
-    var nav = r.selectAll('.dot-nav');
-
-    var activeNav = nav[0].addClass('active');
 
     r('.gl-prev').bind('click', function(){
-      activeNav.removeClass('active');
-      activeNav = nav[galary.previous()].addClass('active');
+
+      galary.previous();
     });
 
     r('.gl-next').bind('click', function(){
-      activeNav.removeClass('active');
-      activeNav = nav[galary.next()].addClass('active');
-    });
 
-    nav.bind.call(nav,'click',function(){
-      activeNav.removeClass('active');
-      galary.getByIndex(this.index);
-      activeNav = this.addClass('active');
+      galary.next();
     });
     
 })(River);

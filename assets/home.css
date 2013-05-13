@@ -24,14 +24,32 @@ nav{
 .circle{
   border-radius: 30px;
 }
+.no-select{
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .gl-nav{
-  border: 1px solid rgba(255,255,255,.6);
-  width: 20px;
-  height: 20px;
-  background: #678;
+  width: 40px;
+  height: 40px;
   display: inline-block;
   cursor: pointer;
-  color: rgba(255,255,255,1)
+  color: rgba(255,255,255,1);
+  background:url(imges/nav.png);
+  box-shadow: 0 2px 3px rgba(0,0,0,.5);
+  margin: 0 4px;
+}
+.gl-nav:active{
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  background-position-y:2px;
+}
+.gl-prev{
+  background-position: left center;
+}
+.gl-next{
+  background-position: right center;
 }
 .galary .item a{
   display: block;
