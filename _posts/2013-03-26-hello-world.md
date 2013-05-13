@@ -18,29 +18,29 @@ image : /assets/imges/post_1.jpeg
 下面来一段代码看看好不好用
 
 {% highlight javascript linenos %}
-    (function(){
-      var a = "123";
-      console.log("hello world !")
-      /**
-       * [Deffer description]
-       * @type {Object}
-       */
-      var Deffer = {
-    	resolve : function(data){
-    		this.donecallback(data);
-    	},
-    	reject : function(data){
-    		this.failcallback(data);
-    	},
-    	done : function(callback){
-    		this.donecallback = callback;
-    	},
-    	fail : function(callback){
-    		this.failcallback = callback;
-    	},
-    	parameters:{}
-    	};
-    })()
+  (function(){
+    var a = "123";
+    console.log("hello world !")
+    /**
+     * [Deffer description]
+     * @type {Object}
+     */
+    var Deffer = {
+  	resolve : function(data){
+  		this.donecallback(data);
+  	},
+  	reject : function(data){
+  		this.failcallback(data);
+  	},
+  	done : function(callback){
+  		this.donecallback = callback;
+  	},
+  	fail : function(callback){
+  		this.failcallback = callback;
+  	},
+  	parameters:{}
+  	};
+  })()
 {% endhighlight %}
 
 
