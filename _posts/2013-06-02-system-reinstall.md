@@ -2,6 +2,7 @@
 layout : post
 title: "系统重装 之 Fedora19假冒Mac"
 comments: true
+summary : "前两天，公司的配的lap top 的硬盘罢工了，害的我又是跑公司，又是找联想，整整折腾了2-3天,于是抱抱着试试看的心态 装了fedora19, 其实最担心的 还是显卡驱动 ，有些css效果是需要显卡支持的，比如本站首页的效果，之前试过opensuse,ubuntu 显卡驱动不好装不说，出来的效果也不行，不过这次装的还行，还搞了张星云图壁纸.."
 image : /assets/imges/post_1.jpeg
 ---
 
