@@ -13,7 +13,7 @@
       
       <div class="content-area">
         <div class="share-box pull-right"> 
-          <a href="http://v.t.sina.com.cn/share/share.php?url=http://besideriver.com/%23/post/blog{{page.url}}&title={{page.title}}&content=gb2312&amp;pic={{page.image}}&amp;ralateUid={{page.weibo}}" title="分享到新浪微博" target="_blank">
+          <a href="http://v.t.sina.com.cn/share/share.php?url=http://besideriver.com/%23/post/{% if page.type %}{{ page.type }}{% else %}blog{% endif %}{{page.url}}&title={{page.title}}&content=gb2312&amp;pic={{page.image}}&amp;ralateUid={{page.weibo}}" title="分享到新浪微博" target="_blank">
             <img src="http://s.yytcdn.com/images/external/sina24.png" alt="新浪微博">
           </a>
         </div>
