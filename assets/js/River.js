@@ -88,6 +88,15 @@ function River(ref){
       })
       return this;
     },
+    find:function(ref){
+      return River(ref.querySelector(ref));
+    },
+    child:function(index){
+      if("number" !== typeof index){
+        index = 0;
+      }
+      return River(ref.children[index]);
+    },
     remove:function(){
       ref.parentNode.removeChild(ref);
       return null;

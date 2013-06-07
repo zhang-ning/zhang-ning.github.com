@@ -64,9 +64,12 @@
 		var url = window.location.hash.slice(2);
 		if(/post/.test(url)){
 			brand.attr('href','#/type/' + url.slice(5).split('/')[0] );
-			goToDetail();
+
 			detail.getRef().children[0].src = url.match(/\/\d.*/)[0];
+
+			goToDetail();
 			page.attr( 'style', prefix + 'transform:translateX(-50%)');
+
 		}else if(/home/.test(window.location.hash.slice(2))){
         page.attr( 'style', prefix + 'transform:translateX(0)');
     }
