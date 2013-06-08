@@ -6,9 +6,6 @@ summary : "HTML is great for declaring static documents, but it falters when we 
 ---
 
 
-{{page.title}}
-=============
-
 *** 
 >About the AngularJS
 

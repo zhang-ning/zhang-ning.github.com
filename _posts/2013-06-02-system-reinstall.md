@@ -6,8 +6,6 @@ summary : "前两天，公司的配的lap top 的硬盘罢工了，害的我又�
 image : https://dl.dropboxusercontent.com/u/161895058/blog/blog-desk.png
 ---
 
-{{page.title}}
-=============
 
 *** 
 >事出有因..

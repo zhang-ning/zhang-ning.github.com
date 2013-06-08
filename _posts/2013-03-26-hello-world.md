@@ -5,9 +5,6 @@ comments: true
 image : /assets/imges/post_1.jpeg
 ---
 
-{{page.title}}
-=============
-
 谈一点感受和心得
 ---------------
 
