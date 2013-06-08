@@ -65,9 +65,20 @@
 		if(/post/.test(url)){
 			brand.attr('href','#/type/' + url.slice(5).split('/')[0] );
 
-			detail.getRef().children[0].src = url.match(/\/\d.*/)[0];
+			var frame = detail.getRef().children[0];
+			frame.src = url.match(/\/\d.*/)[0];
 
-			goToDetail();
+			var t = true;
+			loading.addClass('show');
+			frame.addEventListener('load',function(){
+				if(t){
+					loading.removeClass('show');
+					needAnimate(true);
+					goToDetail();
+					t = false;
+				}
+			},false);
+
 			page.attr( 'style', prefix + 'transform:translateX(-50%)');
 
 		}else if(/home/.test(window.location.hash.slice(2))){
@@ -99,8 +110,25 @@
 				loadTmp(p).done(function(xhr){
 					Buffer[p] = River.compail(xhr.responseText);
 					bucket.empty().append(Buffer[p]);
-					loading.removeClass('show');
-					page.attr( 'style', prefix + 'transform:translateX(-50%)');
+					
+					var n = bucket.find('img');
+					var con = 0,len = n.length;
+					if(len){
+						n.forEach(function(i){
+							(function(img){
+								img.bind('load',function(){
+									con++;
+									if(con === len){
+										loading.removeClass('show');
+										page.attr( 'style', prefix + 'transform:translateX(-50%)');
+									}
+								})	;
+							})(i);
+						});
+					}else{
+						loading.removeClass('show');
+						page.attr( 'style', prefix + 'transform:translateX(-50%)');
+					}
 				})
 			}else{
 				bucket.empty().append(Buffer[p]);
@@ -121,8 +149,9 @@
 			loadTmp(p).done(function(xhr){
 				Buffer[p] = River.compail(xhr.responseText);
 				bucket.empty().append(Buffer[p]);
+				page.attr( 'style', prefix + 'transform:translateX(-50%)');
 			})
-			page.attr( 'style', prefix + 'transform:translateX(-50%)');
+			
 		}
 	}
 

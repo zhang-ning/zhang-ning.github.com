@@ -88,8 +88,12 @@ function River(ref){
       })
       return this;
     },
-    find:function(ref){
-      return River(ref.querySelector(ref));
+    find:function(k){
+      var es = [];
+      Array.prototype.forEach.call(ref.querySelectorAll(k),function(ele){
+        es.push(River(ele));
+      });
+      return es;
     },
     child:function(index){
       if("number" !== typeof index){
