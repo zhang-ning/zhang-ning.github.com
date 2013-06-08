@@ -260,8 +260,6 @@ article p{
   color: #08c;
   background: url(../images/morearrow_08c.svg) no-repeat 100% 50%;
   padding-right: 10px;
-  position: absolute;
-  bottom: 20px;
 }
 #buckets h1 {
   font-size: 1.2em;
