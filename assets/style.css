@@ -74,7 +74,10 @@ p{
 }
 .movie{
 	width: 100%;
-	height: 100%;
+	height: 60%;
+	background: #000;
+	border-radius: 4px;
+	box-shadow: 1px 1px 4px rgba(0,0,0,.7);
 }
 .moviepanel{
 	position: absolute;
@@ -256,6 +259,9 @@ time{
 .post-summary{
 	height: 40px;
 	overflow: hidden;
+}
+.share-box{
+    margin:10px;
 }
 .share-box a:hover{
 	text-decoration: none;
