@@ -41,20 +41,17 @@
           _byIndex.call(__this,i);
         }
       }
-
     });
 
 
     var galary = r.selectAll('.galary .item').galary();
 
     r('.gl-prev').bind('click', function(){
-
-      galary.previous();
+      River.funnel.call(galary.previous);
     });
 
     r('.gl-next').bind('click', function(){
-
-      galary.next();
+      River.funnel.call(galary.next);
     });
     
 })(River);
