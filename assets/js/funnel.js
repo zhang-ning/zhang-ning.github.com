@@ -15,7 +15,7 @@
         }
 
         //the time gap less then 500ms will not execute.
-        if(gap > 700){
+        if(gap > 600){
           this.call(this);
           mork = now;
         }
