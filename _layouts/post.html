@@ -26,4 +26,17 @@
 </html>
 
 <script src="/assets/js/imgready.js" type="text/javascript" async="true"></script>
-<script src="http://besiderivercom.disqus.com/embed.js" type="text/javascript" async="true"></script>
+
+<script>
+
+  function loadDisqus (){
+    var disqus = document.createElement('script');
+    disqus.async = true;
+    disqus.src = 'http://besiderivercom.disqus.com/embed.js';
+    document.body.appendChild(disqus);
+  }
+
+  window.addEventListener('load',function(){
+    loadDisqus();
+  },false)
+</script>

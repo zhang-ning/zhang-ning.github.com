@@ -156,7 +156,6 @@
 	}
 
 
-
 	window.addEventListener('hashchange',function(){
 	 //need animation
 		needAnimate(true);
