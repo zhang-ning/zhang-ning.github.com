@@ -9,11 +9,4 @@ type : "dota"
 ---
 
 
-<h1>
-  <video controls="" autoplay="" preload="auto"  class="movie">
-    <source src="http://m.youku.com/webapp/cdnProxy?cdn=http%3A%2F%2Ff.youku.com%2Fplayer%2FgetFlvPath%2Fsid%2F136676803775493_01%2Fst%2Fmp4%2Ffileid%2F03000804004DEA5DF6E887048F1AF8CAD59A98-DC4A-5D5E-FEBF-16120112A87C%3FK%3Deb8522a0f9d5501228288d44%26hd%3D1"></source>
-    <source src="http://m.youku.com/webapp/cdnProxy?cdn=http%3A%2F%2Ff.youku.com%2Fplayer%2FgetFlvPath%2Fsid%2F136676803775493_02%2Fst%2Fmp4%2Ffileid%2F03000804014DEA5DF6E887048F1AF8CAD59A98-DC4A-5D5E-FEBF-16120112A87C%3FK%3D5624f8da28e67b062411611d%26hd%3D1"></source>
-    <source src="http://m.youku.com/webapp/cdnProxy?cdn=http%3A%2F%2Ff.youku.com%2Fplayer%2FgetFlvPath%2Fsid%2F136676803775493_03%2Fst%2Fmp4%2Ffileid%2F03000804024DEA5DF6E887048F1AF8CAD59A98-DC4A-5D5E-FEBF-16120112A87C%3FK%3Db84bb392ce67050928288d44%26hd%3D1"></source>
-    <source src="http://m.youku.com/webapp/cdnProxy?cdn=http%3A%2F%2Ff.youku.com%2Fplayer%2FgetFlvPath%2Fsid%2F136676803775493_04%2Fst%2Fmp4%2Ffileid%2F03000804034DEA5DF6E887048F1AF8CAD59A98-DC4A-5D5E-FEBF-16120112A87C%3FK%3D0a37e63dd9aa38eb261cf730%26hd%3D1"></source>
-  </video>
-</h1>
+<object class="movie" type="application/x-shockwave-flash" data="http://static.youku.com/v1.0.0334/v/swf/player_yk.swf" width="100%" height="100%" id="movie_player"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><param name="flashvars" value="VideoIDS=XMjczMTExODcy&amp;ShowId=0&amp;category=99&amp;Cp=0&amp;Light=on&amp;THX=off&amp;unCookie=0&amp;frame=0&amp;pvid=1370781584967tzX&amp;Tid=0&amp;isAutoPlay=true&amp;Version=/v1.0.0865&amp;show_ce=0&amp;winType=interior&amp;embedid=AjY4Mjc3OTY4And3dy5zb2t1LmNvbQIvc2VhcmNoX3ZpZGVvL3FfbXlt&amp;vext=bc%3D%26pid%3D%26unCookie%3D0%26frame%3D0%26type%3D0%26svt%3D0%26emb%3DAjY4Mjc3OTY4And3dy5zb2t1LmNvbQIvc2VhcmNoX3ZpZGVvL3FfbXlt%26dn%3D%E7%BD%91%E9%A1%B5%26hwc%3D1%26mtype%3Doth"><param name="movie" value="http://static.youku.com/v1.0.0334/v/swf/player_yk.swf"><div class="player_html5"><div class="picture" style="height:100%"><div style="line-height:460px;"><span style="font-size:18px">您还没有安装flash播放器,请点击<a href="http://www.adobe.com/go/getflash" target="_blank">这里</a>安装</span></div></div></div></object>
