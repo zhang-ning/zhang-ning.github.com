@@ -1,7 +1,9 @@
 h1{
     text-transform: capitalize;
 }
-
+.mt{
+	margin: 20px;
+}
 .mask{
 	position: fixed;
 	z-index: 9999;
@@ -34,9 +36,7 @@ h1{
 	padding: 6px 0;
 }
 .thumbnail.avnter{
-	margin: 0 5px;
 	background: #fff;
-	width: 160px;
 	padding: 10px;
 	display: inline-block;
 }
