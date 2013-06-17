@@ -129,6 +129,8 @@
 						loading.removeClass('show');
 						page.attr( 'style', prefix + 'transform:translateX(-50%)');
 					}
+
+					aboutUS();
 				})
 			}else{
 				bucket.empty().append(Buffer[p]);
