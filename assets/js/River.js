@@ -83,8 +83,8 @@ function River(ref){
     },
     bind:function(eve,callback){
       var __this = this;
-      ref.addEventListener(eve,function(){
-        callback.call(__this);
+      ref.addEventListener(eve,function(e){
+        callback.call(__this,e);
       })
       return this;
     },
@@ -100,6 +100,10 @@ function River(ref){
         index = 0;
       }
       return River(ref.children[index]);
+    },
+    text:function(v){
+      ref.textContent = v;
+      return this;
     },
     remove:function(){
       ref.parentNode.removeChild(ref);
@@ -145,6 +149,15 @@ River.compail = function(string){
   div.innerHTML = string;
   return River(div.children[0]);
 }
+
+River.requestAnimationFrame = (function(){
+  return  window.requestAnimationFrame ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame ||
+          function( callback ){
+            window.setTimeout(callback, 1000 / 60);
+          };
+})()
 
 River.selectAll = function(ref){
   var result = [];
@@ -192,6 +205,7 @@ River.selectAll = function(ref){
 
   return result;
 }
+
 
 River.apps = {
   bind : function(eve,imp){

@@ -48,10 +48,10 @@
 
 	var goToTab = function (url){
 		lastTab.item.removeClass('active');
-    lastTab.content.removeClass('active');
-    tabs[url].item.addClass('active');
-    tabs[url].content.addClass('active');
-    lastTab = tabs[url];
+	    lastTab.content.removeClass('active');
+	    tabs[url].item.addClass('active');
+	    tabs[url].content.addClass('active');
+	    lastTab = tabs[url];
 	}
 
 	var loadTmp = function(name) {
@@ -82,8 +82,8 @@
 			page.attr( 'style', prefix + 'transform:translateX(-50%)');
 
 		}else if(/home/.test(window.location.hash.slice(2))){
-        page.attr( 'style', prefix + 'transform:translateX(0)');
-    }
+        	page.attr( 'style', prefix + 'transform:translateX(0)');
+    	}
 	}
 
 	var needAnimate = function (flag){
@@ -133,6 +133,8 @@
 			}else{
 				bucket.empty().append(Buffer[p]);
 				page.attr( 'style', prefix + 'transform:translateX(-50%)');
+
+				aboutUS();
 			}
 			setTimeout(function() {
 				detail.getRef().children[0].src = '';
@@ -150,9 +152,17 @@
 				Buffer[p] = River.compail(xhr.responseText);
 				bucket.empty().append(Buffer[p]);
 				page.attr( 'style', prefix + 'transform:translateX(-50%)');
+
+				aboutUS();
 			})
-			
 		}
+	}
+
+	function aboutUS(){
+		var t = River.selectAll('.txtani').textAnimate();
+		setTimeout(function() {
+			t.execute();
+		}, 2000);
 	}
 
 

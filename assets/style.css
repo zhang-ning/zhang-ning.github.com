@@ -13,6 +13,33 @@ h1{
 	visibility: hidden;
 	opacity: 0;
 }
+.s2{
+	width: 170px;
+}
+.sall{
+	width: 100%;
+}
+.music-continer{
+	position: relative;
+	overflow: visible;
+}
+.music-continer .stage{
+	position: absolute;
+	left: 400px;
+	top:0px;
+}
+.music-continer .txtani{
+	height: 100%;
+	padding: 0;
+	text-align: center;
+	font-size: 50px;
+	color: #000;
+	font-weight: bolder;
+	width: 80%;
+	line-height: 500px;
+    
+	text-transform: uppercase;
+}
 .iblock{
 	display: inline-block;
 }
@@ -39,6 +66,8 @@ h1{
 	background: #fff;
 	padding: 10px;
 	display: inline-block;
+	margin: 0 5px 0 0;
+	height: 560px;
 }
 .avnter img{
 	margin: 0;
