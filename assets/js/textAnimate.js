@@ -56,11 +56,17 @@
 			return /.*[\u4e00-\u9fa5]+.*$/.test(obj) ? 'cn' : 'en' 
 		}
 
+		var able = true;
+
 		function query(){
-			var txt = _next.call(data);
-			_animation(languare(txt)).done(function(){
-				target.text(txt);
-			});
+			if(able){
+				able = false;
+				var txt = _next.call(data);
+				_animation(languare(txt)).done(function(){
+					target.text(txt);
+					able = true;
+				});
+			}
 		}
 		//console.log(data);
 
