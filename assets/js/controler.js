@@ -135,8 +135,6 @@
 			}else{
 				bucket.empty().append(Buffer[p]);
 				page.attr( 'style', prefix + 'transform:translateX(-50%)');
-
-				aboutUS();
 			}
 			setTimeout(function() {
 				detail.getRef().children[0].src = '';
@@ -162,9 +160,9 @@
 
 	function aboutUS(){
 		var t = River.selectAll('.txtani').textAnimate();
-		setTimeout(function() {
+		River('[textAnimate]').bind('click',function(){
 			t.execute();
-		}, 2000);
+		})
 	}
 
 

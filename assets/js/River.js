@@ -7,6 +7,9 @@ function getInstanceOf (obj) {
 var Deffer = {
   resolve : function(data){
     var callbacks = this.donecallback;
+    if(!callbacks){
+      return;
+    }
     for (var i = 0; i < callbacks.length; i++) {
       callbacks[i](data);
     };
@@ -101,9 +104,17 @@ function River(ref){
       }
       return River(ref.children[index]);
     },
+    parent:function(){
+      return River(ref.parentElement);
+    },
     text:function(v){
-      ref.textContent = v;
-      return this;
+      if(typeof v ==='string' ){
+        ref.textContent = v;
+        return this;
+      }else{
+        return ref.textContent;
+      }
+      
     },
     remove:function(){
       ref.parentNode.removeChild(ref);
@@ -119,26 +130,31 @@ function River(ref){
       }
       return this;
     },
-    animate:function(p,v,t){
+    animate:function(p,t,d){
       var deffer = getInstanceOf(Deffer);
 
-      var distance = parseInt(v) - parseInt(ref.style[p]);
+      d = d || 800;
+      var start = new Date;
 
-      var s = 13;
-      var frames = parseInt(t/s);
-      var i = 0 ;
+      var _go = function(now){
+          var gap = now - start;
+          if(gap >= d){
+            deffer.resolve();
+             return;
+          }
+         if('undefined' !== typeof ref.style[p]){
+           var value = (t-parseInt(ref.style[p]))*(gap/d);
+           ref.style[p] = value + 'px';
+         }else{
+            var value = (t-parseInt(ref[p]))*(gap/d);
+           ref[p] = value ;
+         }
 
-      var d = distance/frames ;
+         River.requestAnimationFrame.call(window,_go);
+      }
 
-      var loopID = setInterval(function() {
-        i++;
-        ref.style[p] = d * i;
-        if( i === frames ) {
-          clearInterval(loopID);
-          deffer.resolve();
-        }
-      }, s);
-
+      River.requestAnimationFrame.call(window,_go);
+      
       return deffer;
     }
   }
@@ -151,9 +167,9 @@ River.compail = function(string){
 }
 
 River.requestAnimationFrame = (function(){
-  return  window.requestAnimationFrame ||
-          window.webkitRequestAnimationFrame ||
+  return window.webkitRequestAnimationFrame ||
           window.mozRequestAnimationFrame ||
+           window.requestAnimationFrame ||
           function( callback ){
             window.setTimeout(callback, 1000 / 60);
           };

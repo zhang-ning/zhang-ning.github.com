@@ -1,6 +1,9 @@
 h1{
     text-transform: capitalize;
 }
+.point{
+	cursor: pointer;
+}
 .mt{
 	margin: 20px;
 }
@@ -25,6 +28,7 @@ h1{
 }
 .music-continer .stage{
 	position: absolute;
+	overflow: hidden;
 	left: 400px;
 	top:0px;
 }
@@ -37,7 +41,6 @@ h1{
 	font-weight: bolder;
 	width: 80%;
 	line-height: 500px;
-    
 	text-transform: uppercase;
 }
 .iblock{
