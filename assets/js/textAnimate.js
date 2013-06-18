@@ -24,14 +24,19 @@
 
 		
 
-		function _animation(){
-			var ad = ['ux','wiled','girl','boy','greate','programmer', 'developer','friends','UX','U.S.A','Japan','Korea','Britain','China'];
+		function _animation(type){
+			var en = ['ux','wiled','girl','boy','greate','programmer', 'developer','friends','UX','U.S.A','Japan','Korea','Britain','China'];
+			var cn = ['用户体验','狂野','男孩','女孩','伟大','开发者','英国','程序员','朋友','美国','80`s 后'];
+			var lang = {
+				en : en,
+				cn : cn
+			};
 			var times = 0;
 			var deffer = getInstanceOf(Deffer);
 
 			function loop(){
-				target.text(_next.call(ad));
-				if(times <= (ad.length-1) ){
+				target.text(_next.call(lang[type]));
+				if(times <= (lang[type].length-1) ){
 					setTimeout(function() {
 						loop();
 					}, 100);
@@ -46,9 +51,15 @@
 		}
 
 		_next.call(data);
+
+		function languare(obj){
+			return /.*[\u4e00-\u9fa5]+.*$/.test(obj) ? 'cn' : 'en' 
+		}
+
 		function query(){
-			_animation().done(function(){
-				target.text(_next.call(data));
+			var txt = _next.call(data);
+			_animation(languare(txt)).done(function(){
+				target.text(txt);
 			});
 		}
 		//console.log(data);
