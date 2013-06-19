@@ -103,7 +103,7 @@
 		var url = window.location.hash.slice(2);
 		if(/type/.test(url)){
 			brand.attr('href','#/home/');
-			backToHome();
+			
 			var p = url.slice(5);
 			if(!Buffer[p]){
 				loading.addClass('show');
@@ -121,6 +121,10 @@
 									if(con === len){
 										loading.removeClass('show');
 										page.attr( 'style', prefix + 'transform:translateX(-50%)');
+										backToHome();
+										setTimeout(function() {
+											detail.getRef().children[0].src = '';
+										}, 600);
 									}
 								})	;
 							})(i);
@@ -128,17 +132,24 @@
 					}else{
 						loading.removeClass('show');
 						page.attr( 'style', prefix + 'transform:translateX(-50%)');
+						backToHome();
+						setTimeout(function() {
+							detail.getRef().children[0].src = '';
+						}, 600);
 					}
 
 					aboutUS();
 				})
+				
 			}else{
 				bucket.empty().append(Buffer[p]);
 				page.attr( 'style', prefix + 'transform:translateX(-50%)');
+				backToHome();
+				setTimeout(function() {
+					detail.getRef().children[0].src = '';
+				}, 600);
 			}
-			setTimeout(function() {
-				detail.getRef().children[0].src = '';
-			}, 600);
+			
 		}
 	}
 
@@ -146,13 +157,13 @@
 		var url = window.location.hash.slice(2);
 		if(/type/.test(url)){
 			brand.attr('href','#/home/');
-			backToHome();
+			
 			var p = url.slice(5);
 			loadTmp(p).done(function(xhr){
 				Buffer[p] = River.compail(xhr.responseText);
 				bucket.empty().append(Buffer[p]);
 				page.attr( 'style', prefix + 'transform:translateX(-50%)');
-
+				backToHome();
 				aboutUS();
 			})
 		}
