@@ -79,7 +79,9 @@ summary : "HTML is great for declaring static documents, but it falters when we 
 
 ```
 <span ng-click="yourFn()"></span>
+
 <span uxclick="yourFn()"></span> // cross device
+
 ```
 
 
@@ -101,7 +103,7 @@ summary : "HTML is great for declaring static documents, but it falters when we 
                startX = e.changedTouches[0].pageX
              });
              element.bind('touchend',function(e){
-               if(Math.abs(e.changedTouches[0].pageX - startX) < 1){
+               if(Math.abs(e.changedTouches[0].pageX - startX) < 10){
                  scope.$apply(attrs.uxclick);
                }
              })
