@@ -71,5 +71,50 @@ summary : "HTML is great for declaring static documents, but it falters when we 
    *  [spotlight](http://ftp.tibcoux.com/BC/poc)
    *  [activner](http://ftp.tibcoux.com/activner/)
 
+---
+>Sample code
+
+ 1. the uxclick directive to instead ng-click for crossing touch and click event
+
+
+```
+<span ng-click="yourFn()"></span>
+<span uxclick="yourFn()"></span> // cross device
+```
+
+
+
+{% highlight javascript linenos %}
+   (function(){
+
+  'use strict';
+     spotlight.directive('uxclick',function($window){
+       var click = 'click';
+       
+
+       return {
+         restrict: 'A',
+         link : function(scope, element, attrs) {
+           if(typeof window.ontouchend !== "undefined"){
+             var startX ;
+             element.bind('touchstart',function(e){
+               startX = e.changedTouches[0].pageX
+             });
+             element.bind('touchend',function(e){
+               if(Math.abs(e.changedTouches[0].pageX - startX) < 1){
+                 scope.$apply(attrs.uxclick);
+               }
+             })
+           }else{
+             element.bind('click',function(e){
+               scope.$apply(attrs.uxclick);
+             })
+           }
+         }
+       }
+     });
+     
+   })();
+{% endhighlight %}
 
 {{page.date | date_to_string }}
