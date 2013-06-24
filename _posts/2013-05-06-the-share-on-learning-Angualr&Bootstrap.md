@@ -78,10 +78,7 @@ summary : "HTML is great for declaring static documents, but it falters when we 
 
 
 ```
-<span ng-click="yourFn()"></span>
-
-<span uxclick="yourFn()"></span> // cross device
-
+<span uxclick="yourFn()"></span> // cross touch
 ```
 
 
