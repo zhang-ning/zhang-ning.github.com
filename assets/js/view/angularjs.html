@@ -1,11 +1,18 @@
-<div>
-	<ul>
-		<li>AngularJS - Binding</li>
-		<li>AngularJS - Controllers</li>
-		<li>AngularJS - The Dot</li>
-		<li>AngularJS - Sharing Data Between Controllers</li>
-		<li>AngularJS - Defining a Method on the Scope</li>
-		<li>AngularJS - Filters</li>
-	</ul>
-</div>
+---
+title: "AngularJS list page"
+---
 
+<div class="list paddingtop">
+  <ul class="">
+  {% for post in site.posts %}
+    {% if post.type == "angularjs" %}
+    <li>
+      <a href="#/post/angularjs{{ post.url }}">
+        {{ post.title }}
+      </a>
+      <span class="pull-right">{{ post.date | date: "%d %B %Y" }}</span>
+    </li>
+   {% endif %}
+  {% endfor %}
+  </ul>
+</div>
