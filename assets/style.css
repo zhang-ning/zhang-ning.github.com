@@ -4,6 +4,26 @@ h1{
 .point{
 	cursor: pointer;
 }
+.txt-right{
+	text-align: right;
+}
+.white{
+	color: #fff;
+}
+
+.txt-left{
+	text-align: left;
+} 
+.txt-center{
+	text-align: center;
+}
+.big{
+	font-size: 30px;
+} 
+.heavy{
+	font-weight: bolder;
+}
+
 .mt{
 	margin: 20px;
 }

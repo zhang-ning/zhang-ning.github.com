@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap-responsive.min.css">
+
+	<style>
+		.stage{
+			height: 300px;
+			position: relative;
+			margin-left: 50px;
+		}
+		.stage span{
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			border: 1px solid #000;
+			text-align: center;
+			line-height: 30px;
+			left:0px;
+			top:0px;
+		}
+		.tag{
+			width: 15px;
+			height: 15px;
+			background: #000;
+			display: inline-block;
+		}
+		.tags span{
+			margin-right: 10px;
+		}
+		.add{
+			background: #f00;
+		}
+		.update{
+			background: #0f0;
+		}
+		.delete{
+			background: #00f;
+		}
+	</style>
+
+</head>
+
+<body class="container">
+
+	<div class="page-header">
+  		<h1>Demo <small>for ..</small></h1>
+	</div>
+	<ul class="thumbnails">
+	  <li class="span12">
+	    <div class="thumbnail">
+	      <h3 id="view">[1,2,3,4,5]</h3>
+	      <p class="tags">
+	      	<span><i class="tag add"></i>add</span>
+	      	<span><i class="tag update"></i>update</span>
+	      	<span><i class="tag delete"></i>delete</span>
+	      </p>
+	      <div class="stage"></div>
+	    </div>
+	  </li>
+	</ul>
+	<div class="btn-group" style="display:block;margin-bottom:40px">
+	  <button class="btn" data-my="[1,2,3,4]" type="button">data-1</button>
+	  <button class="btn" data-my="[1,2,3,4,5]" type="button">data-2</button>
+	  <button class="btn" data-my="[5,4,3,2,1]" type="button">data-3</button>
+	  <button class="btn" data-my="[9,8,7,6,1,2]" type="button">data-4</button>
+	  <button class="btn" data-my="[6,2,12,34,1,3,56]" type="button">data-5</button>
+	</div>
+</body>
+</html>
+
+<script src="../../lib/d3.min.js"></script>
+
+<script>
+	function render (data){
+
+	  var li = d3.select('.stage')
+	             .selectAll('span')
+	             .data(data,function(d){ return d });
+
+	  li.style('border-color','#0f0')
+
+	  li.enter()
+	    .append('span').style('border-color','#f00').style('left',function(d,i){ return i * 40 + 'px' })
+	    .append('div');
+
+	  li.select('div').text(String).style('border','none')
+	  .transition()
+	  .duration(750)
+	  .style('padding-top','0px')
+	  .style('width','30px')
+	  .style('background','transparent')
+
+	  li
+	    .transition()
+	    .duration(750)
+	    .style('background','transparent')
+	    .style('top','40px')
+	    .style('left',function(d,i){ return i * 40 + 'px' })
+	    .style('width','30px');
+
+	  li.exit().style('border-color','#00f')
+	  .transition()
+	  .duration(750)
+	  .style('top','320px')
+	  .remove();
+
+	}
+
+	render([]);
+	set('[ ]');
+
+	function set (data) {
+		d3.select('#view').text(data);
+	}
+
+	
+
+	window.addEventListener('load',function(){
+
+        d3.selectAll('.btn').on('click',function(){
+            var target = d3.event.target;
+            var d = target.dataset.my;
+            set(d);
+            render(JSON.parse(d));
+        })
+
+    })
+</script>
