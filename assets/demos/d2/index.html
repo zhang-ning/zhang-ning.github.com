@@ -8,7 +8,7 @@
 
 	<style>
 		.stage{
-			height: 300px;
+			height: 350px;
 			position: relative;
 			margin-left: 50px;
 		}
@@ -47,7 +47,7 @@
 <body class="container">
 
 	<div class="page-header">
-  		<h1>Demo <small>for memory transition</small></h1>
+  		<h1>Demo <small>for business transition</small></h1>
 	</div>
 	<ul class="thumbnails">
 	  <li class="span12">
@@ -63,7 +63,7 @@
 	  </li>
 	</ul>
 	<div class="btn-group" style="display:block;margin-bottom:40px">
-	  <button class="btn" data-my="[1,2,3,4]" type="button">data-1</button>
+	   <button class="btn" data-my="[1,2,3,4]" type="button">data-1</button>
 	  <button class="btn" data-my="[1,2,3,4,5]" type="button">data-2</button>
 	  <button class="btn" data-my="[5,4,3,2,1]" type="button">data-3</button>
 	  <button class="btn" data-my="[9,8,7,6,1,2]" type="button">data-4</button>
@@ -75,38 +75,73 @@
 <script src="../../lib/d3.min.js"></script>
 
 <script>
-	function render (data){
+	var $stage = d3.select(".stage");
+    var width = parseInt($stage.style('width')),
+    height = parseInt($stage.style('height')),
+    radius = Math.min(width, height) / 2;
+    var color = d3.scale.category20();
 
-	  var li = d3.select('.stage')
-	             .selectAll('span')
-	             .data(data,function(d){ return d });
+    var twoPi = 2 * Math.PI;
 
-	  li.style('border-color','#0f0')
+    var pie = d3.layout.pie()
+    	.value(function(d) { return d; })
+    	.sort(null);
 
-	  li.enter()
-	    .append('span').style('border-color','#f00').style('left',function(d,i){ return i * 40 + 'px' })
-	    .append('div');
+   	var arc = d3.svg.arc()
+    .innerRadius(radius - 100)
+    .outerRadius(radius - 50);
 
-	  li.select('div').text(String).style('border','none');
+    var rect = d3.layout.histogram()
+    	.value(function(d){ return d;});
 
-	  li
-	    .transition()
-	    .duration(750)
-	    .style('background','transparent')
-	    .style('top','40px')
-	    .style('left',function(d,i){ return i * 40 + 'px' })
-	    .style('width','30px');
 
-	  li.exit().style('border-color','#00f')
-	  .transition()
-	  .duration(750)
-	  .style('top','320px')
-	  .remove();
+    var svg = d3.select(".stage").append("svg")
+	    .attr("width", width)
+	    .attr("height", height)
+	  .append("g")
+	    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
+	
+	function renderBar (data){
+		var path = svg.selectAll("path")
+      .data(rect(data));
+
+		path.enter().append("path")
+		  .attr("fill", function(d, i) { return color(i); })
+		  .attr("d", arc)
+		  .each(function(d) { this._current = d; })
+		path.exit().remove();
+
+    	path = path.data(rect(data)); // compute the new angles
+    	path.transition().duration(750).attrTween("d", arcTween); // redraw the arc
 	}
 
-	render([]);
-	set('[ ]');
+      
+
+	function renderCircle (data){
+	  var path = svg.selectAll("path")
+      .data(pie(data));
+
+		path.enter().append("path")
+		  .attr("fill", function(d, i) { return color(i); })
+		  .attr("d", arc)
+		  .each(function(d) { this._current = d; })
+		path.exit().remove();
+
+    	path = path.data(pie(data)); // compute the new angles
+    	path.transition().duration(750).attrTween("d", arcTween); // redraw the arc
+	}
+
+	function arcTween(a) {
+	  var i = d3.interpolate(this._current, a);
+	  this._current = i(0);
+	  return function(t) {
+	    return arc(i(t));
+	  };
+	}
+
+	renderCircle([]);
+	set('[  ]');
 
 	function set (data) {
 		d3.select('#view').text(data);
@@ -115,7 +150,7 @@
 	
 
 	window.addEventListener('load',function(){
-		
+
 		var last;
         d3.selectAll('.btn').on('click',function(){
             var d = this.dataset.my;
@@ -124,7 +159,7 @@
             this.className = c + ' active'
             if(last) last.className = c;
             last = this;
-            render(JSON.parse(d));
+            renderCircle(JSON.parse(d));
         })
 
     })

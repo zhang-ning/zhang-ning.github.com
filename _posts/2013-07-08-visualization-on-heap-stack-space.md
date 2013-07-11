@@ -90,9 +90,9 @@ var exp = [];
 
 
 
-* “业务数据视觉化”只是在“堆栈数据视觉化”的基础上，做简单业务逻辑的封装,那这里我以线图和柱状图为例向大家展示
+* “业务数据视觉化”只是在“堆栈数据视觉化”的基础上，做简单业务逻辑的封装,那这里我以胶圈图为例，使用相同的数据，向大家展示，
 
-
+<iframe class="movie" style="height:660px;margin-top: 40px;" src="/assets/demos/d2/index.html" frameborder=0 allowfullscreen></iframe>
 
 
 comming soon..
