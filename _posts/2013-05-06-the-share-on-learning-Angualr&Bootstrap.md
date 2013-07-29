@@ -76,9 +76,13 @@ summary : "HTML is great for declaring static documents, but it falters when we 
 
  1. the uxclick directive to instead ng-click for crossing touch and click event
 
-<pre>
+
+```
 <span uxclick="yourFn()"></span> // cross touch
-</pre>
+
+```
+
+
 
 <pre>
 (function(){
