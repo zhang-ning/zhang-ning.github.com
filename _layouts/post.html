@@ -6,7 +6,7 @@
     </style>
     <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap-responsive.min.css">
-    <link rel="stylesheet" href="/assets/monokai.css">
+    <link rel="stylesheet" href="http://besideriver.com/RiverJS/assets/bootstrap/css/prettify.css ">
   </head>
   <body class="bg-color full-s">
     <div class="container">
@@ -39,4 +39,10 @@
   window.addEventListener('load',function(){
     loadDisqus();
   },false)
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://besideriver.com/RiverJS/javascripts/prettify.js"></script>
+<script type="text/javascript">
+$('pre').addClass('prettyprint linenums')
+window.prettyPrint && prettyPrint();
 </script>

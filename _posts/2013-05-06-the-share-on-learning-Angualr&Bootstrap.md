@@ -82,15 +82,12 @@ summary : "HTML is great for declaring static documents, but it falters when we 
 ```
 
 
+```
 
-{% highlight javascript linenos %}
-   (function(){
-
+(function(){
   'use strict';
      spotlight.directive('uxclick',function($window){
        var click = 'click';
-       
-
        return {
          restrict: 'A',
          link : function(scope, element, attrs) {
@@ -112,8 +109,8 @@ summary : "HTML is great for declaring static documents, but it falters when we 
          }
        }
      });
-     
-   })();
-{% endhighlight %}
+})();
+
+```
 
 {{page.date | date_to_string }}
