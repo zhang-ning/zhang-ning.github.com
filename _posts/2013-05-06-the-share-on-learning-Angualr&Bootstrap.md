@@ -79,11 +79,14 @@ summary : "HTML is great for declaring static documents, but it falters when we 
 
 ```
 <span uxclick="yourFn()"></span> // cross touch
-```
-
 
 ```
 
+
+
+
+
+```
 (function(){
   'use strict';
      spotlight.directive('uxclick',function($window){
