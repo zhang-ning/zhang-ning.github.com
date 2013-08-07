@@ -1,0 +1,18 @@
+---
+title: "Douglas list page"
+---
+
+<div class="list paddingtop">
+  <ul class="">
+  {% for post in site.posts %}
+    {% if post.type == "douglas" %}
+    <li>
+      <a href="#/post/douglas{{ post.url }}">
+        {{ post.title }}
+      </a>
+      <span class="pull-right">{{ post.date | date: "%d %B %Y" }}</span>
+    </li>
+   {% endif %}
+  {% endfor %}
+  </ul>
+</div>
