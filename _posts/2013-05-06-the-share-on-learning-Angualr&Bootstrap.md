@@ -29,7 +29,7 @@ summary : "HTML is great for declaring static documents, but it falters when we 
    * according the upside two point, I'm not sure AngularJS is steable for mobile app.
        
 
-    
+<!--    
 3. What are the best practices for angular?
    
    * [spotlight](http://ftp.tibcoux.com/BC/poc) , cost 10 man day (from know nothing with Angular and Bootstrap to make the App with them).
@@ -52,7 +52,7 @@ summary : "HTML is great for declaring static documents, but it falters when we 
        this project ,we build with Angular and Bootstrap,
        According the communication between server and browser based on web-socket tech,
        so we wraped  the web-socket AngularJS service.
-
+-->
 ---
 >About the bootstrap
 
@@ -67,10 +67,11 @@ summary : "HTML is great for declaring static documents, but it falters when we 
 2. the fallback of bootstrap
    * At the beginning it's not built for suiting Angular, there are some compoment events implemented with jQuery.So when we combine it with Angular, we should turn the part built by jQuery into Angular directive.
 
+<!--
 3. best practices for bootstrap 
    *  [spotlight](http://ftp.tibcoux.com/BC/poc)
    *  [activner](http://ftp.tibcoux.com/activner/)
-
+-->
 ---
 >Sample code
 
