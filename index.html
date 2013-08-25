@@ -3,56 +3,83 @@ layout: clean
 title: test page
 ---
 <style>
-  /*a.dota{
-    background-image: url(http://www.cr173.com/up/2011-5/20115520201522009623.jpg);
-  }
-  a.music{
-    background-image: url(http://stuffpoint.com/club-music/image/209836-club-music-i-love-music.jpg);
-  }
-  a.video{
-    background-image: url(http://ww1.prweb.com/prfiles/2012/01/06/9085704/VideoWall09.jpg);
-  }
-  a.blog{
-    background-image: url(http://itknowledgeexchange.techtarget.com/itke-community-blog/files/2012/12/shutterstock_76288108.jpg);
-  }
-  a.about-us{
-    background-image: url(http://merushikharmetal.com/images/about-us.jpg);
-  }*/
+    .galary [class^="icon-"]{
+        position:absolute;
+        bottom:75px;
+        left:50px;
+        font-size:50px;
+        color:#f0f0f0;
+
+        -webkit-transition: all .6s ease-in-out 0s;
+        -moz-transition: all .6s ease-in-out 0s;
+        -ms-transition: all .6s ease-in-out 0s;
+        -o-transition: all .6s ease-in-out 0s;
+        transition: all .6s ease-in-out 0s;
+    }
+    .galary .item:hover [class^="icon-"]{
+        left: 350px;
+    } 
 </style>
 <div id="home-stage" class="transition-short">
-  <section class="paddingtop gl-container inline-block">
-    <header>
-      <h1>
-        Welcome to Beside River
-        <p>Jonathan and River 's web site.</p>
-      </h1>
-    </header>
-    <ul class="galary">
-      <li class="item transition"><a class="blog" href="#/type/blog"><span>Blog</span></a></li>
-      <li class="item transition"><a class="music" href="#/type/music"><span>MTV</span></a></li>
-      <li class="item transition"><a class="video" href="#/type/video"><span>Trailer</span></a></li>
-      <li class="item transition"><a class="dota" href="#/type/dota"><span>Game Video</span></a></li>
-      <li class="item transition"><a class="about-us" href="#/type/about-us"><span>About us</span></a></li>
-      <li class="item transition"><a href="#/type/angularjs"><span >AngularJS Video</span></a></li>
-      <li class="item transition"><a href="#/type/douglas"><span >Douglas Crockford</span></a></li>
-      <li class="item transition"><a href="#/type/sublime"><span >Sublime Video</span></a></li>
-      <li class="item transition"><a href="#/type/books"><span >Books</span></a></li>
-      <li class="item transition"><a target="_blank" href="http://besideriver.com/RiverJS/"><span >RiverJS</span></a></li>
-    </ul>
-    <nav> 
-      <span class="gl-prev circle gl-nav no-select"></span>
-      
-      <span class="gl-next circle gl-nav no-select"></span>
-    </nav>
-  </section>
+    <section class="paddingtop gl-container inline-block">
+        <header>
+            <h1>
+                Welcome to Beside River
+                <p>Jonathan and River 's web site.</p>
+            </h1>
+        </header>
+        <ul class="galary">
+            <li class="item transition">
+            <i class="icon-comment"></i> 
+            <a class="blog" href="#/type/blog"><span>Blog</span></a>
+            </li>
+            <li class="item transition">
+            <i class="icon-music"></i>
+            <a class="music" href="#/type/music"><span>MTV</span></a></li>
+            <li class="item transition">
+            <i class="icon-apple"></i>
+            <a class="video" href="#/type/video"><span>Trailer</span></a></li>
+            <li class="item transition">
+            <i class="icon-gamepad"></i>
+            <a class="dota" href="#/type/dota"><span>Game Video</span></a>
+            </li>
+            <li class="item transition">
+            <i class="icon-users-outline"></i>
+            <a class="about-us" href="#/type/about-us"><span>About us</span></a>
+            </li>
+            <li class="item transition">
+            <i class="icon-gplus"></i>
+            <a href="#/type/angularjs"><span >AngularJS Video</span></a></li>
+            <li class="item transition">
+            <i class="icon-video-alt"></i>
+            <a href="#/type/douglas"><span >Douglas Crockford</span></a></li>
+            <li class="item transition">
+            <i class="icon-menu"></i>
+            <a href="#/type/sublime"><span >Sublime Video</span></a></li>
+            <li class="item transition">
+            <i class="icon-bookmark"></i> 
+            <a href="#/type/books"><span >Books</span></a></li>
+            <li class="item transition">
+            <i class="icon-emo-wink2"></i> 
+            <a target="_blank" href="http://besideriver.com/RiverJS/">
+                <span >RiverJS</span>
+            </a>
+            </li>
+        </ul>
+        <nav> 
+            <span class="gl-prev circle gl-nav no-select"></span>
 
-  <section class="main-content inline-block">
-    <div class="container">
-       
-      <div class="grid2col" id="buckets">
-        
-      </div>
-    </div>
-  </section>
+            <span class="gl-next circle gl-nav no-select"></span>
+        </nav>
+    </section>
+
+    <section class="main-content inline-block">
+        <div class="container">
+
+            <div class="grid2col" id="buckets">
+
+            </div>
+        </div>
+    </section>
 </div>
 
