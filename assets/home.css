@@ -300,3 +300,7 @@ article p{
 .content,.rounded{
   border-radius: 4px;
 }
+.booklist .thumbnail>img{
+    max-height: 192px;
+    
+}
