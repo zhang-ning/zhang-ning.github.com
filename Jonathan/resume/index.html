@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="dist/moon.min.js"></script>
+    <!-- language package -->
+    <script type="text/javascript" src="lang/cn.js"></script>
+    <script type="text/javascript" src="lang/en.js"></script>
+    <!-- your application -->
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  
+  <body>
+    <div class="container" scope="app">
+      <ul>
+        <li class="page-header row">
+          <p class="col-md-1">{{ name }}</p>
+          <p class="col-md-1">{{ birth-year }}</p>
+          <p class="col-md-1">{{ gender }}</p>
+          <p class="col-md-1">{{ location }}</p>
+          <p class="col-md-1">{{ work-year }}</p>
+          <p class="col-md-1">{{ phone }} 
+          </p>
+          <div class="absolut top right">
+            <span><a href='http://besideriver.com' target='_blank'> MyWebsite</a></span>
+            <span><a href='https://github.com/zhang-ning' target='_blank'> Github</a></span>
+            <select class="form-control input-sm lang" jchange="switchLang">
+              <option value="en">English</option>
+              <option value="cn">中文</option>
+            </select>
+          </div>
+        </li>
+        <li>
+          <p class="brive-info">{{ introduce }}</p>
+          <hr/>
+        </li>
+        <li>
+          <ul class="work-experience">
+            <li repeat="{{work in works}}">
+               <h4>{{work.name}}</h4>
+
+              <strongl>{{work.during}}</strong>
+                <article>
+                  <p>{{work.info}}</p>
+                  <ol class="projects">
+                    <li repeat="{{project in work.projects}}">
+                       <h5>{{project.name}}</h5>
+                       <em>{{project.during}}</em>
+                      <p>{{project.info}}</p>
+                    </li>
+                  </ol>
+                </article>
+                <hr/>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
