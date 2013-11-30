@@ -1,0 +1,15 @@
+.prettyprint {
+    overflow: hidden;
+}
+xmp{
+    margin:0;
+}
+.page-footer {
+    padding: 20px 0;
+    margin: 20px 0;
+    border-top: 1px solid #eee;
+}
+
+.row.text-center.download {
+    margin: 100px 0;
+}
