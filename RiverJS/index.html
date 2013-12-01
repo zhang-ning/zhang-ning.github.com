@@ -27,21 +27,16 @@
       <div class="page-header">
          <h1>RiverJS </h1>
 
-         <h2><small>A <strong>CMD-like</strong> system with  extendable <strong>Two-way</strong> binding .</small></h2>
+         <h2><small>A <strong>CMD-like</strong> system with  extendable <strong>Two-way</strong> binding template.</small></h2>
 
       </div>
       <div class="page-body">
         <p><b>RiverJS</b> is a very smart framework with unbelievable 5.3kb size,but it contains
-          a very powerful two-way binding system,and a very nice module define system to
-          make you feel that code organization is absolutely an artwork.If you are familiar
-          with the <a target="_blank" href="http://en.wikipedia.org/wiki/KISS_principle">Keep it simple, stupid</a> principle,you
-          will understand in RiverJS why there is no too many concepts to learn and why there
-          is no too many api to call.RiverJS encourage developer to use native ECMACScript
-          and W3C DOM API to wrap modules or compoments,I believe it will benefit your whole
-          career.If you want to use 3rd-party lib in RiverJS,just do it,it's quite easy(find
-          it in the below basic tutorial).RiverJS it not only try to speed up your daily
-          work as a tool or a framework but what's more important is try to tell how to program
-          in a more smart way.</p>
+          a very powerful extendable two-way binding template system,and a very nice module
+          define system to make you feel that code organization is absolutely an artwork.As Riverjs doesn't hope to hogtie you by many concepts and APIs,and also as I'm a big fans of <a target="_blank" href="http://en.wikipedia.org/wiki/KISS_principle">Keep it simple, stupid</a> principle.RiverJS
+          doesn't contain any basic service like
+          ajax,animation yet in this version.But you can
+          learn how to use RiverJS to build them in 5 minutes,by reading the tutorial below with active examples.</p>
         <div class="row text-center download">
           <a href="river.min.js" download="river.min.js" class="btn btn-primary btn-lg"> <i class="glyphicon glyphicon-cloud-download"></i> Download <small>(0.1)</small>
 
@@ -367,7 +362,9 @@ define('river.grammer.my-time', function() {
 
   return function() {
 
-    var scope = this.scope ? this.scope : {};
+    var scope = this.scope;
+    //if there is no 'Controler' point to 'scope',this.scope will be the rootScope;
+
     var timezone = {
       bj: '+8',
       pa: '-7'

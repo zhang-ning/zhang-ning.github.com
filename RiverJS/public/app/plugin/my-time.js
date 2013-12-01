@@ -3,7 +3,9 @@ define('river.grammer.my-time', function() {
 
   return function() {
 
-    var scope = this.scope ? this.scope : {};
+    var scope = this.scope;
+    //if there is no 'Controler' point to 'scope',this.scope will be the rootScope;
+
     var timezone = {
       bj: '+8',
       pa: '-7'
