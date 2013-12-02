@@ -66,21 +66,6 @@ define('your.namespace.mymodule',function(){
 });
               </pre>
 
-         <h3><small>the </small>Main <small>module is for executing,not for called.</small></h3>
- <pre class="prettyprint lang-javascript linenums">
-//main(fn);
-main(function(){
-
-  //execute at once
-  var myname = 'Jonathan';
-  ...
-  console.log(myname);
-  //no api need to return , cause it can't be call by other ones.
-  retrun myname;
-
-});
-              </pre>
-
          <h3><small>use <code>this.need</code> to resolve </small>Dependence <small>between modules</small></h3>
 
         <p>here is a little different with CMD stand,but I prefer it.</p>

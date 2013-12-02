@@ -11,6 +11,7 @@ define('river.grammer.my-time', function() {
       pa: '-7'
     };
 
+
     function update() {
       var format = 'yyyy-MM-dd h:mm:ss';
       scope.Beijing = $Date.getDateByCity(timezone.bj).toString(format);
