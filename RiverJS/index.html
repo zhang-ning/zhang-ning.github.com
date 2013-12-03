@@ -18,6 +18,7 @@
     <script src="public/app/controller/my.class.music.js"></script>
     <script src="public/app/controller/your.class.music.js"></script>
     <script src="public/app/controller/your.firstpage.controller.js"></script>
+    <script src="public/app/controller/sample.inherit.js"></script>
     <script src="public/app/plugin/ele-example.js"></script>
     <script src="public/app/plugin/my-time.js"></script>
   </head>
@@ -33,10 +34,12 @@
       <div class="page-body">
         <p><b>RiverJS</b> is a very smart framework with unbelievable 5.3kb size,but it contains
           a very powerful extendable two-way binding template system,and a very nice module
-          define system to make you feel that code organization is absolutely an artwork.As Riverjs doesn't hope to hogtie you by many concepts and APIs,and also as I'm a big fans of <a target="_blank" href="http://en.wikipedia.org/wiki/KISS_principle">Keep it simple, stupid</a> principle.RiverJS
-          doesn't contain any basic service like
-          ajax,animation yet in this version.But you can
-          learn how to use RiverJS to build them in 5 minutes,by reading the tutorial below with active examples.</p>
+          define system to make you feel that code organization is absolutely an artwork.As
+          Riverjs doesn't hope to hogtie you by many concepts and APIs,and also as I'm a
+          big fans of <a target="_blank" href="http://en.wikipedia.org/wiki/KISS_principle">Keep it simple, stupid</a> principle.RiverJS
+          doesn't contain any basic service like ajax,animation yet in this version.But you
+          can learn how to use RiverJS to build them in 5 minutes,by reading the tutorial
+          below with active examples.</p>
         <div class="row text-center download">
           <a href="river.min.js" download="river.min.js" class="btn btn-primary btn-lg"> <i class="glyphicon glyphicon-cloud-download"></i> Download <small>(0.1)</small>
 
@@ -204,6 +207,47 @@ define('my.class.music',function(){
             </div>
           </div>
         </div>
+         <h3>Nested <small><code>scope</code></small></h3>
+
+        <div class="row">
+          <div class="col-md-8"> <pre class="prettyprint lang-html linenums"><xmp><div scope="ctl.father">
+    <p>Name: {{ name }}</p>
+    <div scope = "ctl.son">
+     <p>Name : {{ name }}</p> <!-- cover father's pro -->
+     <p>Skill : {{ skill }}</p> 
+     <p>Where : {{ where }}</p> <!-- inherit from father -->
+</div></xmp></pre>
+ <pre class="prettyprint lang-javascript linenums">
+define('ctl.father',function(){
+  return function(){
+    this.name = "Peter";
+    this.where = "China";
+  };
+});
+
+
+define('ctl.son',function(){
+  return function(){
+    this.name = "Tomas";
+    this.skill = "dance";
+  };
+});
+ </pre>
+          </div>
+          <div class="col-md-4 well">
+            <div scope="ctl.father">
+              <p>Name : {{ name }}</p>
+              <div scope="ctl.son">
+                <p>Name : {{ name }}</p>
+                <!-- cover father's pro -->
+                <p>Skil : {{ skill }}</p>
+                <p>Where : {{ where }}</p>
+                <!-- inherit from father -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
         
 <h3><small>what's </small>Two-way binding</h3>
 
