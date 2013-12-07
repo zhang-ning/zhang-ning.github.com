@@ -39,7 +39,7 @@ test
 
 
 ***
->实现过错如下：
+>实现：
 
 首先下载，selenium可执行jar包
 http://chromedriver.storage.googleapis.com/index.html
