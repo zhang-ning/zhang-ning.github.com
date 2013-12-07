@@ -35,7 +35,7 @@ test
 ***
 
 
-!['repeat animations']i(https://dl.dropboxusercontent.com/u/161895058/Video/e2e.gif)
+!['repeat animations'](https://dl.dropboxusercontent.com/u/161895058/Video/e2e.gif)
 
 
 ***
