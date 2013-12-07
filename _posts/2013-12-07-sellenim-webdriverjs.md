@@ -35,7 +35,7 @@ test
 ***
 
 
-!['asdf'](/post-images/e2e.gif)
+!['repeat animations']i(https://dl.dropboxusercontent.com/u/161895058/Video/e2e.gif)
 
 
 ***
