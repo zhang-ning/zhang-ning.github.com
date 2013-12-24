@@ -40,6 +40,10 @@ define('lang.en',function(){
         "name":"besideriver.com",
         "during":"long time and Occasional",
         "info":"Personal website，build with github,jekyll,riverJS,css3,codrops,yoman,the purpose for building it is to show my wife's and my work achievement,and it also a good place to make some experiments of the latest technology."
+      },{
+        "name":"RiverJS",
+        "during": "long time and Occasional",
+        "info":"A powerful extendable two-way binding framework,which module define style is like CMD standard, but with a little different,cause I'm so interestting in two-way binding and data vasulization technologes, in the commint version,I maybe merger them togather into RiverJS.You can search `RiverJS` in google or open http://besideriver.com/RiverJS directotrly to know more."
       }]
     },{
       "name":"China New Sky Software Technology Compay",

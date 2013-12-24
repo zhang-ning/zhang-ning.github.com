@@ -40,7 +40,10 @@ define('lang.cn',function(){
         "name":"besideriver.com",
         "during":"long time and Occasional",
         "info":"个人网站，github,jekyll,riverJS,css3,codrops,yoman,建站的目的是为了更好的展现我和我老婆的工作成果,同时实验各种新技术"
-      }]
+      },{
+        "name":"RiverJS",
+        "during":"long time and Occasional",
+        "info":"一个可扩展的双向绑定框架，模块的封装风格部分收到了CMD规范的影响.这个框架的诞生，是因为我对数据双向绑定有着浓厚的兴趣，并且希望在下一个版本中融入数据可视化的功能.你可以通过Google搜索 `River`，或直接打开 http://besideriver.com/RiverJS 了解更多."}]
     },{
       "name":"中科新天科技有限公司",
       "during":"2010.1-2012.3",
