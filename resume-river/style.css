@@ -1,0 +1,21 @@
+.inline {
+  display: inline;
+}
+.absolut{
+  position:absolute;
+}
+.top{
+  top:0;
+}
+.right{
+  right:0
+}
+.lang{
+  display:inline-block;
+  margin-left:20px;
+  width:100px;
+}
+
+ul{
+  list-style:none;
+}
