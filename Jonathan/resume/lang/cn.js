@@ -5,9 +5,9 @@ define('lang.cn',function(){
     "gender" : "男",
     "location" : "北京",
     "work-year" : "六年",
-    "phone" : "15611335168",
+    "phone" : "hunter.dding@gmail.com",
     "welcome" : "欢迎阅读源代码,\n模块封装的风格受到了CommonJS规范的影响,\n模板引擎的实现受到了AngularJS的影响.\n更多精彩内容经请关注：@猎人丁丁,\n访问我的个人网站 http://besideriver.com",
-    "introduce" : "对创建有用，易用的应用程序有兴趣，注重应用程序的用户体验的同时注重功能性,5.5年编程经验，喜欢用vim在ubuntu上开发,这样使用git,make更方便,专注用户体验是这两年的事,法学毕业的我，喜欢用辩证的角度看问题，通过现象看本质，把简单的事情搞复杂从来与我无关，目前专注two-way binding 和 data driven document 两个流行在angularjs和d3js里的主要功能(这份简历的构建,包含了我对javascript和dom的理解,欢迎指教),为了有去美国出差的机会,目前供职于文思海辉Tibco部门UX组",
+    "introduce" : "对创建有用，易用的应用程序有兴趣，注重应用程序的用户体验的同时注重功能性,6年编程经验，喜欢用vim,tmux在ubuntu上开发,也爱git和node,两年前开始专注前端开发,对javascript动画，svg css3 html5都颇有了解,你可以通过访问我的个人网站了解我在这方面的技术水平.半年前通过使用Google AngularJS和D3开始接触javascript里的双向数据绑定和数据可视化.2个月前，我写了RiverJS,一个灵活小巧的前端框架,提供双向绑定和CMD的模块封装,它类似于AngularJS,但是体积更小.最近开始在npm上发布一些工具.",
     "works":[{
       "name":"文思海辉Tibco部门UX组",
       "during":"2012.4-Now",
@@ -43,15 +43,21 @@ define('lang.cn',function(){
       },{
         "name":"RiverJS",
         "during":"long time and Occasional",
-        "info":"一个可扩展的双向绑定框架，模块的封装风格部分收到了CMD规范的影响.这个框架的诞生，是因为我对数据双向绑定有着浓厚的兴趣，并且希望在下一个版本中融入数据可视化的功能.你可以通过Google搜索 `River`，或直接打开 http://besideriver.com/RiverJS 了解更多."}]
+        "info":"一个可扩展的双向绑定框架，模块的封装风格部分收到了CMD规范的影响.这个框架的诞生，是因为我对数据双向绑定有着浓厚的兴趣，并且希望在下一个版本中融入数据可视化的功能.你可以通过Google搜索 `River`，或直接打开 http://besideriver.com/RiverJS 了解更多."},
+        {
+          "name":"riverjs-even-sequence",
+          "during":"1 day",
+          "info":"将异步程序按顺序执行或并发执行的工具.你可以通过 npm install riverjs-event-sequence 来使用它"
+        }
+      ]
     },{
       "name":"中科新天科技有限公司",
       "during":"2010.1-2012.3",
-      "info":"国内企业应用软件"
+      "info":"国内企业应用软件开发，java、c#"
     },{
       "name":"华联信息部",
       "during":"2008.8-2009.12",
-      "info":"Unix维护和数据库开发"
+      "info":"Unix维护和数据库开发,bash、plsql、sql"
     }]
   };
   return cn;

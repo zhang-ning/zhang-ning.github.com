@@ -5,9 +5,9 @@ define('lang.en',function(){
     "gender" : "Male",
     "location" : "Beijing",
     "work-year" : "6 years",
-    "phone" : "+8615611335168",
+    "phone" : "hunter.dding@gmail.com",
     "welcome" : "Welcome to read source,\nPart of the module wrapping style is from CommonJS stand,\nand the template engine is effected by AngularJS.\nIf you want to know more,pleate fellow @hunterdding at twitter,\nand welcome to visit my website http://besideriver.com",
-    "introduce" : "I'm just interesting on creating powerful and easy to use applications,I'm so care about the user experience but also care about the functionally,I have been programming for 5.5years,and I like develop on ubuntu via vim, as use linux system is easy to use make and git when I fellow some open source porject,I just began to focus on the UX thing two years ago,my major law gives me the capability to analyise problmem from different view,I'm good at through the appearance to perceive the essence,I don't like and never do anything to make a simple thing become complex. And now I just focus on two main feature which has been used in popular AngularJS and D3 , that's two way binding and data visualization,when you see this resume,you can found that it already contains these feature in the implemention,but not finished yet,if you find any code should be better please feel free to tell me.And I want to go to American to work,so now I'm working for Pacter,the partner of the American Tibco for the opportunity for working in American.",
+    "introduce" : "Hello,If you are search a guy who is not only good at UX work, but also have much power at server-side even mobile-end,I'm your guy.Let me take five minutes break to introduce myself.You can call me Jonathan.I have been programming for 6 years,and I like develop on ubuntu via vim and tmux, linux system is fantastic,I learned a lot from it,and I also like the life at Github,read and make a contributes to opensource software.You can find that I'm not ease to stop forward.Two years ago I just fall in love with javascript,and so care about the user experience.at that time I began to focus on the UX thing as a professonal fron-end developer,I joined many projects and more important build a lot compoments with html5,css3,svg under W3C standard.Half year ago I begin to touch two-way data-binding and data visulization in javascript through AngularJS and D3.And Two month ago I wrote RiverJS a small framework but have powerful features like what Angular supply,you can find it at bellow.For node,you also can find my opensource work at NPM by the author name jonathan-zhang.Now you have already know me a littel bit.Hope have opportunity work with you :)",
     "works":[{
       "name":"UX of Tibco in Pactera",
       "during":"2012.4-Now",
@@ -44,6 +44,10 @@ define('lang.en',function(){
         "name":"RiverJS",
         "during": "long time and Occasional",
         "info":"A powerful extendable two-way binding framework,which module define style is like CMD standard, but with a little different,cause I'm so interestting in two-way binding and data vasulization technologes, in the commint version,I maybe merger them togather into RiverJS.You can search `RiverJS` in google or open http://besideriver.com/RiverJS directotrly to know more."
+      },{
+        "name":"riverjs-event-sequence",
+        "during": "1 day",
+        "info":"a tool for handling serial and parallel asynchronous event quene.you can install it througn npm install riverjs-event-sequence"
       }]
     },{
       "name":"China New Sky Software Technology Compay",
