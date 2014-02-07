@@ -19,3 +19,13 @@
 ul{
   list-style:none;
 }
+
+h4,h5{
+  display:inline-block;
+  font-weight:bolder;
+  margin-right:20px
+}
+strong,em{
+  display:inline;
+  opacity:.5;
+}
