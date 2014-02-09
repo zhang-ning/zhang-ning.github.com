@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Liner</title>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<script type="text/javascript" src="liner.js"></script>
+</head>
+
+<body onload="demoLiner()" style="">
+	<div id="linerDemoDiv">
+		<div><canvas id="linerCanvas" width="600px" height="250px" style="border:1px solid gray;"></canvas></div>
+		<div>
+			<select onchange="liner.switchMode(value);"  id="chooseMode">
+				<option value="0">1 - 1</option>
+				<option selected value="1">1 - N</option>
+				<option value="2">N - 1</option>
+				<option value="3">N - N</option>
+			</select>
+		</div>
+	</div>
+</body>
+</html>

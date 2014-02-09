@@ -1,0 +1,7 @@
+line.back0{
+	stroke-dasharray: 5 2;
+}
+line.back1, 
+polygon.back{
+	display: none;
+}
