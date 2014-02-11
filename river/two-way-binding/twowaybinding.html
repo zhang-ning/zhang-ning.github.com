@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Two Way Binding</title>
   <script type="text/javascript">
+<<<<<<< HEAD
 
 
   </script>
@@ -31,5 +32,51 @@
       </li>
     </ul>
   </div>
+=======
+ var cn = {
+    "title" : "Two way binding",
+    "description" : "",
+    "seasons" : [
+      {title: "Spring", features: [ "flower", "warm"]},
+      {title: "Summer", features: [ "spirit", "hot", "swimming"]},
+      {title: "Autum", features: [ "moon cake", "fruits", "orange"]},
+      {title: "Winter", features: [ "cold", "snow"]}
+    ]
+  };
+
+  </script>
+
+  <script type="text/javascript" src="twowaybinding.js"></script>
+  <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function(){console.log("DOMContentLoaded...");
+    start(cn, document.body);
+  });
+  </script>
+</head>
+
+<body>
+  <div class="container" scope="lang.cn">
+    <ul class="base-info">
+      <li mi="didi">{{ title }}  <input value="{{ title }}"></input></li>
+    </ul>
+    <p class="brive-info">
+      {{ description }}
+    </p>
+    <ul class="">
+      <li repeat="{{season in seasons}}">
+      <h3><span>{{season.title}}</span> <input value="{{season.title}}"></input></h3>
+        <article>
+          <ol class="">
+            <li repeat="{{feature in season.features}}">
+              <h5><span>{{feature}}</span></h5>
+              <input value="{{feature}}"></input>
+            </li>
+          </ol>
+        </article>
+        <hr />
+      </li>
+    </ul>
+  </div> 
+>>>>>>> 5bb0f26d0b2845ef2eb91176b2adabe62271ff69
 </body>
 </html>

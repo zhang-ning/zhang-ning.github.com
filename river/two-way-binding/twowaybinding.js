@@ -163,7 +163,11 @@
   var start = function(cn, dom){
     rootScope = cn;
     trace = cn;
+<<<<<<< HEAD
     scan(dom); //,rootScope
+=======
+    scan(document.body); //,rootScope
+>>>>>>> 5bb0f26d0b2845ef2eb91176b2adabe62271ff69
   }
   var rootScope;// = resume;
   var trace;//TBD
@@ -190,6 +194,7 @@
     }
   });
 
+<<<<<<< HEAD
  var default_binding = {
     "title" : "The Seasons",
     "description" : "",
@@ -204,3 +209,5 @@
   function demoTwowaybinding(data, div){
     start(data, div);
   }
+=======
+>>>>>>> 5bb0f26d0b2845ef2eb91176b2adabe62271ff69

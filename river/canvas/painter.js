@@ -5,15 +5,25 @@ function Painter(canvas){
 	this.trace = [];
 	this.durings = [];
 	this.during = {};
+<<<<<<< HEAD
+=======
+	var computedStyle = window.getComputedStyle(document.body, null);
+	this.diffLeft = parseInt(computedStyle.marginLeft);
+	this.diffTop = parseInt(computedStyle.marginTop);
+
+>>>>>>> 5bb0f26d0b2845ef2eb91176b2adabe62271ff69
 	if(typeof canvas === "string"){
 		canvas = document.getElementById(canvas);
 	}
 	this.canvas = canvas;
 	this.container = this.canvas.parentNode;
+<<<<<<< HEAD
 
 	var rect = this.canvas.getBoundingClientRect();
 	this.diffTop = Math.round(rect.top);
 	this.diffLeft = Math.round(rect.left);
+=======
+>>>>>>> 5bb0f26d0b2845ef2eb91176b2adabe62271ff69
 }
 
 Painter.prototype.init = function(e){
@@ -30,10 +40,17 @@ Painter.prototype.destroy = function(){
 
 Painter.prototype.startDrawLine = function(e){
 	//console.log("mousedown...");
+<<<<<<< HEAD
 	//console.log(e.pageX);
 	//console.log(e.pageY);
 	this.x1 = e.pageX; 
 	this.y1 = e.pageY;
+=======
+	//console.log(e.clientX);
+	//console.log(e.clientY);
+	this.x1 = e.clientX; 
+	this.y1 = e.clientY;
+>>>>>>> 5bb0f26d0b2845ef2eb91176b2adabe62271ff69
 	this.trace = [];
 	this.trace.push({x: this.x1, y: this.y1});
 	this.during = {start: (new Date()).getTime()};
@@ -56,8 +73,13 @@ Painter.prototype.startDrawLine = function(e){
 
 Painter.prototype.drawLineAtMoving = function(e){
 	//console.log("mousemove...");
+<<<<<<< HEAD
 	var x2 = e.pageX;
 	var y2 = e.pageY;
+=======
+	var x2 = e.clientX;
+	var y2 = e.clientY;
+>>>>>>> 5bb0f26d0b2845ef2eb91176b2adabe62271ff69
 	if(x2 && y2 && this.x1 && this.y1){
 		this.drawLine(this.x1, this.y1, x2, y2);
 		this.x1 = x2; 
@@ -68,8 +90,13 @@ Painter.prototype.drawLineAtMoving = function(e){
 
 Painter.prototype.stopDrawLine = function(e){
 	//console.log("mouseup...");
+<<<<<<< HEAD
 	var x = e.pageX;
 	var y = e.pageY;
+=======
+	var x = e.clientX;
+	var y = e.clientY;
+>>>>>>> 5bb0f26d0b2845ef2eb91176b2adabe62271ff69
 	if(this.trace){
 		this.traces.push(this.trace);
 		this.during.end = (new Date()).getTime();
