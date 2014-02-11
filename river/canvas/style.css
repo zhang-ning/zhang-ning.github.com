@@ -1,0 +1,88 @@
+#linerDemoDiv,
+#painterDemoDiv{
+	position: relative;
+}
+#chooseMode{
+	position: absolute;
+	top: 20px;
+	left: 370px;
+}
+.cover-list{
+	position: absolute;
+	top: 50px;
+	border: 0px solid black;
+}
+.cover-list li{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#left-list,
+#right-list{
+	padding: 0px;
+}
+#left-list{
+	left: 150px;
+	text-align: right;
+	margin-right: -20px;
+}
+#right-list{
+	left: 400px;
+	margin-left: -20px;
+}
+li.off {
+	list-style-type: none;
+}
+.left-list-item{
+
+}
+.right-list-item{
+
+}
+.left-list-item:after {
+	/*content: url(images/circle.png);*/
+	margin-left: 10px;
+}
+.right-list-item:before {
+	/*content: url(images/circle.png);*/
+	margin-right: 10px;
+}
+
+/*amx-entity start*/
+.entity-text{
+	position: absolute;
+	border: 0px solid black;
+	text-align: center;
+
+}
+.node-text, .host-text{
+	position: absolute;
+	border: 1px solid black;
+	text-align: center;
+}
+.environment-text{
+	position: absolute;
+	border: 1px dashed black;
+	text-align: left;
+	z-index: -1;
+}
+.operations-div{
+	position: absolute;
+	border: 1px solid black;
+	background-color: white;
+	z-index: 1;
+	display: none;
+}
+.operator-link{
+	cursor: pointer;
+	text-decoration: underline;
+}
+/*amx-entity end*/
+.demo-div{
+	width: 200px;
+	height: 200px;
+	float: left;
+	border: 1px solid;
+	margin: 5px;
+	text-align: center;
+}
+

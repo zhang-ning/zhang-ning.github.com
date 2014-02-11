@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Two Way Binding</title>
+  <script type="text/javascript">
+
+
+  </script>
+  <script type="text/javascript" src="twowaybinding.js"></script>
+</head>
+
+<body onload="demoTwowaybinding(default_binding, document.getElementById('demoTwowaybindingDiv'))">
+  <div id="demoTwowaybindingDiv">
+    <div>
+      <span>{{title}}</span>
+      <input value="{{ title }}"></input>
+    </div>
+    <ul repeat="{{season in seasons}}">
+      <li>
+        <div>
+          <span>{{season.title}}</span>
+          <input value="{{season.title}}"></input>
+        </div>
+        <ul>
+          <li repeat="{{feature in season.features}}">
+            <span>{{feature}}</span>
+            <input value="{{feature}}"></input>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
