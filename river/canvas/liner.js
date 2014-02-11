@@ -88,11 +88,7 @@ Liner.prototype.startDrawLine = function(e){
 	}
 
 	this.container.addEventListener("mousemove", this.drawLineAtMovingReference, false);
-<<<<<<< HEAD
 	window.addEventListener("mouseup", this.stopDrawLineReference, false);
-=======
-	this.container.addEventListener("mouseup", this.stopDrawLineReference, false);
->>>>>>> 5bb0f26d0b2845ef2eb91176b2adabe62271ff69
 }
 
 Liner.prototype.drawLineAtMoving = function(e){
@@ -121,11 +117,7 @@ Liner.prototype.stopDrawLine = function(e){
 			endItemId = this.closestTo(e.pageX - this.diffLeft, e.pageY - this.diffTop, this.listLen1, this.startTop, this.startHeight);
 			this.pushPair(endItemId, this.startItemId);
 		}
-<<<<<<< HEAD
 		//this.drawLine(this.originalX1, this.originalY1, e.pageX, e.pageY, this.canvas);
-=======
-		//this.drawLine(this.originalX1, this.originalY1, e.clientX, e.clientY, this.canvas);
->>>>>>> 5bb0f26d0b2845ef2eb91176b2adabe62271ff69
 	}else{
 		this.startFrom = null;
 	}
@@ -135,11 +127,7 @@ Liner.prototype.stopDrawLine = function(e){
 		delete this.drawLineAtMovingReference;
 	}
 	if(this.stopDrawLineReference){
-<<<<<<< HEAD
 		window.removeEventListener("mouseup", this.stopDrawLineReference, false);
-=======
-		this.container.removeEventListener("mouseup", this.stopDrawLineReference, false);
->>>>>>> 5bb0f26d0b2845ef2eb91176b2adabe62271ff69
 		delete this.stopDrawLineReference;
 	}
 
@@ -189,15 +177,11 @@ Liner.prototype.reproduceImage = function(){
 	this.fillHotArea();
 	this.drawList();
 
-<<<<<<< HEAD
 	this.produceImage(this.matchPairs);
 }
 
 Liner.prototype.produceImage = function(matchPairs){
 	//var matchPairs = this.matchPairs;
-=======
-	var matchPairs = this.matchPairs;
->>>>>>> 5bb0f26d0b2845ef2eb91176b2adabe62271ff69
 	var startPoints, endPoints;
 	var diff1 = 1/2*this.startWidth - Liner.markMargin + Liner.markRadiu;
 	var diff2 = -1*1/2*this.endWidth + Liner.markMargin - Liner.markRadiu;
@@ -342,17 +326,10 @@ Liner.prototype.initData = function(list1, list2){
 	this.listLen1 = list1.length;
 	this.listLen2 = list2.length;
 }
-<<<<<<< HEAD
 Liner.DEMO_MATCHPAIRS = {"0":[2]};
-=======
-
->>>>>>> 5bb0f26d0b2845ef2eb91176b2adabe62271ff69
 function demoLiner(){
 	var mode = document.getElementById("chooseMode").value;
 	window.liner = new Liner("linerCanvas", mode);
 	liner.init();
-<<<<<<< HEAD
 	liner.produceImage(Liner.DEMO_MATCHPAIRS);
-=======
->>>>>>> 5bb0f26d0b2845ef2eb91176b2adabe62271ff69
 }
