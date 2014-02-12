@@ -28,6 +28,8 @@
 <script type="text/javascript" src="cube/cube.js"></script>
 <script type="text/javascript" src="swimRing/river-utils.js"></script>
 <script type="text/javascript" src="swimRing/swimRingChart.js"></script>
+<script type="text/javascript" src="tip/tip.js"></script>
+<script type="text/javascript" src="tip/pears.js"></script>
 
 <script type="text/javascript" src="two-way-binding/twowaybinding.js"></script>
 <script type="text/javascript">
@@ -37,6 +39,7 @@
 		demoCube(); 
 		demoSwimRing(groups1);
 		demoTwowaybinding(default_binding, document.getElementById('demoTwowaybindingDiv'));
+		demoTip();
 	}
 </script>
 </head>
@@ -122,6 +125,16 @@
 		</div>
 		<area id="twowaybinding-code">
 		</area>
+	</div>
+
+	<div id="demoTipDiv" style="position: relative; margin-top: 25px;">
+		<svg id="demoTipSVG" width="800" height="300" style="border: 1px solid gray;">
+			<g id="pearsG"></g>
+			<!--<g id="tipG">-->
+				<path id="tipPath" fill="white" stroke="brown" stroke-witdh="1"></path>
+				<text id="tipText" text-anchor="middle" fill="gray"></text>
+			<!--</g>-->
+		</svg>
 	</div>
 
 </body>
