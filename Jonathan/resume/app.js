@@ -21,7 +21,7 @@ define('app', function() {
       //switch language
       scope.inject(language[key]);
 
-      console.clear();
+      //console.clear();
       console.log(language[key].welcome);
     };
   };
