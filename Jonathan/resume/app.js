@@ -15,7 +15,7 @@ define('app', function() {
     console.log(language.en.welcome);
 
     //just inject English lang object to this
-    scope.inject(language.en);
+    scope.inject(language.cn);
 
     this.switchLang = function(key) {
       //switch language
