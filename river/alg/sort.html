@@ -1,0 +1,26 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+	<script type="text/javascript" src="sort.js"></script>
+	<script type="text/javascript" src="../tools/drawer.js"></script>
+	<script type="text/javascript" src="virtualizeSortAlg.js"></script>
+	<script type="text/javascript" src="mergeSort.js"></script>
+</head>
+<body onload="startSort('quickSort');" style="margin: 0px;">
+	<div id="demoAlgDiv" style="position: relative;">
+		<svg id="demoAlg_svg" width="800" height="400" style="border: 1px solid gray;">
+			<g id="main_g" ></g>
+			<g id="temp_g" transform="translate(0,150)"></g>
+		</svg>
+		<div style="position: relative; top: -30px;">
+			<button onclick="startSort('quickSort');" class="sort-btn quickSort">Quick Sort</button>
+			<button onclick="startSort('bubbleSort');" class="sort-btn bubbleSort">Bubble Sort</button>
+			<button onclick="startSort('mergeSort');" class="sort-btn mergeSort">Merge Sort</button>
+			<span style="margin-left: 10px;">Num</span>
+			<input type="text" value="10" id="sort_num"></input>
+			<span>Speed</span>
+			<input type="text" value="8" id="sort_speed"></input>
+		</div>
+	</div>
+</body>
+</html>

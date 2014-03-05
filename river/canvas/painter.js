@@ -111,12 +111,14 @@ Painter.prototype.replay = function(traces, durings){
 	var current = 0;
 	var myCount = 0;
 	var trace = traces[current];//self.
-	var intervalRef = startDrawingInterval();
+	//var intervalRef = 
+	startDrawingInterval();
 	var total = traces.length - 1;//self.
 
 	function startDrawingInterval(){
 		var options = self._getOptions(trace, durings[current]);//self.
-		return setInterval(function(){
+		//return 
+		var intervalRef = setInterval(function(){
 			if(myCount < options.count - 1){
 				self.drawLine(trace[myCount].x, trace[myCount].y, trace[myCount + 1].x, trace[myCount + 1].y);
 				myCount++;
@@ -126,7 +128,8 @@ Painter.prototype.replay = function(traces, durings){
 					myCount = 0;
 					current++;
 					trace = traces[current];//self.
-					intervalRef = startDrawingInterval();
+					//intervalRef = 
+					startDrawingInterval();
 				}else{
 					this.g = null;
 				}

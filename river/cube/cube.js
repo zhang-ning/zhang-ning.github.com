@@ -320,29 +320,7 @@ Cube.prototype.stepV = function(by){
 	this.redraw(this.cx, this.cy, this.l, this.w, this.h, this.angleV + by, this.angleH);
 }
 
-var drawer = {};
-drawer.svgns = "http://www.w3.org/2000/svg";
-drawer.clearSvg = function(g){
-	var child = g.firstChild,
-	nextSibling;
-	while(child){
-		nextSibling = child.nextSibling;
-		g.removeChild(child);
-		child = nextSibling;
-	}
-}
 
-drawer.drawLine = function(x1, y1, x2, y2, g, color){
-	var line = document.createElementNS(drawer.svgns, "line");
-	line.setAttribute("x1", x1);
-	line.setAttribute("y1", y1);
-	line.setAttribute("x2", x2);
-	line.setAttribute("y2", y2);
-	line.setAttribute("stroke-width", 1);
-	line.setAttribute("stroke", color);
-	g.appendChild(g);
-	return line;
-}
 
 
 var cube,

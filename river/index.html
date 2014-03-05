@@ -21,7 +21,7 @@
 		margin: 10px 0px;
 	}
 </style>
-
+<script type="text/javascript" src="tools/drawer.js"></script>
 <script type="text/javascript" src="canvas/painter.js"></script>
 <script type="text/javascript" src="canvas/liner.js"></script>
 <script type="text/javascript" src="canvas/painter-defaults.js"></script>
@@ -30,6 +30,9 @@
 <script type="text/javascript" src="swimRing/swimRingChart.js"></script>
 <script type="text/javascript" src="tip/tip.js"></script>
 <script type="text/javascript" src="tip/pears.js"></script>
+<script type="text/javascript" src="alg/sort.js"></script>
+<script type="text/javascript" src="alg/virtualizeSortAlg.js"></script>
+<script type="text/javascript" src="alg/mergeSort.js"></script>
 
 <script type="text/javascript" src="two-way-binding/twowaybinding.js"></script>
 <script type="text/javascript">
@@ -40,6 +43,7 @@
 		demoSwimRing(groups1);
 		demoTwowaybinding(default_binding, document.getElementById('demoTwowaybindingDiv'));
 		demoTip();
+		startSort('quickSort');
 	}
 </script>
 </head>
@@ -87,6 +91,22 @@
 			<button onclick="demoV()" style="vertical-align: top;">Demo V</button>
 			<!--<button onclick="cube.stepAlgH(30, svg) " style="vertical-align: top;">Alg H</button>
 			<button onclick="cube.stepAlgV(15) " style="vertical-align: top;">Alg V</button>-->
+		</div>
+	</div>
+
+	<div id="demoAlgDiv" style="position: relative;">
+		<svg id="demoAlg_svg" width="800" height="350" style="border: 1px solid gray;">
+			<g id="main_g" ></g>
+			<g id="temp_g" transform="translate(0,150)"></g>
+		</svg>
+		<div style="position: relative; top: -30px;">
+			<button onclick="startSort('quickSort');" class="sort-btn quickSort">Quick Sort</button>
+			<button onclick="startSort('bubbleSort');" class="sort-btn bubbleSort">Bubble Sort</button>
+			<button onclick="startSort('mergeSort');" class="sort-btn mergeSort">Merge Sort</button>
+			<span style="margin-left: 10px;">Num</span>
+			<input type="text" value="10" id="sort_num"></input>
+			<span>Speed</span>
+			<input type="text" value="8" id="sort_speed"></input>
 		</div>
 	</div>
 
