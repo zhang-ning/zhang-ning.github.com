@@ -2,8 +2,8 @@ function demoTip () {
 	var svgEle = document.getElementById("demoTipSVG"),
 		pearsG = document.getElementById("pearsG"),
 		tipG = document.getElementById("pearsG"),//tipG
-		width = Number( svgEle.getAttribute("width").replace("px", 0) ),
-		height = Number( svgEle.getAttribute("height").replace("px", 0) ),
+		width = Number( svgEle.getAttribute("width").replace("px", "") ),
+		height = Number( svgEle.getAttribute("height").replace("px", "") ),
 		CR = 10;
 
 	window.tipPath = document.getElementById("tipPath");

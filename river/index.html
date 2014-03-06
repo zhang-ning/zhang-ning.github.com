@@ -20,10 +20,12 @@
 	.title{
 		margin: 10px 0px;
 	}
-	.demo-board, .swimring{
+	.demo-board{
 		/*border: 0px solid #c2c2c2;*/
 		border-radius: 4px;
 		box-shadow: 0px 0px 8px gray;
+		position: relative;
+		display: inline-block;
 	}
 </style>
 <script type="text/javascript" src="tools/drawer.js"></script>
@@ -41,7 +43,29 @@
 
 <script type="text/javascript" src="two-way-binding/twowaybinding.js"></script>
 <script type="text/javascript">
-	function  demos() {
+	var boardWidth = 800;
+	function detectWindow(){
+		var innerWidth = window.innerWidth;
+		console.log(innerWidth);
+		if(innerWidth < boardWidth + 8 * 2){
+			boardWidth = innerWidth - 8 * 2;
+		}
+		console.log(boardWidth);
+		var boards = document.querySelectorAll(".demo-board");
+		for(var i = boards.length - 1; i >= 0; i--){
+			if(boards[i].tagName.toUpperCase() === "SVG"){
+				boards[i].setAttribute("width", boardWidth);
+			}else if(boards[i].tagName.toUpperCase() === "CANVAS"){//
+				boards[i].setAttribute("width", boardWidth + "px");
+			}else{
+				boards[i].style.width = boardWidth + "px";
+			}
+		}
+	}
+
+	function demos() {
+		detectWindow();
+
 		demoPainter(); 
 		demoLiner(); 
 		demoCube(); 
@@ -118,18 +142,18 @@
 	</div>
 
 	<div id="swimRingDemoDiv">
-		<div style="position: relative; top: 30px; left: 300px; min-width: 100px; cursor: pointer;">
-		  <select onchange="redemoSwimRing(value)">
+		<div id="swimRingDiv" style="position: relative; display: inline-block">
+		  <svg id="swimRing_svg" width="800" height="350" class="demo-board"></svg>
+		  <select onchange="redemoSwimRing(value)" style="position: absolute; right: 15px; top: 15px;">
 		    <option selected value="1">Grains</option>
 		    <option value="2">Vegitables</option>
 		    <option value="3">Fruits</option>
 		  </select>
 		</div>
-		<div id="swimRingDiv" ></div>
 	</div>
 
 	<div id="demoTwowaybindingDiv" style=" margin-top: 25px; ">
-		<div class="demo-board" class="demo-board" style="display: inline-block; width: 800px;">
+		<div class="demo-board">
 			<div class="center-block">
 				<h4>River's Template Language engine (like AngularJS)</h4>
 				<div>

@@ -149,6 +149,7 @@ function buttonStatus (sortType) {
 }
 
 function randomArray() {
+	var containerW = parseInt( document.getElementById("demoAlg_svg").getAttribute("width") );
 	var sort_num = document.getElementById("sort_num").value;
 	if(/[^0-9]/.test(sort_num)){
 		document.getElementById("sort_num").value = SORT_NUM;
@@ -159,20 +160,22 @@ function randomArray() {
 	if(sort_num === SORT_NUM){
 		return;
 	}
-	if(sort_num > 180){
-		sort_num = 180;
+	var MIN_W = 2;
+	console.log(sort_num * 2 * MIN_W , (containerW - 2 * createBars.X));
+	if(sort_num * 2 * MIN_W > (containerW - 2 * createBars.X)){//TBD River max width 2
+		sort_num = Math.floor( (containerW - 2 * createBars.X) / 2 / MIN_W );
 		document.getElementById("sort_num").value = sort_num;
 	}
+	
 
 	//var 
 	a = [];
-	var containerW = parseInt( document.getElementById("demoAlg_svg").getAttribute("width") );
 	var w = Math.floor( (containerW - 2 * createBars.X) / 2 / sort_num );
 	if(w < createBars.W){
 		createBars.W = w;
 		createBars.GAP = createBars.W;
 	}
-
+console.log("sort_num: " + sort_num, w);
 	var value;
 	for(var i = 0; i < sort_num; i++){
 		value = Math.floor( Math.random() * exchanging.DISTANCEY );
@@ -206,3 +209,5 @@ function setOptions(num) {
 	
 	SORT_SPEED = sort_speed;
 }
+
+
