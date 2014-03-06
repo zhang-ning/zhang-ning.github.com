@@ -3,9 +3,8 @@
 	position: relative;
 }
 #chooseMode{
-	position: absolute;
-	top: 20px;
-	left: 370px;
+	position: relative;
+	top: 30px;
 }
 .cover-list{
 	position: absolute;

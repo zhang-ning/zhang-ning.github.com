@@ -20,6 +20,11 @@
 	.title{
 		margin: 10px 0px;
 	}
+	.demo-board, .swimring{
+		/*border: 0px solid #c2c2c2;*/
+		border-radius: 4px;
+		box-shadow: 0px 0px 8px gray;
+	}
 </style>
 <script type="text/javascript" src="tools/drawer.js"></script>
 <script type="text/javascript" src="canvas/painter.js"></script>
@@ -48,9 +53,9 @@
 </script>
 </head>
 
-<body onload="demos()" style="">
+<body onload="demos()" style="text-align: center;">
 	<div id="painterDemoDiv" >
-		<canvas id="painterCanvas" width="800px" height="450px" style="border:1px solid gray;"></canvas>
+		<canvas id="painterCanvas" width="800px" height="450px" class="demo-board"></canvas>
 		<div style="position: relative; top: -30px;">
 			<button onclick="painter.clear()">Clear</button>
 			<button onclick="painter.replay(painter.traces, painter.durings)">Replay</button>
@@ -60,7 +65,6 @@
 	</div>
 
 	<div id="linerDemoDiv" style="margin-bottom: 25px;">
-		<div><canvas id="linerCanvas" width="800px" height="250px" style="border:1px solid gray;"></canvas></div>
 		<div>
 			<select onchange="liner.switchMode(value);"  id="chooseMode">
 				<option value="0">1 - 1</option>
@@ -69,10 +73,13 @@
 				<option value="3">N - N</option>
 			</select>
 		</div>
+		<div>
+			<canvas id="linerCanvas" width="800px" height="250px" class="demo-board"></canvas>
+		</div>
 	</div>
 
 	<div id="cubeDemoDiv">
-		<svg id="cube_svg" width="800" height="350" style="border: 1px solid gray;">
+		<svg id="cube_svg" width="800" height="350" class="demo-board">
 		</svg>
 		<div style="position: relative; top: -30px; padding-left: 30px;">
 			<select id="cube_type" onchange="cube.type = Number(this.value);" style="display: none;">
@@ -95,7 +102,7 @@
 	</div>
 
 	<div id="demoAlgDiv" style="position: relative;">
-		<svg id="demoAlg_svg" width="800" height="350" style="border: 1px solid gray;">
+		<svg id="demoAlg_svg" width="800" height="350" class="demo-board">
 			<g id="main_g" ></g>
 			<g id="temp_g" transform="translate(0,150)"></g>
 		</svg>
@@ -104,51 +111,53 @@
 			<button onclick="startSort('bubbleSort');" class="sort-btn bubbleSort">Bubble Sort</button>
 			<button onclick="startSort('mergeSort');" class="sort-btn mergeSort">Merge Sort</button>
 			<span style="margin-left: 10px;">Num</span>
-			<input type="text" value="10" id="sort_num"></input>
+			<input type="text" value="60" id="sort_num"></input>
 			<span>Speed</span>
 			<input type="text" value="8" id="sort_speed"></input>
 		</div>
 	</div>
 
-	<div id="swimRingDemoDiv" style="position: relative; width:800px; border: 1px solid gray;">
-		<div id="swimRingDiv"></div>
-		<div style="position: absolute; top: 15px; right: 0px; min-width: 100px; cursor: pointer;">
+	<div id="swimRingDemoDiv">
+		<div style="position: relative; top: 30px; left: 300px; min-width: 100px; cursor: pointer;">
 		  <select onchange="redemoSwimRing(value)">
 		    <option selected value="1">Grains</option>
 		    <option value="2">Vegitables</option>
 		    <option value="3">Fruits</option>
 		  </select>
 		</div>
+		<div id="swimRingDiv" ></div>
 	</div>
 
-	<div id="demoTwowaybindingDiv" style="width: 800px; border: 1px solid gray; margin-top: 25px; text-align: center;">
-		<div class="center-block">
-			<h4>River's Template Language engine (like AngularJS)</h4>
-			<div>
-			  <span>{{title}}</span>
-			  <input value="{{ title }}"></input>
+	<div id="demoTwowaybindingDiv" style=" margin-top: 25px; ">
+		<div class="demo-board" class="demo-board" style="display: inline-block; width: 800px;">
+			<div class="center-block">
+				<h4>River's Template Language engine (like AngularJS)</h4>
+				<div>
+				  <span>{{title}}</span>
+				  <input value="{{ title }}"></input>
+				</div>
+				<ul repeat="{{season in seasons}}">
+				  <li>
+				    <div>
+				      <span>{{season.title}}</span>
+				      <input value="{{season.title}}"></input>
+				    </div>
+				    <ul>
+				      <li repeat="{{feature in season.features}}">
+				        <span>{{feature}}</span>
+				        <input value="{{feature}}"></input>
+				      </li>
+				    </ul>
+				  </li>
+				</ul>
 			</div>
-			<ul repeat="{{season in seasons}}">
-			  <li>
-			    <div>
-			      <span>{{season.title}}</span>
-			      <input value="{{season.title}}"></input>
-			    </div>
-			    <ul>
-			      <li repeat="{{feature in season.features}}">
-			        <span>{{feature}}</span>
-			        <input value="{{feature}}"></input>
-			      </li>
-			    </ul>
-			  </li>
-			</ul>
+			<area id="twowaybinding-code">
+			</area>
 		</div>
-		<area id="twowaybinding-code">
-		</area>
 	</div>
 
 	<div id="demoTipDiv" style="position: relative; margin-top: 25px;">
-		<svg id="demoTipSVG" width="800" height="300" style="border: 1px solid gray;">
+		<svg id="demoTipSVG" width="800" height="300" class="demo-board">
 			<g id="pearsG"></g>
 			<!--<g id="tipG">-->
 				<path id="tipPath" fill="white" stroke="brown" stroke-witdh="1"></path>

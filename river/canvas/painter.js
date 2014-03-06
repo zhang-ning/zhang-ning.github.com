@@ -32,8 +32,8 @@ Painter.prototype.startDrawLine = function(e){
 	//console.log("mousedown...");
 	//console.log(e.pageX);
 	//console.log(e.pageY);
-	this.x1 = e.pageX; 
-	this.y1 = e.pageY;
+	this.x1 = e.pageX - this.diffLeft; 
+	this.y1 = e.pageY - this.diffTop;
 	this.trace = [];
 	this.trace.push({x: this.x1, y: this.y1});
 	this.during = {start: (new Date()).getTime()};
@@ -56,8 +56,8 @@ Painter.prototype.startDrawLine = function(e){
 
 Painter.prototype.drawLineAtMoving = function(e){
 	//console.log("mousemove...");
-	var x2 = e.pageX;
-	var y2 = e.pageY;
+	var x2 = e.pageX - this.diffLeft;
+	var y2 = e.pageY - this.diffTop;
 	if(x2 && y2 && this.x1 && this.y1){
 		this.drawLine(this.x1, this.y1, x2, y2);
 		this.x1 = x2; 
@@ -68,8 +68,8 @@ Painter.prototype.drawLineAtMoving = function(e){
 
 Painter.prototype.stopDrawLine = function(e){
 	//console.log("mouseup...");
-	var x = e.pageX;
-	var y = e.pageY;
+	var x = e.pageX - this.diffLeft;
+	var y = e.pageY - this.diffTop;
 	if(this.trace){
 		this.traces.push(this.trace);
 		this.during.end = (new Date()).getTime();
@@ -90,10 +90,10 @@ Painter.prototype.stopDrawLine = function(e){
 
 Painter.prototype.drawLine = function(x1, y1, x2, y2){
 	//console.log(x1 + " "+ y1);console.log(x2 + " "+ y2);
-	x1 = x1 - this.diffLeft;
+	/*x1 = x1 - this.diffLeft;
 	y1 = y1 - this.diffTop;
 	x2 = x2 - this.diffLeft;
-	y2 = y2 - this.diffTop;
+	y2 = y2 - this.diffTop;*/
 
 	var g = this.g;
 

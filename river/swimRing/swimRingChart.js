@@ -203,7 +203,7 @@ SwimRingChart.prototype.setDefaultStyle = function(){
 }
 
 
-  var width = 700,
+  var width = 800,
       height = 400,
       r1 = 125,
       r2 = 85,
@@ -251,6 +251,7 @@ SwimRingChart.prototype.setDefaultStyle = function(){
 
   function demoSwimRing (groups) {
     var swimRing = new SwimRingChart(groups, width, height, r1, r2, strokeWidth);
+    swimRing.chart.setAttribute("class", "swimring");
     document.getElementById("swimRingDiv").appendChild(swimRing.chart);
   }
 
