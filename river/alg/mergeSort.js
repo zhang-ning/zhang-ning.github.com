@@ -74,9 +74,9 @@ function migrating (bars, records, line, current, step ) {//start, end, steps, s
 	var PIECEX = Math.floor( distance / exchanging.DISTANCEY * exchanging.PIECE );
 
 
-	moving(one, total, direction1, 0 );
+	moving(one, total, direction1 );
 
-	function moving(it, total, direction, index) {
+	function moving(it, total, direction) {
 		var count = 1;
 		var intervalRef = setInterval(function(){
 			//console.log("moving...");

@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Demos</title>
-<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
 <link rel="stylesheet" type="text/css" href="canvas/style.css" title="Texts on Canvas Styles"/>
 <link rel="stylesheet" type="text/css" href="cube/cube.css">
 
@@ -27,6 +27,12 @@
 		position: relative;
 		display: inline-block;
 	}
+	#sort_num,
+	#sort_speed,
+	#hanoi_num,
+	#hanoi_speed{
+		width: 50px;
+	}
 </style>
 <script type="text/javascript" src="tools/drawer.js"></script>
 <script type="text/javascript" src="canvas/painter.js"></script>
@@ -40,15 +46,15 @@
 <script type="text/javascript" src="alg/sort.js"></script>
 <script type="text/javascript" src="alg/virtualizeSortAlg.js"></script>
 <script type="text/javascript" src="alg/mergeSort.js"></script>
-
+<script type="text/javascript" src="hanoi/hanoi.js"></script>
 <script type="text/javascript" src="two-way-binding/twowaybinding.js"></script>
 <script type="text/javascript">
 	var boardWidth = 800;
 	function detectWindow(){
 		var innerWidth = window.innerWidth;
 		console.log(innerWidth);
-		if(innerWidth < boardWidth + 8 * 2){
-			boardWidth = innerWidth - 8 * 2;
+		if(innerWidth < boardWidth + 50 * 2){
+			boardWidth = innerWidth - 50 * 2;
 		}
 		console.log(boardWidth);
 		var boards = document.querySelectorAll(".demo-board");
@@ -61,6 +67,12 @@
 				boards[i].style.width = boardWidth + "px";
 			}
 		}
+		//TBD River
+		var demoHanoi_svg_w = parseInt( document.getElementById("demoHanoi_svg").getAttribute("width") );
+		console.log("demoHanoi_svg_w", demoHanoi_svg_w, boardWidth);
+		if(boardWidth < demoHanoi_svg_w){
+			document.getElementById("demoHanoi_svg").setAttribute("width", boardWidth);
+		}
 	}
 
 	function demos() {
@@ -72,14 +84,18 @@
 		demoSwimRing(groups1);
 		demoTwowaybinding(default_binding, document.getElementById('demoTwowaybindingDiv'));
 		demoTip();
-		startSort('quickSort');
+		sortPrepare();
+		//startSort('quickSort');
+		demoHanoi();
 	}
 </script>
 </head>
 
 <body onload="demos()" style="text-align: center;">
 	<div id="painterDemoDiv" >
-		<canvas id="painterCanvas" width="800px" height="450px" class="demo-board"></canvas>
+		<div style="display: inline-block;">
+			<canvas id="painterCanvas" width="800px" height="450px" class="demo-board"></canvas>
+		</div>
 		<div style="position: relative; top: -30px;">
 			<button onclick="painter.clear()">Clear</button>
 			<button onclick="painter.replay(painter.traces, painter.durings)">Replay</button>
@@ -88,16 +104,17 @@
 		</div>
 	</div>
 
-	<div id="linerDemoDiv" style="margin-bottom: 25px;">
+	<div id="linerDemoDiv" style="margin-bottom: 45px;">
 		<div>
-			<select onchange="liner.switchMode(value);"  id="chooseMode">
+			<select onchange="liner.switchMode(value);"  id="chooseMode" style="z-index: 10;">
 				<option value="0">1 - 1</option>
 				<option selected value="1">1 - N</option>
 				<option value="2">N - 1</option>
 				<option value="3">N - N</option>
 			</select>
+			<input id="test-in" style="display: none;"></input>
 		</div>
-		<div>
+		<div style="display: inline-block;">
 			<canvas id="linerCanvas" width="800px" height="250px" class="demo-board"></canvas>
 		</div>
 	</div>
@@ -135,9 +152,50 @@
 			<button onclick="startSort('bubbleSort');" class="sort-btn bubbleSort">Bubble Sort</button>
 			<button onclick="startSort('mergeSort');" class="sort-btn mergeSort">Merge Sort</button>
 			<span style="margin-left: 10px;">Num</span>
-			<input type="text" value="60" id="sort_num"></input>
+			<input type="text" value="30" id="sort_num"></input>
 			<span>Speed</span>
 			<input type="text" value="8" id="sort_speed"></input>
+		</div>
+	</div>
+
+	<div id="demoHanoiDiv" style="position: relative; margin-bottom: 30px;">
+		<div class="demo-board" style="">
+			<div style="stroke-width: 2; stroke: black; float: left;">
+				<svg id="demoHanoi_svg" width="500" height="400" >
+				</svg>
+				<div style="clear: both; position: relative; top: -30px;">
+					<button onclick="demoHanoi();" id="hanoi-btn" style="width: 100px;">Start</button>
+					<span style="margin-left: 10px;">Num</span>
+					<input type="text" value="3" id="hanoi_num"></input>
+					<span>Speed</span>
+					<input type="text" value="8" id="hanoi_speed" ></input>
+				</div>
+			</div>
+			<div class="" style="overflow: auto; min-width: 100px; text-align: left;">
+				<span>
+					<a href="http://zh.wikipedia.org/wiki/%E6%B1%89%E8%AF%BA%E5%A1%94">汉诺塔</a><a href="http://en.wikipedia.org/wiki/Tower_of_Hanoi" style="margin-left: 10px;">Tower of Hanoi</a>
+				</span>
+				<ul>
+					<li>每次只能移动一个盘子；</li>
+					<li>只有最顶上的盘子可以移动；</li>
+					<li>大的盘子不能放在小盘子上方；</li>
+				</ul>
+				<!--Each time move one dish;
+				Only the uppermost dish on a stack can be moved;
+				A bigger dish cannot be placed over a smaller one-->
+				<div id="steps_desc">
+					<ul>
+						<li>移动n个盘子所需步骤是2<sup>n</sup>-1次</li>
+						<li>3个盘子需要7步</li>
+						<li>8个盘子需要255步</li>
+						<li>10个盘子需要1023步</li>
+						<li>15个盘子需要32767步</li>
+						<li>20个盘子需要1048575步</li>
+					</ul>
+					<p>经过我在自己电脑的chrome浏览器中测试，我的浏览器只能最多承受23个盘子；</p>
+					<p >当前所需步骤 <span id="hanoi_steps"></span></p>
+				</div>
+			</div>
 		</div>
 	</div>
 

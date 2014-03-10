@@ -16,11 +16,15 @@ function Liner(canvas, mode){
 	var rect = this.canvas.getBoundingClientRect();
 	this.diffTop = Math.round(rect.top);
 	this.diffLeft = Math.round(rect.left);
-
+	this.testIn = document.getElementById("test-in");
 }
 Liner.gapV = 30;
 Liner.markMargin = 15;
 Liner.markRadiu = 3;
+
+Liner.startEvent = ('ontouchstart' in window ? 'touchstart' : 'mousedown');
+Liner.endEvent = ('ontouchend' in window ? 'touchend' : 'mouseup');
+Liner.moveEvent = ('ontouchmove' in window ? 'touchmove' : 'mousemove');
 
 Liner.prototype.switchMode = function(mode){
 	this.matchPairs = {};
@@ -46,17 +50,19 @@ Liner.prototype.init = function(e){
 	var self = this;
 	this.startDrawLineReference= function(e){
 		e.preventDefault();
+		//e.stopPropagation();
 		self.startDrawLine(e);
 	}
-	this.container.addEventListener("mousedown", this.startDrawLineReference, false);
+	this.container.addEventListener(Liner.startEvent, this.startDrawLineReference, false);
 }
 
 Liner.prototype.destroy = function(){
-	this.container.removeEventListener("mousedown", this.startDrawLineReference, false);
+	this.container.removeEventListener(Liner.startEvent, this.startDrawLineReference, false);
 }
 
 Liner.prototype.startDrawLine = function(e){
 	//console.log("mousedown...");
+	this.testIn.value = e.pageX + " " + e.pageY + " ";// + areaId;
 	var startFrom = this.inHotArea(e.pageX, e.pageY);
 	if(startFrom){
 		this.startFrom = startFrom;
@@ -87,8 +93,8 @@ Liner.prototype.startDrawLine = function(e){
 		self.stopDrawLine(e);
 	}
 
-	this.container.addEventListener("mousemove", this.drawLineAtMovingReference, false);
-	window.addEventListener("mouseup", this.stopDrawLineReference, false);
+	this.container.addEventListener(Liner.moveEvent, this.drawLineAtMovingReference, false);
+	window.addEventListener(Liner.endEvent, this.stopDrawLineReference, false);
 }
 
 Liner.prototype.drawLineAtMoving = function(e){
@@ -105,16 +111,18 @@ Liner.prototype.drawLineAtMoving = function(e){
 Liner.prototype.stopDrawLine = function(e){
 	//console.log("mouseup...");
 	this.stop = true;
-	var x = e.pageX;
-	var y = e.pageY;
+	var x = e.pageX || this.x1;
+	var y = e.pageY || this.y1;
 	var endTo = this.inHotArea(e.pageX, e.pageY);
+	var endTo = this.inHotArea(this.x1, this.y1);
+	this.testIn.value = e.pageX + " " + e.pageY + " " + this.x1 + " " + this.y1 + " " +  endTo;// + areaId;
 	if(endTo && this.startFrom && (this.startFrom + endTo) === 3){
 		var endItemId = null;
 		if(endTo == 2){
-			endItemId= this.closestTo(e.pageX - this.diffLeft, e.pageY - this.diffTop, this.listLen2, this.endTop, this.endHeight);
+			endItemId= this.closestTo(x - this.diffLeft, y - this.diffTop, this.listLen2, this.endTop, this.endHeight);
 			this.pushPair(this.startItemId, endItemId);
 		}else{
-			endItemId = this.closestTo(e.pageX - this.diffLeft, e.pageY - this.diffTop, this.listLen1, this.startTop, this.startHeight);
+			endItemId = this.closestTo(x - this.diffLeft, y - this.diffTop, this.listLen1, this.startTop, this.startHeight);
 			this.pushPair(endItemId, this.startItemId);
 		}
 		//this.drawLine(this.originalX1, this.originalY1, e.pageX, e.pageY, this.canvas);
@@ -123,11 +131,11 @@ Liner.prototype.stopDrawLine = function(e){
 	}
 
 	if(this.drawLineAtMovingReference){
-		this.container.removeEventListener("mousemove", this.drawLineAtMovingReference, false);
+		this.container.removeEventListener(Liner.moveEvent, this.drawLineAtMovingReference, false);
 		delete this.drawLineAtMovingReference;
 	}
 	if(this.stopDrawLineReference){
-		window.removeEventListener("mouseup", this.stopDrawLineReference, false);
+		window.removeEventListener(Liner.endEvent, this.stopDrawLineReference, false);
 		delete this.stopDrawLineReference;
 	}
 
@@ -274,15 +282,16 @@ Liner.prototype.closestTo = function(x, y, len, offsetTop, listHeight){
 Liner.prototype.inHotArea = function(x, y){
 	x = x - this.diffLeft;
 	y = y - this.diffTop;
-
+	var areaId = 0;
 	if( x >= (this.startLeft) && x <= (this.startLeft + this.startWidth) && 
 		y >= (this.startTop) && y <= (this.startTop + this.startHeight)){
-		return 1;
+		areaId = 1;
 	}else if( x >= (this.endLeft) && x <= (this.endLeft + this.endWidth) && 
 		y >= (this.endTop) && y <= (this.endTop + this.endHeight)){
-		return 2;
+		areaId = 2;
 	}
-	return 0;
+
+	return areaId;
 }
 
 Liner.prototype.computeHotArea = function(){

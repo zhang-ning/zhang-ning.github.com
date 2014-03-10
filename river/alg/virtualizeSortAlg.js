@@ -86,14 +86,23 @@ function createBars(a, g) {
 }
 createBars.X = 10;
 createBars.Y = exchanging.DISTANCEY + 50;
-createBars.W = 10;
+createBars.W = 6;
 createBars.GAP = createBars.W;
+createBars.MIN_W = 2;
+createBars.MIN_X = 10;
 
 var sortType = "quickSort";
 var a = [];
 var SORT_NUM;
 var SORT_SPEED;
 
+function sortPrepare() {
+	randomArray();
+	setOptions(a.length);
+	var g = document.getElementById("main_g");
+	drawer.clearSvg(g);
+	var bars = createBars(a, g);
+}
 function startSort(type) {
 	sortStarted();
 
@@ -160,14 +169,13 @@ function randomArray() {
 	if(sort_num === SORT_NUM){
 		return;
 	}
-	var MIN_W = 2;
-	console.log(sort_num * 2 * MIN_W , (containerW - 2 * createBars.X));
-	if(sort_num * 2 * MIN_W > (containerW - 2 * createBars.X)){//TBD River max width 2
-		sort_num = Math.floor( (containerW - 2 * createBars.X) / 2 / MIN_W );
+	createBars.X = createBars.MIN_X;
+	console.log(sort_num * 2 * createBars.MIN_W , (containerW - 2 * createBars.X));
+	if(sort_num * 2 * createBars.MIN_W > (containerW - 2 * createBars.X)){//TBD River max width 2
+		sort_num = Math.floor( (containerW - 2 * createBars.X) / 2 / createBars.MIN_W );
 		document.getElementById("sort_num").value = sort_num;
 	}
 	
-
 	//var 
 	a = [];
 	var w = Math.floor( (containerW - 2 * createBars.X) / 2 / sort_num );
@@ -175,7 +183,8 @@ function randomArray() {
 		createBars.W = w;
 		createBars.GAP = createBars.W;
 	}
-console.log("sort_num: " + sort_num, w);
+	createBars.X = Math.floor( (containerW - 2 * createBars.W * sort_num) / 2 );
+	console.log("sort_num: " + sort_num, w);
 	var value;
 	for(var i = 0; i < sort_num; i++){
 		value = Math.floor( Math.random() * exchanging.DISTANCEY );

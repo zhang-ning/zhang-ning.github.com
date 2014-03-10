@@ -15,17 +15,23 @@ function Painter(canvas){
 	this.diffTop = Math.round(rect.top);
 	this.diffLeft = Math.round(rect.left);
 }
+Painter.startEvent = ('ontouchstart' in window ? 'touchstart' : 'mousedown');
+Painter.endEvent = ('ontouchend' in window ? 'touchend' : 'mouseup');
+Painter.moveEvent = ('ontouchmove' in window ? 'touchmove' : 'mousemove');
 
 Painter.prototype.init = function(e){
 	var self = this;
 	this.startDrawLineReference= function(e){
+		e.preventDefault();
+		//e.stopPropagation();
 		self.startDrawLine(e);
 	}
-	this.container.addEventListener("mousedown", this.startDrawLineReference, false);
+	
+	this.container.addEventListener(Painter.startEvent, this.startDrawLineReference, false);
 }
 
 Painter.prototype.destroy = function(){
-	this.container.removeEventListener("mousedown", this.startDrawLineReference, false);
+	this.container.removeEventListener(Painter.startEvent, this.startDrawLineReference, false);
 }
 
 Painter.prototype.startDrawLine = function(e){
@@ -49,9 +55,8 @@ Painter.prototype.startDrawLine = function(e){
 	this.stopDrawLineReference = function(e){
 		self.stopDrawLine(e);
 	}
-
-	this.container.addEventListener("mousemove", this.drawLineAtMovingReference, false);
-	this.container.addEventListener("mouseup", this.stopDrawLineReference, false);
+	this.container.addEventListener(Painter.moveEvent, this.drawLineAtMovingReference, false);
+	this.container.addEventListener(Painter.endEvent, this.stopDrawLineReference, false);
 }
 
 Painter.prototype.drawLineAtMoving = function(e){
@@ -77,11 +82,11 @@ Painter.prototype.stopDrawLine = function(e){
 	}
 
 	if(this.drawLineAtMovingReference){
-		this.container.removeEventListener("mousemove", this.drawLineAtMovingReference, false);
+		this.container.removeEventListener(Painter.moveEvent, this.drawLineAtMovingReference, false);
 		delete this.drawLineAtMovingReference;
 	}
 	if(this.stopDrawLineReference){
-		this.container.removeEventListener("mouseup", this.stopDrawLineReference, false);
+		this.container.removeEventListener(Painter.endEvent, this.stopDrawLineReference, false);
 		delete this.stopDrawLineReference;
 	}
 	this.g = null;

@@ -1,0 +1,30 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<script type="text/javascript" src="../tools/drawer.js"></script>
+	<script type="text/javascript" src="../alg/virtualizeSortAlg.js"></script>
+	<script type="text/javascript" src="hanoi.js"></script>
+</head>
+<body onload="demoHanoi();" style="margin: 0px;">
+	<div id="demoHanoiDiv" style="position: relative;">
+		<svg id="demoHanoi_svg" width="600" height="400" style="border: 1px solid gray; stroke-width: 2; stroke: black; float: left;">
+		</svg>
+		<div class="" style="">
+			<span>
+				汉诺塔 Tower of Hanoi
+			</span>
+			<ul>
+				<li>每次只能移动每根柱子最顶上的一个碟子；Every time you can move only one dish which is the uppermost one on a stack; </li>
+				<li>大的碟子不能在小的碟子上方；The bigger dish cannot be placed on top of a smaller one</li>
+			</ul>
+		</div>
+		<div style="clear: both; position: relative; top: -30px;">
+			<button onclick="demoHanoi();" id="hanoi-btn" style="width: 100px;">Start</button>
+			<span style="margin-left: 10px;">Num</span>
+			<input type="text" value="3" id="hanoi_num"></input>
+			<span>Speed</span>
+			<input type="text" value="8" id="hanoi_speed" ></input>
+		</div>
+	</div>
+</body>
+</html>

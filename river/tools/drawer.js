@@ -36,7 +36,14 @@ drawer.updateLine = function(line, x1, y1, x2, y2) {
 	line.setAttribute("x2", x2);
 	line.setAttribute("y2", y2);
 }
-
+drawer.pathLine = function(x, y, w, h) {
+	var path = document.createElementNS(drawer.svgns, "path");
+	path.setAttribute("d", "M " + x + " " + y + " l " + (w || 0) + " " + (h || 0) );
+	return path;
+}
+drawer.linePath = function(x, y, w, h) {
+	return "M " + x + " " + y + " l " + (w || 0) + " " + (h || 0);
+}
 drawer.drawBar = function(x, y, w, h) {
 	var bar = document.createElementNS(drawer.svgns, "path");
 	bar.setAttribute("d", drawer.barPath(x, y, w, h));
