@@ -4,7 +4,8 @@
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
 <link rel="stylesheet" type="text/css" href="canvas/style.css" title="Texts on Canvas Styles"/>
 <link rel="stylesheet" type="text/css" href="cube/cube.css">
-
+<link rel="stylesheet" type="text/css" href="card.css">
+<link rel="stylesheet" type="text/css" href="riverstudio.css">
 <style type="text/css">
 	line.back{
 		stroke-dasharray: 5 2;
@@ -21,9 +22,6 @@
 		margin: 10px 0px;
 	}
 	.demo-board{
-		/*border: 0px solid #c2c2c2;*/
-		border-radius: 4px;
-		box-shadow: 0px 0px 8px gray;
 		position: relative;
 		display: inline-block;
 	}
@@ -57,14 +55,23 @@
 			boardWidth = innerWidth - 50 * 2;
 		}
 		console.log(boardWidth);
+		var cards = document.querySelectorAll(".demo-board");
 		var boards = document.querySelectorAll(".demo-board");
 		for(var i = boards.length - 1; i >= 0; i--){
+			var card = cards[i];
+			var cstyle = Utils.getStyle(card);
+			var cardW = Utils.getPxNum(cstyle.getPropertyValue("width"));
+			var cardH = Utils.getPxNum(cstyle.getPropertyValue("height"));
+			console.log(cardW, cardH);
 			if(boards[i].tagName.toUpperCase() === "SVG"){
-				boards[i].setAttribute("width", boardWidth);
+				boards[i].setAttribute("width", cardW);
+				boards[i].setAttribute("height", cardH);
 			}else if(boards[i].tagName.toUpperCase() === "CANVAS"){//
-				boards[i].setAttribute("width", boardWidth + "px");
+				boards[i].setAttribute("width", cardW + "px");
+				boards[i].setAttribute("height", cardH + "px");
 			}else{
-				boards[i].style.width = boardWidth + "px";
+				boards[i].style.width = cardW + "px";
+				boards[i].style.height = cardH + "px";
 			}
 		}
 		//TBD River
@@ -92,11 +99,15 @@
 </head>
 
 <body onload="demos()" style="text-align: center;">
-	<div id="painterDemoDiv" >
-		<div style="display: inline-block;">
-			<canvas id="painterCanvas" width="800px" height="450px" class="demo-board"></canvas>
+	<div class="host">
+		<span>River Studio</span>
+	</div>
+<div class="cards main-div">
+	<div id="painterDemoDiv" class="card ">
+		<div >
+			<canvas id="painterCanvas" class="demo-board"></canvas>
 		</div>
-		<div style="position: relative; top: -30px;">
+		<div >
 			<button onclick="painter.clear()">Clear</button>
 			<button onclick="painter.replay(painter.traces, painter.durings)">Replay</button>
 			<button onclick="painter.playDefaults()">Play Defaults</button>
@@ -104,7 +115,7 @@
 		</div>
 	</div>
 
-	<div id="linerDemoDiv" style="margin-bottom: 45px;">
+	<div id="linerDemoDiv" class="card ">
 		<div>
 			<select onchange="liner.switchMode(value);"  id="chooseMode" style="z-index: 10;">
 				<option value="0">1 - 1</option>
@@ -112,60 +123,60 @@
 				<option value="2">N - 1</option>
 				<option value="3">N - N</option>
 			</select>
-			<input id="test-in" style="display: none;"></input>
+			<input id="test-in" ></input>
 		</div>
-		<div style="display: inline-block;">
-			<canvas id="linerCanvas" width="800px" height="250px" class="demo-board"></canvas>
+		<div >
+			<canvas id="linerCanvas" class="demo-board"></canvas>
 		</div>
 	</div>
 
-	<div id="cubeDemoDiv">
-		<svg id="cube_svg" width="800" height="350" class="demo-board">
+	<div id="cubeDemoDiv" class="card">
+		<svg id="cube_svg" class="demo-board">
 		</svg>
-		<div style="position: relative; top: -30px; padding-left: 30px;">
-			<select id="cube_type" onchange="cube.type = Number(this.value);" style="display: none;">
+		<div >
+			<!--<select id="cube_type" onchange="cube.type = Number(this.value);" >
 				<option value="0">In Aspect 0</option>
 				<option value="1">In Aspect 1</option>
 				<option value="2">In Line 0</option>
 				<option value="3">In Line 1</option>
-			</select>
-			<button onclick="stopRotate()" style="vertical-align: top;">Stop</button>
-			<!--<button onclick="drawer.clearSvg(svg); demoCube();" style="vertical-align: top;">Start</button>-->
-			<button onclick="cube.rotateH(1)" style="vertical-align: top;">Rotate Horizontally</button>
-			<button onclick="cube.rotateV(1)" style="vertical-align: top;">Rotate Vertically</button>
-			<!--<button onclick="cube.stepH(10)" style="vertical-align: top;">Step Horizontally</button>
-			<button onclick="cube.stepV(20)" style="vertical-align: top;">Step Vertically</button>-->
-			<button onclick="demoH()" style="vertical-align: top;">Demo H</button>
-			<button onclick="demoV()" style="vertical-align: top;">Demo V</button>
-			<!--<button onclick="cube.stepAlgH(30, svg) " style="vertical-align: top;">Alg H</button>
-			<button onclick="cube.stepAlgV(15) " style="vertical-align: top;">Alg V</button>-->
+			</select>-->
+			<button onclick="stopRotate()" >Stop</button>
+			<!--<button onclick="drawer.clearSvg(svg); demoCube();" >Start</button>-->
+			<button onclick="cube.rotateH(1)" style="vertical-align: top;">Horizontally</button>
+			<button onclick="cube.rotateV(1)" style="vertical-align: top;">Vertically</button>
+			<!--<button onclick="cube.stepH(10)" >Step Horizontally</button>
+			<button onclick="cube.stepV(20)" >Step Vertically</button>-->
+			<!--<button onclick="demoH()" style="vertical-align: top;">Demo H</button>
+			<button onclick="demoV()" style="vertical-align: top;">Demo V</button>-->
+			<!--<button onclick="cube.stepAlgH(30, svg) " >Alg H</button>
+			<button onclick="cube.stepAlgV(15) " >Alg V</button>-->
 		</div>
 	</div>
 
-	<div id="demoAlgDiv" style="position: relative;">
-		<svg id="demoAlg_svg" width="800" height="350" class="demo-board">
+	<div id="demoAlgDiv" class="card ">
+		<svg id="demoAlg_svg" class="demo-board">
 			<g id="main_g" ></g>
 			<g id="temp_g" transform="translate(0,150)"></g>
 		</svg>
-		<div style="position: relative; top: -30px;">
+		<div >
 			<button onclick="startSort('quickSort');" class="sort-btn quickSort">Quick Sort</button>
 			<button onclick="startSort('bubbleSort');" class="sort-btn bubbleSort">Bubble Sort</button>
 			<button onclick="startSort('mergeSort');" class="sort-btn mergeSort">Merge Sort</button>
-			<span style="margin-left: 10px;">Num</span>
+			<span >Num</span>
 			<input type="text" value="30" id="sort_num"></input>
 			<span>Speed</span>
 			<input type="text" value="8" id="sort_speed"></input>
 		</div>
 	</div>
 
-	<div id="demoHanoiDiv" style="position: relative; margin-bottom: 30px;">
-		<div class="demo-board" style="">
-			<div style="stroke-width: 2; stroke: black; float: left;">
-				<svg id="demoHanoi_svg" width="500" height="400" >
+	<div id="demoHanoiDiv" class="card">
+		<div class="demo-board" >
+			<div >
+				<svg id="demoHanoi_svg" class="demo-board">
 				</svg>
-				<div style="clear: both; position: relative; top: -30px;">
-					<button onclick="demoHanoi();" id="hanoi-btn" style="width: 100px;">Start</button>
-					<span style="margin-left: 10px;">Num</span>
+				<div >
+					<button onclick="demoHanoi();" id="hanoi-btn" >Start</button>
+					<span >Num</span>
 					<input type="text" value="3" id="hanoi_num"></input>
 					<span>Speed</span>
 					<input type="text" value="8" id="hanoi_speed" ></input>
@@ -199,10 +210,10 @@
 		</div>
 	</div>
 
-	<div id="swimRingDemoDiv">
-		<div id="swimRingDiv" style="position: relative; display: inline-block">
-		  <svg id="swimRing_svg" width="800" height="350" class="demo-board"></svg>
-		  <select onchange="redemoSwimRing(value)" style="position: absolute; right: 15px; top: 15px;">
+	<div id="swimRingDemoDiv" class="card">
+		<div id="swimRingDiv" >
+		  <svg id="swimRing_svg" class="demo-board"></svg>
+		  <select onchange="redemoSwimRing(value)" >
 		    <option selected value="1">Grains</option>
 		    <option value="2">Vegitables</option>
 		    <option value="3">Fruits</option>
@@ -210,7 +221,7 @@
 		</div>
 	</div>
 
-	<div id="demoTwowaybindingDiv" style=" margin-top: 25px; ">
+	<div id="demoTwowaybindingDiv" class="card">
 		<div class="demo-board">
 			<div class="center-block">
 				<h4>River's Template Language engine (like AngularJS)</h4>
@@ -238,8 +249,8 @@
 		</div>
 	</div>
 
-	<div id="demoTipDiv" style="position: relative; margin-top: 25px;">
-		<svg id="demoTipSVG" width="800" height="300" class="demo-board">
+	<div id="demoTipDiv" class="card">
+		<svg id="demoTipSVG" class="demo-board">
 			<g id="pearsG"></g>
 			<!--<g id="tipG">-->
 				<path id="tipPath" fill="white" stroke="brown" stroke-witdh="1"></path>
@@ -247,6 +258,6 @@
 			<!--</g>-->
 		</svg>
 	</div>
-
+</div>
 </body>
 </html>

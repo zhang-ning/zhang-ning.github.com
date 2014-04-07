@@ -1,39 +1,94 @@
 function SwimRingChart(groups, options){
 	this.groups = groups;
-	this.width = options.width;
-	this.height = options.height;
-	this.cx = this.width / 2;
-	this.cy = this.height / 2;
 	this.r1 = options.r1;
 	this.r2 = options.r2;
 	this.strokeWidth = options.strokeWidth || 0;
 	this.strokeColor = "#f0f0f0";
 	this.disableActiveStyle = options.disableActiveStyle;
-	this.titleSize = options.titleSize;
-	this.startangle = options.startangle;
+	this.titleSize = options.titleSize || SwimRingChart.titleSize;
+	this.startangle = options.startangle || SwimRingChart.startangle;
 	this.texts = [];
 
+	!groups[0].angle && this.initAngle();
 	this.initData();
+	if(options.g){
+		this.chart = options.g;
+	}else{
+		this.createChart(options.width, options.height);
+	}
 
-	this.chart = options.g || this.createChart(this.width, this.height, this.strokeWidth);
+	if(options.cx){
+		this.cx = options.cx;
+	}else{
+		if(options.width){
+			this.cx = options.width / 2;
+		}else if(options.g){
+			var gStyle = Utils.getStyle(options.g);
+			var width = gStyle.getPropertyValue("width");
+			if(width){
+				this.cx = Utils.getPxNum( width ) / 2;
+			}
+		}
+	}
+	
+	if(options.cy){
+		this.cy = options.cy;
+	}else{
+		if(options.height){
+			this.cx = options.height / 2;
+		}else if(options.g){
+			if(!gStyle){
+				gStyle = Utils.getStyle(options.g);
+			}
+			var height = gStyle.getPropertyValue("height");
+			if(height){
+				this.cy = Utils.getPxNum( height ) / 2;
+			}
+		}
+	}
+	/*if(!options.width || !options.height){
+		var gStyle = Utils.getStyle(options.g);
+		var width = gStyle.getPropertyValue("width");
+		var height = gStyle.getPropertyValue("height");
+
+		if(height){
+			this.cy = Utils.getPxNum( height ) / 2;
+		}
+	}else{
+		this.cx = options.width / 2;
+		this.cy = options.height / 2;
+	}*/
+
 	this.creatPathes();
 	this.drawPathes();
 	!options.withoutTitle && this.drawTitle();
-	this.setActiveHandler();
+	!options.disableActiveHandler && this.setActiveHandler();
 }
 
 SwimRingChart.piece = 10/360*Math.PI*2;
-SwimRingChart.startangle = 180/360*Math.PI*2;
+SwimRingChart.startangle = 0/360*Math.PI*2;
 SwimRingChart.textR = 1.3;
+SwimRingChart.titleSize = 12;
 SwimRingChart.svgns = "http://www.w3.org/2000/svg";
 SwimRingChart.xlink = "http://www.w3.org/1999/xlink";
+
+SwimRingChart.prototype.initAngle = function () {
+	var total = 0;
+	for(var i = 0, len = this.groups.length; i < len; i++){
+		total += Number(this.groups[i].value);
+	}
+
+	for(var i = 0, len = this.groups.length; i < len; i++){
+		this.groups[i].angle = (this.groups[i].value / total ) * Math.PI * 2;
+	}
+}
 
 SwimRingChart.prototype.initData = function(){
 	this.startangles = [];
 	this.counts = [];
 	this.points = [];
-	var startangle = this.startangle || SwimRingChart.startangle;
-	for(var i = 0; i < this.groups.length; i++){
+	var startangle = this.startangle;
+	for(var i = 0, len = this.groups.length; i < len; i++){
 		this.counts[i] = this.groups[i].angle/SwimRingChart.piece;
 		this.startangles[i] = startangle;
 		this.points.push(this.getXY(this.startangles[i], this.startangles[i] + this.groups[i].angle));
@@ -41,11 +96,11 @@ SwimRingChart.prototype.initData = function(){
 	}
 }
 
-SwimRingChart.prototype.createChart = function(){
+SwimRingChart.prototype.createChart = function(width, height){
 	var chart = document.createElementNS(SwimRingChart.svgns, "svg:svg");
-	chart.setAttribute("width", this.width);
-	chart.setAttribute("height", this.height);
-	chart.setAttribute("viewBox", "0 0 " + this.width + " " + this.height);
+	chart.setAttribute("width", width);
+	chart.setAttribute("height", height);
+	chart.setAttribute("viewBox", "0 0 " + width + " " + height);
 	chart.setAttribute("class", "swimring");
 	return chart;
 };
@@ -95,7 +150,7 @@ SwimRingChart.prototype.drawPathes = function(){
 	//draw the first piece
 	var endangle;
 	for(var i = 0; i < this.groups.length;  i++) {
-		endangle = this.counts[i] > 1 ? (this.startangles[i] + 1 * SwimRingChart.piece) : this.angles[i];
+		endangle = this.counts[i] > 1 ? (this.startangles[i] + 1 * SwimRingChart.piece) : this.groups[i].angle;
 		this.pathes[i].setAttribute("d", this.getTrace(this.startangles[i], endangle));
 	}
 
@@ -131,10 +186,12 @@ SwimRingChart.prototype.drawPathes = function(){
 
 SwimRingChart.prototype.drawTitle = function(){
 	for(var i = this.groups.length-1; i >= 0; i--){
-		var angleT = this.startangles[i] + this.groups[i].angle/2;
-		var x = this.cx + this.r1*SwimRingChart.textR * Math.sin(angleT);
-		var y = this.cy - this.r1*SwimRingChart.textR * Math.cos(angleT);
-		this._drawTitle(x, y, this.groups[i].title, this.groups[i].color, "middle", i);
+		if(this.groups[i].title){
+			var angleT = this.startangles[i] + this.groups[i].angle/2;
+			var x = this.cx + this.r1*SwimRingChart.textR * Math.sin(angleT);
+			var y = this.cy - this.r1*SwimRingChart.textR * Math.cos(angleT);
+			this._drawTitle(x, y, this.groups[i].title, this.groups[i].color, "middle", i);
+		}
 	}
 }
 
@@ -242,14 +299,11 @@ SwimRingChart.prototype.setDefaultStyle = function(){
 
   var options = {name: "river"};
   function setSwimRingOptions(){
-    var swimRing_svg = document.getElementById("swimRing_svg");
-	var cstyle = Utils.getStyle(svg);
-	var boardW = Utils.getPxNum(cstyle.getPropertyValue("width"));
-	var boardH = Utils.getPxNum(cstyle.getPropertyValue("height"));
-    var swimRing_width = boardW;
-    var swimRing_height = boardH;
-    var swimRing_r1 = Math.floor( (swimRing_height < swimRing_width) ? swimRing_height / 3 : swimRing_width / 3 );
-    var swimRing_r2 = Math.ceil(swimRing_r1 / 3 * 2);
+    var swimRing_svg = document.getElementById("swimRing_svg"),
+    swimRing_width = boardWidth,
+    swimRing_height = parseInt(swimRing_svg.getAttribute("height")),
+    swimRing_r1 = Math.floor( (swimRing_height < swimRing_width) ? swimRing_height / 3 : swimRing_width / 3 );
+    swimRing_r2 = Math.ceil(swimRing_r1 / 3 * 2);
 
     //var 
     options = { width: swimRing_width,

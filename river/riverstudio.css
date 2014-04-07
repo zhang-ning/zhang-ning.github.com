@@ -1,0 +1,43 @@
+.col-12-6,
+.col-12-3{
+	width: 100%;
+  float: left;
+}
+@media (min-width: 768px) {
+  .col-12-6{
+    width: 50%;
+  }
+  .col-12-3{
+    width: 25%;
+  }
+}
+/*@media (min-width: 992px) {
+  .col-12-6 {
+    width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  .col-12-6 {
+    width: 50%;
+  }
+}*/
+.card-in{
+  border: 1px solid #c2c2c2;
+  box-shadow: 2px 2px 5px #c2c2c2;
+  margin: 15px;
+  height: 300px;
+}
+.card-action{
+  cursor: pointer;
+  margin: 15px;
+  display: inline-block;
+}
+.title-road{
+  stroke-width: 2;
+  stroke-dasharray: 5, 3;
+  fill: none;
+}
+.chart-out{
+  margin: 15px 0px;
+  text-align: center;
+}

@@ -334,8 +334,12 @@ var cube,
 	cy = 150;
 
 function demoCube(cx){
-	cx = boardWidth / 2;
 	svg = document.getElementById("cube_svg");
+	var cstyle = Utils.getStyle(svg);
+	var boardW = Utils.getPxNum(cstyle.getPropertyValue("width"));
+	var boardH = Utils.getPxNum(cstyle.getPropertyValue("height"));
+	cx = boardW / 2;
+	cy = boardH / 2;
 	cube = new Cube(cx, cy, l, w, h, angleV, angleH, 0);
 	cube.draw();
 	svg.appendChild(cube.g);

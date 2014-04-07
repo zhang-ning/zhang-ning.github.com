@@ -80,31 +80,5 @@ drawer.setAttributes = function(path, options) {
 		}
 	}
 }
-/*drawer.getTrace = function(cx, cy, r1, r1, angle, startangle){
-	var pos = drawer.getRingPos(startangle, startangle + angle);
-	var big = (angle > Math.PI) ? 1 : 0;
-	var d = "M " + pos.outStart.x + " " + pos.outStart.y + " A " + r1 + " " + r1 + " 0 " + big + " 1 " + pos.outEnd.x + " " + pos.outEnd.y + " L " + pos.innerEnd.x + " " + pos.innerEnd.y + " A " + r2 + " " + r2 + " 0 "+big+" 0 " + pos.innerStart.x + " " + pos.innerStart.y + " Z ";
-	return d;
-}
-drawer.getRingPos = function(cx, cy, r1, r2, startangle, endangle){
-	var x11 = Math.round( ( cx + r1 * Math.sin(startangle) ) * 100)/100;
-	var y11 = Math.round( ( cy - r1 * Math.cos(startangle) ) * 100)/100;
-
-	var x21 = Math.round( ( cx + r2 * Math.sin(startangle) ) * 100)/100;
-	var y21 = Math.round( ( cy - r2 * Math.cos(startangle) ) * 100)/100;
-	
-	var x22 = Math.round( ( cx + r2 * Math.sin(endangle) ) * 100)/100;
-	var y22 = Math.round( ( cy - r2 * Math.cos(endangle) ) * 100)/100;
-
-	var x12 = Math.round( ( cx + r1 * Math.sin(endangle) ) * 100)/100;
-	var y12 = Math.round( ( cy - r1 * Math.cos(endangle) ) * 100)/100;
-
-	return { outStart: { x: x11, y: y11 },
-			 innerStart: { x: x21, y: y21 },
-			 outEnd: { x: x12, y: y12 },
-			 innerEnd: { x: x22, y: y22  }
-		   };
-}*/
-
 
 

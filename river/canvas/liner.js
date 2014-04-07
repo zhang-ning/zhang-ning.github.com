@@ -297,7 +297,7 @@ Liner.prototype.inHotArea = function(x, y){
 Liner.prototype.computeHotArea = function(){
 	var width = this.canvas.width;
 	var height = this.canvas.height;
-	this.lineLength = width / 4;
+	this.lineLength = width / 2.5;
 	this.startWidth = this.lineLength / 2;
 	this.endWidth = this.startWidth;
 

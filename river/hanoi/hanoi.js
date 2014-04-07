@@ -133,6 +133,7 @@ function Dish(x, y, r1, r2){
 	this.elm = drawer.pathLine(pos.x, pos.y, pos.w, 0);
 	this.elm.setAttribute("stroke-width", pos.h);
 	this.elm.setAttribute("stroke-linecap", "round");
+	this.elm.setAttribute("stroke", "black");
 	this.pos = pos;
 }
 

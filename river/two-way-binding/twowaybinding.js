@@ -1,10 +1,5 @@
-/* 
- * all rights resorved by hunter.dding@gmail.com @猎人丁丁's wife'
- * the Gloable variable may presents , Resume, main, define
- * the create method is for define a group of feature in one module
- * and the run method is just for run your app like the main entrance of what other language do
- *
- */
+
+  var twowaybinding = (function(){
 
   var reg = /^\s*{{\s*|\s*}}\s*$/g;
 
@@ -109,7 +104,6 @@
 
 
   var lookupScope2 = function(result, value){
-    //return namespace ? trace[namespace] : rootScope;
     var scope = rootScope;
     var p = /(.*)\[(.*)\]/;
     var path = result.split(".");
@@ -163,32 +157,41 @@
   var start = function(cn, dom){
     rootScope = cn;
     trace = cn;
-    scan(dom); //,rootScope
+    scan(dom);
+
+    bindListener(dom);
   }
-  var rootScope;// = resume;
+  var rootScope;//
   var trace;//TBD
   var pathes = {};
   var keys = {};
 
-  document.addEventListener("keyup", function(e){
-    var target = e.target;console.log(target.type);
-    var modal = target.getAttribute("modal");
-      var friends = keys[modal];
-      for(var i = 0; i<friends.length; i++){
-        var node = friends[i];
-        if(node != target){
-    if(target.type == "text"){
+  function bindListener (dom) {
+    dom.addEventListener("keyup", function(e){
+      var target = e.target;console.log(target.type);
       var modal = target.getAttribute("modal");
-          if(node.type == "text"){
-            node.value = target.value;
-          }else{
-            node.textContent = target.value;
+        var friends = keys[modal];
+        for(var i = 0; i<friends.length; i++){
+          var node = friends[i];
+          if(node != target){
+      if(target.type == "text"){
+        var modal = target.getAttribute("modal");
+            if(node.type == "text"){
+              node.value = target.value;
+            }else{
+              node.textContent = target.value;
+            }
+            lookupScope2(modal, target.value);
           }
-          lookupScope2(modal, target.value);
         }
       }
-    }
-  });
+    });
+  }
+
+  return {
+    start: start
+  };
+})();
 
  var default_binding = {
     "title" : "The Seasons",
@@ -202,5 +205,5 @@
   };
 
   function demoTwowaybinding(data, div){
-    start(data, div);
+    twowaybinding.start(data, div);
   }

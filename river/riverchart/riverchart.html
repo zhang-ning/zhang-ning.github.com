@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>River Charts</title>
+    <link rel="stylesheet" type="text/css" href="../riverstudio.css">
+    <link rel="stylesheet" type="text/css" href="bars.css">
+  </head>
+  <body>
+                <!--River started-->
+                <div class="cards-div" id="cards-div">
+                    <!--one card started-->
+                    <div class="col-12-6" id="hosts_card">
+                        <div class="card-in">
+                            <div class="card-actions">
+                                <span class="card-action" onclick="refreshRing();">Refresh</span>
+                            </div>
+                            <div class="chart-out"><!--width="180" height="180"-->
+                                <svg id="ring-svg" class="sf-card-chart" ></svg>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div><!--one card end-->
+                    <!--one card started-->
+                    <div class="col-12-6" id="hosts_card">
+                        <div class="card-in">
+                            <div class="card-actions">
+                                <span class="card-action" onclick="refreshMRing();">Refresh</span>
+                            </div>
+                            <div class="chart-out"><!--width="180" height="180"-->
+                                <svg id="mring-svg" class="sf-card-chart" width="240" height="240"></svg>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div><!--one card end-->
+                    <!--one card started-->
+                    <div class="col-12-6" id="vbars_div">
+                        <div class="card-in">
+                            <div class="card-actions">
+                                <span class="card-action" onclick="refreshVBars();">Refresh</span>
+                            </div>
+                            <div class="chart-out">
+                                <svg id="vbars-chart" class="sf-card-chart" width="240" height="200">
+                                    <g id="vbars-g"></g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div><!--one card end-->
+                    <!--one card started-->
+                    <div class="col-12-6" id="vmbars_div">
+                        <div class="card-in">
+                            <div class="card-actions">
+                                <span class="card-action" onclick="refreshVMBars();">Refresh</span>
+                            </div>
+                            <div class="chart-out">
+                                <svg id="vmbars-chart" class="sf-card-chart" width="240" height="200">
+                                    <g id="vmbars-g"></g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div><!--one card end-->
+                    <!--one card started-->
+                    <!--div class="col-12-6" id="hbars_div">
+                        <div class="card-in">
+                            <div class="card-actions">
+                                <span class="card-action" onclick="refreshHBars();">Refresh</span>
+                            </div>
+                            <div class="chart-out">
+                                <svg id="hbars-chart" class="sf-card-chart" width="400" height="100">
+                                    <g id="hbars-g"></g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div--><!--one card end-->
+                </div><!--River end-->
+  </body>
+</html>
+
+<script type="text/javascript" src="../tools/utils.js"></script>
+<script type="text/javascript" src="../tools/drawer.js"></script>
+<script type="text/javascript" src="ring.js"></script>
+<script type="text/javascript" src="bars.js"></script>
+<script type="text/javascript" src="vbars.js"></script>
+<script type="text/javascript" src="vmbars.js"></script>
+<script type="text/javascript" src="mring.js"></script>
+<script type="text/javascript" src="riverchart.js"></script>
