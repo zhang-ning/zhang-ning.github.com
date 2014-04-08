@@ -7,7 +7,7 @@ function hbarsDemo (){
 
 	var g = document.getElementById("hbars-g");
 	var width = Number( g.parentNode.getAttribute("width") );
-	var groups = ENGINE_GROUPS;
+	var groups = GROUPS;
 	var barsOptions = { g: g,
 						X: STROKE_WIDTH + START_X, 
 					    Y: 0, 
@@ -22,10 +22,10 @@ function hbarsDemo (){
 
 function vbarsDemo (){
 	var BAR_W = 10;
-	var GAP = 2 * 10;
+	var GAP = 1.5 * BAR_W;
 	var g = document.getElementById("vbars-g");
 	var height = Number( g.parentNode.getAttribute("height") );
-	var groups = ENGINE_GROUPS;
+	var groups = GROUPS;
 	var barsOptions = { g: g,
 						X: 50, 
 					    Y: height - 50, 
@@ -39,10 +39,10 @@ function vbarsDemo (){
 
 function vmbarsDemo (){
 	var BAR_W = 10;
-	var GAP = 2 * 10;
+	var GAP = 1.5 * BAR_W;
 	var g = document.getElementById("vmbars-g");
 	var height = Number( g.parentNode.getAttribute("height") );
-	var groups = ENGINE_GROUPS_M;
+	var groups = GROUPS_M;
 	var barsOptions = { g: g,
 						X: 50, 
 					    Y: height - 50, 
@@ -57,7 +57,7 @@ function vmbarsDemo (){
 function ringDemo(){
 	var g = document.getElementById("ring-svg");
 	var groups = HOST_GROUPS;
-	var options = {g: g, r1: 60, r2: 40};
+	var options = {g: g, r1: 70, r2: 45};
 	var swimRing = new SwimRingChart(groups, options);
 	console.log(swimRing);
 	var FruitArcGroups = [{
@@ -72,12 +72,12 @@ function mringDemo(){
 		r1: 80,
 		r2: 10
 	};
-	var groups = ENGINE_GROUPS_M;
+	var groups = GROUPS_M;
 	return new MRing(groups, options);
 }
 //"#F9DD5B", "#FE569D", "#FEB356", "#84ACD0", "#C2E173", "#B97C46"
 
-var ENGINE_GROUPS = [
+var GROUPS = [
 	{title: "Fruit", color: "#F9DD5B", value: 64}
 	,{title: "Rice", color: "#FE569D", value: 28}
 	,{title: "Flowers", color: "#FEB356", value: 50}
@@ -85,32 +85,32 @@ var ENGINE_GROUPS = [
 	,{title: "Vegitable", color: "#C2E173", value: 20}
 	,{title: "Grass", color: "#B97C46", value: 40} 
 ];
-var ENGINE_GROUPS_1 = [
+var GROUPS_1 = [
 	{title: "Fruit", color: "#FEB356", value: 40},
 	{title: "Rice", color: "#84ACD0", value: 20} 
 ];
-var ENGINE_GROUPS_2 = [
+var GROUPS_2 = [
 	{title: "Fruit", color: "#84ACD0", value: 40},
 	{title: "Rice", color: "#FEB356", value: 45},
 	{title: "Flowers", color: "#C2E173", value: 25},
 	{title: "Water", color: "#FE569D", value: 30} 
 ];
-var ENGINE_GROUPS_3 = [
+var GROUPS_3 = [
 	{title: "Fruit", color: "#84ACD0", value: 30},
 	{title: "Rice", color: "#FEB356", value: 20},
 	{title: "Flowers", color: "#C2E173", value: 35},
 	{title: "Water", color: "#B97C46", value: 25} 
 ];
-var ENGINE_GROUPS_4 = [
+var GROUPS_4 = [
 	{title: "Fruit", color: "#84ACD0", value: 45},
 	{title: "Rice", color: "#C2E173", value: 30},
 	{title: "Flowers", color: "#FE569D", value: 10}  
 ];
-var ENGINE_GROUPS_M = [
-	{title: "Fruit", color: "#84ACD0", groups: ENGINE_GROUPS_1 },
-	{title: "Rice", color: "#FEB356", groups: ENGINE_GROUPS_2},
-	{title: "Flowers", color: "#C2E173", groups: ENGINE_GROUPS_3},
-	{title: "Vegitable", color: "#B97C46", groups: ENGINE_GROUPS_4 }
+var GROUPS_M = [
+	{title: "Fruit", color: "#84ACD0", groups: GROUPS_1 },
+	{title: "Rice", color: "#FEB356", groups: GROUPS_2},
+	{title: "Flowers", color: "#C2E173", groups: GROUPS_3},
+	{title: "Vegitable", color: "#B97C46", groups: GROUPS_4 }
 ];
 var LINES_GROUPS_M = [ 
 	{color: "#F9DD5B", groups: [70, 60, 75, 68, 72, 66, 80, 75] },

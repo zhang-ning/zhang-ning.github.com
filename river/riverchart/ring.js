@@ -209,10 +209,11 @@ SwimRingChart.prototype.update = function(groups){
 			for(var i = 0, len = groups.length; i < len; i++){
 				var trace = self.getTrace(startangle, groups[i].angle);
 				self.pathes[i].setAttribute("d", trace);
+				self.startangles[i] = startangle;
 				startangle += groups[i].angle;
 			}
 			self.groups = groups;
-			//self.updateTitlesWithRoad();
+			self.updateTitlesWithRoad();
 			clearInterval(intervalId);
 		}
 
@@ -237,8 +238,8 @@ SwimRingChart.prototype.getGaps = function(groups, total){
 	return gaps;
 }
 
-SwimRingChart.prototype.drawTitlesWithRoad = function(){
-	for(var i = this.groups.length-1; i >= 0; i--){
+SwimRingChart.prototype.drawTitlesWithRoad = function(){console.log(this.startangles);
+	for(var i = 0, len = this.groups.length; i < len; i++){
 		if(this.groups[i].title){
 			var path = document.createElementNS(SwimRingChart.svgns, "path");
 			var pos = this.roadPos(i);
@@ -257,14 +258,17 @@ SwimRingChart.prototype.drawTitlesWithRoad = function(){
 	}
 }
 
-SwimRingChart.prototype.updateTitlesWithRoad = function(){
-	for(var i = this.groups.length-1; i >= 0; i--){
+SwimRingChart.prototype.updateTitlesWithRoad = function(){console.log(this.startangles);
+	for(var i = 0, len = this.groups.length; i < len; i++){
 		if(this.groups[i].title){
 			var pos = this.roadPos(i);
 			this.textRoads[i].setAttribute("d", this.roadTrace(pos));
 			var tx = pos.x22 + (pos.x11 > this.cx ? 10 : -10);
-			this.texts[i].setAttribute("x", tx);
-			this.texts[i].setAttribute("y", pos.y22 - 5);
+			var textAnchor = pos.x11 > this.cx ? "start" : "end";
+			var tspan = this.texts[i].firstChild;
+			tspan.setAttribute("x", tx);
+			tspan.setAttribute("y", pos.y22 - 5);
+			tspan.style.textAnchor = textAnchor;
 		}
 	}
 }

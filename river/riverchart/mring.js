@@ -79,7 +79,7 @@ MRing.prototype.wrapRing = function(data){
 		r1: this.r1, 
 		r2: this.r2, 
 		startangle: data.startangles[0] || 0, 
-		strokeWidth: "2", 
+		strokeWidth: "4", 
 		strokeColor: "#fff",
 		disableActiveHandler: true
 	};
