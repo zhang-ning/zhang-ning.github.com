@@ -39,7 +39,7 @@ VBars.prototype.axises = function (){
 		line.setAttribute("class", "base-line");
 		this.g.appendChild(line);
 
-		var text = drawer.drawText(pos.x + 1/2*this.options.W, this.options.Y + 1.5*this.options.GAP, this.groups[i].title);
+		var text = drawer.drawText(pos.x + 1/2*this.options.W, this.options.Y + 0.5*this.options.GAP, this.groups[i].title);
 		text.setAttribute("class", "v-bar-title");
 		this.g.appendChild(text);
 

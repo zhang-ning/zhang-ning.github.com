@@ -15,7 +15,8 @@
 }
 .v-bar-title{
 	fill: #9d9d9d;
-	text-anchor: middle;
+	text-anchor: start;
+	writing-mode: tb-rl;
 }
 .v-bar-value{
 	fill: #9d9d9d;
