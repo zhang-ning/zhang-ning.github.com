@@ -8,17 +8,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>River Charts</title>
-    <link rel="stylesheet" type="text/css" href="../riverstudio.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" type="text/css" href="bars.css">
   </head>
   <body>
                 <!--River started-->
-                <div class="cards-div" id="cards-div">
+                <div class="cards-div" id="river-chart-cards-div">
                     <!--one card started-->
-                    <div class="col-12-6" id="hosts_card">
+                    <div class="col-12-6" >
                         <div class="card-in">
                             <div class="card-actions">
-                                <span class="card-action" onclick="refreshRing();">Refresh</span>
+                                <span class="card-action refresh-action" onclick="refreshRing();"></span>
                             </div>
                             <div class="chart-out"><!--width="180" height="180"-->
                                 <svg id="ring-svg" class="sf-card-chart" ></svg>
@@ -27,10 +27,10 @@
                         </div>
                     </div><!--one card end-->
                     <!--one card started-->
-                    <div class="col-12-6" id="hosts_card">
+                    <div class="col-12-6" >
                         <div class="card-in">
                             <div class="card-actions">
-                                <span class="card-action" onclick="refreshMRing();">Refresh</span>
+                                <span class="card-action refresh-action" onclick="refreshMRing();"></span>
                             </div>
                             <div class="chart-out"><!--width="180" height="180"-->
                                 <svg id="mring-svg" class="sf-card-chart" width="240" height="240"></svg>
@@ -42,7 +42,7 @@
                     <div class="col-12-6" id="vbars_div">
                         <div class="card-in">
                             <div class="card-actions">
-                                <span class="card-action" onclick="refreshVBars();">Refresh</span>
+                                <span class="card-action refresh-action" onclick="refreshVBars();"></span>
                             </div>
                             <div class="chart-out">
                                 <svg id="vbars-chart" class="sf-card-chart" width="240" height="200">
@@ -55,7 +55,7 @@
                     <div class="col-12-6" id="vmbars_div">
                         <div class="card-in">
                             <div class="card-actions">
-                                <span class="card-action" onclick="refreshVMBars();">Refresh</span>
+                                <span class="card-action refresh-action" onclick="refreshVMBars();"></span>
                             </div>
                             <div class="chart-out">
                                 <svg id="vmbars-chart" class="sf-card-chart" width="240" height="200">
@@ -68,7 +68,7 @@
                     <!--div class="col-12-6" id="hbars_div">
                         <div class="card-in">
                             <div class="card-actions">
-                                <span class="card-action" onclick="refreshHBars();">Refresh</span>
+                                <span class="card-action refresh-action" onclick="refreshHBars();"></span>
                             </div>
                             <div class="chart-out">
                                 <svg id="hbars-chart" class="sf-card-chart" width="400" height="100">

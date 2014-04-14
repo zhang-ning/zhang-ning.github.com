@@ -141,7 +141,8 @@ function playMergeSort(bars, records, line, current){//console.log("current", cu
 }
 
 function scopeLine(g) {
-	var line = drawer.createLine(2, "red");
+	var line = drawer.createLine();
+	line.setAttribute("class", "alg-scope");
 	g.appendChild(line);
 	return line;
 }

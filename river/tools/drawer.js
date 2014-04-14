@@ -15,6 +15,10 @@ drawer.createSVG = function(w, h) {
 	svg.setAttribute("height", h);
 	return svg;
 }
+drawer.createLine = function(){
+	var line = document.createElementNS(drawer.svgns, "line");
+	return line;
+}
 drawer.drawLine = function(x1, y1, x2, y2, options){
 	var line = document.createElementNS(drawer.svgns, "line");
 	line.setAttribute("x1", x1);

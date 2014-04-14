@@ -2,138 +2,64 @@
 <head>
 <title>Demos</title>
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
-<link rel="stylesheet" type="text/css" href="canvas/style.css" title="Texts on Canvas Styles"/>
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="cube/cube.css">
 <link rel="stylesheet" type="text/css" href="card.css">
-<link rel="stylesheet" type="text/css" href="riverstudio.css">
 <style type="text/css">
-	line.back{
-		stroke-dasharray: 5 2;
-	}  
-	polygon.cube-polygon{
-	    fill-opacity: 0.8;
-	}
-	.center-block{
-		display: inline-block; 
-		border: 0px solid green; 
-		text-align: left;
-	}
-	.title{
-		margin: 10px 0px;
-	}
-	.demo-board{
-		position: relative;
-		display: inline-block;
-	}
-	#sort_num,
-	#sort_speed,
-	#hanoi_num,
-	#hanoi_speed{
-		width: 50px;
-	}
 </style>
-<script type="text/javascript" src="tools/drawer.js"></script>
-<script type="text/javascript" src="canvas/painter.js"></script>
-<script type="text/javascript" src="canvas/liner.js"></script>
-<script type="text/javascript" src="canvas/painter-defaults.js"></script>
-<script type="text/javascript" src="cube/cube.js"></script>
-<script type="text/javascript" src="swimRing/river-utils.js"></script>
-<script type="text/javascript" src="swimRing/swimRingChart.js"></script>
-<script type="text/javascript" src="tip/tip.js"></script>
-<script type="text/javascript" src="tip/pears.js"></script>
-<script type="text/javascript" src="alg/sort.js"></script>
-<script type="text/javascript" src="alg/virtualizeSortAlg.js"></script>
-<script type="text/javascript" src="alg/mergeSort.js"></script>
-<script type="text/javascript" src="hanoi/hanoi.js"></script>
-<script type="text/javascript" src="two-way-binding/twowaybinding.js"></script>
-<script type="text/javascript">
-	var boardWidth = 800;
-	function detectWindow(){
-		var innerWidth = window.innerWidth;
-		console.log(innerWidth);
-		if(innerWidth < boardWidth + 50 * 2){
-			boardWidth = innerWidth - 50 * 2;
-		}
-		console.log(boardWidth);
-		var cards = document.querySelectorAll(".demo-board");
-		var boards = document.querySelectorAll(".demo-board");
-		for(var i = boards.length - 1; i >= 0; i--){
-			var card = cards[i];
-			var cstyle = Utils.getStyle(card);
-			var cardW = Utils.getPxNum(cstyle.getPropertyValue("width"));
-			var cardH = Utils.getPxNum(cstyle.getPropertyValue("height"));
-			console.log(cardW, cardH);
-			if(boards[i].tagName.toUpperCase() === "SVG"){
-				boards[i].setAttribute("width", cardW);
-				boards[i].setAttribute("height", cardH);
-			}else if(boards[i].tagName.toUpperCase() === "CANVAS"){//
-				boards[i].setAttribute("width", cardW + "px");
-				boards[i].setAttribute("height", cardH + "px");
-			}else{
-				boards[i].style.width = cardW + "px";
-				boards[i].style.height = cardH + "px";
-			}
-		}
-		//TBD River
-		var demoHanoi_svg_w = parseInt( document.getElementById("demoHanoi_svg").getAttribute("width") );
-		console.log("demoHanoi_svg_w", demoHanoi_svg_w, boardWidth);
-		if(boardWidth < demoHanoi_svg_w){
-			document.getElementById("demoHanoi_svg").setAttribute("width", boardWidth);
-		}
-	}
-
-	function demos() {
-		detectWindow();
-
-		demoPainter(); 
-		demoLiner(); 
-		demoCube(); 
-		demoSwimRing(groups1);
-		demoTwowaybinding(default_binding, document.getElementById('demoTwowaybindingDiv'));
-		demoTip();
-		sortPrepare();
-		//startSort('quickSort');
-		demoHanoi();
-	}
-</script>
 </head>
 
-<body onload="demos()" style="text-align: center;">
-	<div class="host">
-		<span>River Studio</span>
+<body >
+<div class="layout">
+	<div class="header">
+		<span class="site-name">River Studio</span>
+		<span class="site-desc">Keep studing, be happy.</span>
 	</div>
-<div class="cards main-div">
-	<div id="painterDemoDiv" class="card ">
-		<div >
-			<canvas id="painterCanvas" class="demo-board"></canvas>
+<div class="body">
+<div id="cards-div" class="cards main-div">
+	<div class="col-12-8 card-out">
+	<div id="babypainter" class="card-in ">
+		<div class="card-header">
+			<span class="card-title">BabyPainter</span>
 		</div>
-		<div >
+		<div class="card-body">
+			<canvas id="painterCanvas" class="demo-board" ></canvas>
+		</div>
+		<div class="control-board-out">
+		<!--<div class="control-road"></div>-->
+		<div class="control-board">
+			<div class="control-actions">
 			<button onclick="painter.clear()">Clear</button>
 			<button onclick="painter.replay(painter.traces, painter.durings)">Replay</button>
 			<button onclick="painter.playDefaults()">Play Defaults</button>
 			<button onclick="painter.reset()">Reset</button>
+			</div>
+		</div>
 		</div>
 	</div>
-
-	<div id="linerDemoDiv" class="card ">
-		<div>
-			<select onchange="liner.switchMode(value);"  id="chooseMode" style="z-index: 10;">
-				<option value="0">1 - 1</option>
-				<option selected value="1">1 - N</option>
-				<option value="2">N - 1</option>
-				<option value="3">N - N</option>
-			</select>
-			<input id="test-in" ></input>
-		</div>
-		<div >
-			<canvas id="linerCanvas" class="demo-board"></canvas>
-		</div>
 	</div>
 
-	<div id="cubeDemoDiv" class="card">
+	<div class="col-12-8 card-out">
+	<div class="card-in" id="river-chart-div">
+		<div class="card-header">
+			<span class="card-title">RiverChart</span>
+		</div>
+		<div class="card-body">
+			<iframe src="riverchart/riverchart.html" class="card-iframe"></iframe>
+		</div>
+	</div>
+	</div>
+
+	<div class="col-12-4 card-out">
+	<div id="cubeDemoDiv" class="card-in">
+		<div class="card-header">
+			<span class="card-title">Cube</span>
+		</div>
+		<div class="card-body">
 		<svg id="cube_svg" class="demo-board">
 		</svg>
-		<div >
+		</div>
+		<div class="control-board">
 			<!--<select id="cube_type" onchange="cube.type = Number(this.value);" >
 				<option value="0">In Aspect 0</option>
 				<option value="1">In Aspect 1</option>
@@ -152,29 +78,46 @@
 			<button onclick="cube.stepAlgV(15) " >Alg V</button>-->
 		</div>
 	</div>
-
-	<div id="demoAlgDiv" class="card ">
+	</div>
+	
+	<div class="col-12-4 card-out">
+	<div id="demoAlgDiv" class="card-in ">
+		<div class="card-header">
+			<span class="card-title">Sort</span>
+		</div>
+		<div class="card-body">
 		<svg id="demoAlg_svg" class="demo-board">
 			<g id="main_g" ></g>
 			<g id="temp_g" transform="translate(0,150)"></g>
 		</svg>
-		<div >
+		</div>
+		<div class="control-board-bottom" >
+			<div class="actions-board">
 			<button onclick="startSort('quickSort');" class="sort-btn quickSort">Quick Sort</button>
 			<button onclick="startSort('bubbleSort');" class="sort-btn bubbleSort">Bubble Sort</button>
 			<button onclick="startSort('mergeSort');" class="sort-btn mergeSort">Merge Sort</button>
+			</div>
+			<div class="params-board">
 			<span >Num</span>
 			<input type="text" value="30" id="sort_num"></input>
 			<span>Speed</span>
 			<input type="text" value="8" id="sort_speed"></input>
+			</div>
 		</div>
 	</div>
+	</div>
 
-	<div id="demoHanoiDiv" class="card">
-		<div class="demo-board" >
-			<div >
+	<div class="col-12-4 card-out">
+	<div id="demoHanoiDiv" class="card-in">
+		<div class="card-header">
+			<span class="card-title">Hanoi 汉诺塔</span>
+			<span class="card-desc">将所有盘子移到C柱；每次只能移动一个盘子；大盘不能在小盘上</span>
+		</div>
+		<div class="card-body" >
+			<div>
 				<svg id="demoHanoi_svg" class="demo-board">
 				</svg>
-				<div >
+				<div class="control-board-bottom" >
 					<button onclick="demoHanoi();" id="hanoi-btn" >Start</button>
 					<span >Num</span>
 					<input type="text" value="3" id="hanoi_num"></input>
@@ -182,7 +125,7 @@
 					<input type="text" value="8" id="hanoi_speed" ></input>
 				</div>
 			</div>
-			<div class="" style="overflow: auto; min-width: 100px; text-align: left;">
+			<div class="" style="display: none; overflow: auto; min-width: 100px; text-align: left;">
 				<span>
 					<a href="http://zh.wikipedia.org/wiki/%E6%B1%89%E8%AF%BA%E5%A1%94">汉诺塔</a><a href="http://en.wikipedia.org/wiki/Tower_of_Hanoi" style="margin-left: 10px;">Tower of Hanoi</a>
 				</span>
@@ -209,22 +152,37 @@
 			</div>
 		</div>
 	</div>
-
-	<div id="swimRingDemoDiv" class="card">
-		<div id="swimRingDiv" >
-		  <svg id="swimRing_svg" class="demo-board"></svg>
-		  <select onchange="redemoSwimRing(value)" >
-		    <option selected value="1">Grains</option>
-		    <option value="2">Vegitables</option>
-		    <option value="3">Fruits</option>
-		  </select>
-		</div>
 	</div>
 
-	<div id="demoTwowaybindingDiv" class="card">
-		<div class="demo-board">
-			<div class="center-block">
-				<h4>River's Template Language engine (like AngularJS)</h4>
+	<div class="col-12-4 card-out">
+	<div id="linerDemoDiv" class="card-in ">
+		<div class="card-header">
+			<span class="card-title">Liner</span>
+		</div>
+		<div class="card-body">
+			<div class="choose-div">
+			<select id="chooseMode" onchange="liner.switchMode(value);">
+				<option value="0">1 - 1</option>
+				<option selected value="1">1 - N</option>
+				<option value="2">N - 1</option>
+				<option value="3">N - N</option>
+			</select>
+			<input id="test-in" style="display:none;" ></input>
+			</div>
+			<div >
+				<canvas id="linerCanvas" class="demo-board"></canvas>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<div class="col-12-4 card-out">
+	<div id="demoTwowaybindingDiv" class="card-in">
+		<div class="card-header">
+			<span class="card-title">River's Template Language Engine</span>
+		</div>
+		<div class="card-body">
+			<div>
 				<div>
 				  <span>{{title}}</span>
 				  <input value="{{ title }}"></input>
@@ -248,16 +206,79 @@
 			</area>
 		</div>
 	</div>
+	</div>
 
-	<div id="demoTipDiv" class="card">
+	<div class="col-12-4 card-out">
+	<div id="demoTipDiv" class="card-in">
+		<div class="card-header">
+			<span class="card-title">Tip</span>
+			<span class="card-desc">带边界检测的tip</span>
+		</div>
+		<div class="card-body">
 		<svg id="demoTipSVG" class="demo-board">
-			<g id="pearsG"></g>
-			<!--<g id="tipG">-->
-				<path id="tipPath" fill="white" stroke="brown" stroke-witdh="1"></path>
-				<text id="tipText" text-anchor="middle" fill="gray"></text>
-			<!--</g>-->
+			<g id="pearsG">
+				<path id="tipPath" fill="#fff" stroke-width="1" stroke="brown"></path>
+			</g>
+			<text id="tipText" text-anchor="middle" fill="gray"></text>
 		</svg>
+		</div>
+	</div>
 	</div>
 </div>
+</div>
+	<div class="footer"><span>River is lovable in live !</span></div>
+</div>
 </body>
+<script type="text/javascript" src="waterfall/queue.js"></script>
+<script type="text/javascript" src="waterfall/waterfall.js"></script>
+<script type="text/javascript" src="tools/drawer.js"></script>
+<script type="text/javascript" src="canvas/painter.js"></script>
+<script type="text/javascript" src="canvas/liner.js"></script>
+<script type="text/javascript" src="canvas/painter-defaults.js"></script>
+<script type="text/javascript" src="cube/cube.js"></script>
+<script type="text/javascript" src="swimRing/river-utils.js"></script>
+<script type="text/javascript" src="swimRing/swimRingChart.js"></script>
+<script type="text/javascript" src="tip/tip.js"></script>
+<script type="text/javascript" src="tip/pears.js"></script>
+<script type="text/javascript" src="alg/sort.js"></script>
+<script type="text/javascript" src="alg/virtualizeSortAlg.js"></script>
+<script type="text/javascript" src="alg/mergeSort.js"></script>
+<script type="text/javascript" src="hanoi/hanoi.js"></script>
+<script type="text/javascript" src="two-way-binding/twowaybinding.js"></script>
+
+<script type="text/javascript">
+	function detectWindow(){
+		var boards = document.querySelectorAll(".demo-board");
+		for(var i = boards.length - 1; i >= 0; i--){
+			var mystyle = Utils.getStyle(boards[i]);
+			var cardW = Utils.getPxNum(mystyle.getPropertyValue("width"));
+			var cardH = Utils.getPxNum(mystyle.getPropertyValue("height"));
+			console.log(cardW, cardH);
+			var tagName = boards[i].tagName.toUpperCase();
+			if(tagName  === "SVG" || tagName === "CANVAS"){
+				boards[i].setAttribute("width", cardW);
+				boards[i].setAttribute("height", cardH);
+			}/*else if(boards[i].tagName.toUpperCase() === "CANVAS"){
+				boards[i].setAttribute("width", cardW + "px");
+				boards[i].setAttribute("height", cardH + "px");
+			}*/
+		}
+	}
+	Utils.bindEvent(window, "load", init );
+
+	function init(){
+		waterfall("cards-div", "card-out");
+		detectWindow();
+		demos();
+	}
+	function demos() {
+		demoPainter(); 
+		demoLiner(); 
+		demoCube(); 
+		demoTwowaybinding(default_binding, document.getElementById('demoTwowaybindingDiv'));
+		demoTip();
+		sortPrepare();
+		demoHanoi();
+	}
+</script>
 </html>
