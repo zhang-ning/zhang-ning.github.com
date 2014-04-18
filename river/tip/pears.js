@@ -66,8 +66,8 @@ function bindHover(circle){
 }
 
 function showTip(circle){
-	var x = Number(circle.getAttribute("cx"));
-	var y = Number(circle.getAttribute("cy"));
+	var x = Math.round(Number(circle.getAttribute("cx")));
+	var y = Math.round(Number(circle.getAttribute("cy")));
 	var r = circle.getAttribute("r");
 
 	var trace = tipTrace(x, y, tipDemoSVGWidth);

@@ -112,6 +112,9 @@ Tower.prototype.title = function() {
 	line.setAttribute("stroke", "gray");
 	line.setAttribute("stroke-width", Tower.DISH_R2);
 	this.container.appendChild(line);
+	var text = drawer.drawText(this.x, this.y + 20, this.name);
+	text.setAttribute("class", "tower-title");
+	this.container.appendChild(text);
 }
 Tower.prototype.push = function(it) {
 	this.data.push(it.value);
@@ -157,11 +160,9 @@ function demoHanoi(){
 	C = new Tower("C", 0, 5 * towerRadius, towerBaseline, container );
 	var records = [];
 
-	setTimeout(function() {
-		hanoi(A, B, C, A.data.stack.length - 1, records);
-		document.getElementById("hanoi_steps").textContent = records.length;
-		moveDish(records, 0, speed);
-	}, 0);
+	hanoi(A, B, C, A.data.stack.length - 1, records);
+	document.getElementById("hanoi_steps").textContent = records.length;
+	moveDish(records, 0, speed);
 };
 function outputHanoiStacks(n){
 	//console.log(A.data.stack, B.data.stack, C.data.stack, n);
@@ -180,13 +181,14 @@ function checkOptions() {
 	if(/[^0-9]/.test(hanoi_num.value)){
 		hanoi_num.value = 3;
 	}
-	hanoi_num = Number(hanoi_num.value);
-	if( hanoi_num < 0){
-		hanoi_num.value = 0;
+	var hanoi_num_value = Number(hanoi_num.value);
+	if( hanoi_num_value < 0){
+		hanoi_num.value = 3;
 	}
 	var steps_desc = document.getElementById("steps_desc");
-	if(hanoi_num > 20){
+	if(hanoi_num_value > 20){
 		steps_desc.style.border = "2px solid red";
+		hanoi_num.value = 20;
 	}else{
 		steps_desc.style.border = "";
 	}

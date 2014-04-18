@@ -128,7 +128,7 @@ var HOST_GROUPS = [
 	//,{title: "Grass", color: "#B97C46", value: 10} 
 ];
 
-var hbars = hbarsDemo();
+//var hbars = hbarsDemo();
 var vbars = vbarsDemo();
 var vmbars = vmbarsDemo();
 var ring = ringDemo();

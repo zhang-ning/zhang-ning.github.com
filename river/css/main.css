@@ -1,4 +1,5 @@
 body{
+font-size: 12px;
 margin: 0px;
 }
 .title-road{
@@ -145,13 +146,12 @@ background: url('../photoes/bg_ning_jump2.JPEG') top center no-repeat;
 }
 .footer{
 /*background: url('../photoes/bg_grass.JPEG') top center no-repeat;*/
-margin-top: 50px;
 border-top: 1px solid gray;
-line-height: 70px;
-
-text-align: center;
-font-size: 20px;
 clear: both;
+margin-top: 15px;
+padding-top: 15px;
+margin-bottom: 15px;
+overflow: auto;
 }
 .layout{
 	max-width: 1024px;
@@ -258,4 +258,15 @@ color: #fff;
 .alg-scope{
 	stroke: green;
 	stroke-width: 2;
+}
+.declare{
+}
+.about-me{
+}
+.about-item{
+	margin-right: 10px;
+}
+
+.tower-title{
+text-anchor: middle;
 }
