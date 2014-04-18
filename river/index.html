@@ -11,9 +11,9 @@
 
 <body >
 <div class="layout">
-	<div class="header">
+	<div id="header" class="header">
 		<span class="site-name">River Studio</span>
-		<span class="site-desc">Keep studing, be happy.</span>
+		<span class="site-desc">Opening mind, beautiful world.</span>
 	</div>
 <div class="body">
 <div id="cards-div" class="cards main-div">
@@ -35,17 +35,6 @@
 			<button onclick="painter.reset()">Reset</button>
 			</div>
 		</div>
-		</div>
-	</div>
-	</div>
-
-	<div class="col-12-8 card-out">
-	<div class="card-in" id="river-chart-div">
-		<div class="card-header">
-			<span class="card-title">RiverChart</span>
-		</div>
-		<div class="card-body">
-			<iframe src="riverchart/riverchart.html" class="card-iframe"></iframe>
 		</div>
 	</div>
 	</div>
@@ -80,6 +69,28 @@
 	</div>
 	</div>
 	
+	<div class="col-12-8 card-out">
+	<div class="card-in" id="river-chart-div">
+		<div class="card-header">
+			<span class="card-title">RiverChart</span>
+		</div>
+		<div class="card-body">
+			<iframe src="riverchart/riverchart.html" class="card-iframe" id="riverchartWin"></iframe>
+		</div>
+		<div class="control-board-out">
+		<div class="control-board">
+			<div class="control-actions">
+			<button onclick="riverchartWin.refreshRing()">Ring</button>
+			<button onclick="riverchartWin.refreshMRing()">MRing</button>
+			<button onclick="riverchartWin.refreshVBars()">VBars</button>
+			<button onclick="riverchartWin.refreshVMBars()">VMBars</button>
+			<button onclick="riverchartWin.refreshHBars()">HBars</button>
+			</div>
+		</div>
+		</div>
+	</div>
+	</div>
+
 	<div class="col-12-4 card-out">
 	<div id="demoAlgDiv" class="card-in ">
 		<div class="card-header">
@@ -236,7 +247,7 @@
 <script type="text/javascript" src="canvas/liner.js"></script>
 <script type="text/javascript" src="canvas/painter-defaults.js"></script>
 <script type="text/javascript" src="cube/cube.js"></script>
-<script type="text/javascript" src="swimRing/river-utils.js"></script>
+<script type="text/javascript" src="tools/utils.js"></script>
 <script type="text/javascript" src="swimRing/swimRingChart.js"></script>
 <script type="text/javascript" src="tip/tip.js"></script>
 <script type="text/javascript" src="tip/pears.js"></script>
@@ -267,6 +278,7 @@
 	Utils.bindEvent(window, "load", init );
 
 	function init(){
+		Utils.addClass(document.getElementById("header"), "header-bg");
 		waterfall("cards-div", "card-out");
 		detectWindow();
 		demos();

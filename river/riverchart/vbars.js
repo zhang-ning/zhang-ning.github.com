@@ -1,15 +1,23 @@
 function  VBars (groups, options) {
-	this.groups = groups;
 	this.g = options.g;
 	this.options = options;
 	this.bars = [];
 	this.texts = [];
-
+	this.groups = this.initData(groups);
 	this.vBars();
-	this.axises();
+	this.axises(groups);
+	this.update(groups);
 }
 VBars.PIECE = 8;
 VBars.SPEED = 16;
+
+VBars.prototype.initData = function(groups){
+	var groups2 = [];
+	for(var i = 0, len = groups.length; i < len; i++){
+		groups2.push({value: 0, color: groups[i].color});
+	}
+	return groups2;
+}
 
 VBars.prototype.vBars = function(){
 	var elm;
@@ -28,7 +36,7 @@ VBars.prototype.vBars = function(){
 		this.g.appendChild(elm);
 	}
 }
-VBars.prototype.axises = function (){
+VBars.prototype.axises = function (groups){
 	for(var i = 0, len = this.bars.length; i < len; i++){
 		var pos = this.bars[i].pos;
 		var x1 = pos.x - 1/2*this.options.GAP;
@@ -39,11 +47,11 @@ VBars.prototype.axises = function (){
 		line.setAttribute("class", "base-line");
 		this.g.appendChild(line);
 
-		var text = drawer.drawText(pos.x + 1/2*this.options.W, this.options.Y + 0.5*this.options.GAP, this.groups[i].title);
+		var text = drawer.drawText(pos.x + 1/2*this.options.W, this.options.Y + 0.5*this.options.GAP, groups[i].title);
 		text.setAttribute("class", "v-bar-title");
 		this.g.appendChild(text);
 
-		var text = drawer.drawText(pos.x + 1/2*this.options.W, pos.y - this.options.BASE_BAR_L - 0.5*this.options.GAP, this.groups[i].value);
+		var text = drawer.drawText(pos.x + 1/2*this.options.W, pos.y - this.options.BASE_BAR_L - 0.5*this.options.GAP, groups[i].value);
 		text.setAttribute("class", "v-bar-value");
 		this.g.appendChild(text);
 		this.texts.push(text);
