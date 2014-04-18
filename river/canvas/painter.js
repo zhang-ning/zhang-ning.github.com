@@ -10,10 +10,10 @@ function Painter(canvas){
 	}
 	this.canvas = canvas;
 	this.container = this.canvas.parentNode;
-
+	
 	var rect = this.canvas.getBoundingClientRect();
-	this.diffTop = Math.round(rect.top);
-	this.diffLeft = Math.round(rect.left);
+	this.diffTop = document.body.scrollTop + Math.round(rect.top);
+	this.diffLeft = document.body.scrollLeft +  Math.round(rect.left);
 }
 Painter.startEvent = ('ontouchstart' in window ? 'touchstart' : 'mousedown');
 Painter.endEvent = ('ontouchend' in window ? 'touchend' : 'mouseup');
