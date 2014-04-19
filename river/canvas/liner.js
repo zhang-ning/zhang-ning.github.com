@@ -51,7 +51,11 @@ Liner.prototype.init = function(e){
 	this.startDrawLineReference= function(e){
 		e.preventDefault();
 		//e.stopPropagation();
-		self.startDrawLine(e);
+		var ee = e;
+		if(e.touches){
+			ee = e.touches[0];
+		}
+		self.startDrawLine(ee);
 	}
 	this.container.addEventListener(Liner.startEvent, this.startDrawLineReference, false);
 }
@@ -87,10 +91,18 @@ Liner.prototype.startDrawLine = function(e){
 
 	var self = this;
 	this.drawLineAtMovingReference = function(e){
-		self.drawLineAtMoving(e);
+		var ee = e;
+		if(e.touches){
+			ee = e.touches[0];
+		}
+		self.drawLineAtMoving(ee);
 	}
 	this.stopDrawLineReference = function(e){
-		self.stopDrawLine(e);
+		var ee = e;
+		if(e.touches){
+			ee = e.touches[0];
+		}
+		self.stopDrawLine(ee);
 	}
 
 	this.container.addEventListener(Liner.moveEvent, this.drawLineAtMovingReference, false);
