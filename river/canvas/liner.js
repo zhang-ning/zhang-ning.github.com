@@ -50,7 +50,6 @@ Liner.prototype.init = function(e){
 	var self = this;
 	this.startDrawLineReference= function(e){
 		e.preventDefault();
-		//e.stopPropagation();
 		var ee = e;
 		if(e.touches){
 			ee = e.touches[0];
@@ -99,6 +98,7 @@ Liner.prototype.startDrawLine = function(e){
 	}
 	this.stopDrawLineReference = function(e){
 		var ee = e;
+		self.testIn.value = e + " " + e.touches;
 		if(e.touches){
 			ee = e.touches[0];
 		}
@@ -122,12 +122,13 @@ Liner.prototype.drawLineAtMoving = function(e){
 
 Liner.prototype.stopDrawLine = function(e){
 	//console.log("mouseup...");
-	this.stop = true;
-	var x = e.pageX || this.x1;
-	var y = e.pageY || this.y1;
-	var endTo = this.inHotArea(e.pageX, e.pageY);
-	var endTo = this.inHotArea(this.x1, this.y1);
-	this.testIn.value = e.pageX + " " + e.pageY + " " + this.x1 + " " + this.y1 + " " +  endTo;// + areaId;
+	this.testIn.value = 2;
+	this.stop = true; this.testIn.value = 2.1; this.testIn.value = e;
+	var x =  this.x1 || e.pageX; this.testIn.value = 2.2;
+	var y =  this.y1 || e.pageY;
+	//var endTo = this.inHotArea(e.pageX, e.pageY); this.testIn.value = 5;
+	var endTo = this.inHotArea(x, y);this.testIn.value = 6;
+	//this.testIn.value = "pageX " + e.pageX + " pageY " + e.pageY + " x1 " + this.x1 + " x2 " + this.y1 + " endTo  " +  endTo;// + areaId;
 	if(endTo && this.startFrom && (this.startFrom + endTo) === 3){
 		var endItemId = null;
 		if(endTo == 2){
@@ -294,6 +295,7 @@ Liner.prototype.closestTo = function(x, y, len, offsetTop, listHeight){
 Liner.prototype.inHotArea = function(x, y){
 	x = x - this.diffLeft;
 	y = y - this.diffTop;
+	this.testIn.value = 3;
 	var areaId = 0;
 	if( x >= (this.startLeft) && x <= (this.startLeft + this.startWidth) && 
 		y >= (this.startTop) && y <= (this.startTop + this.startHeight)){
@@ -302,7 +304,7 @@ Liner.prototype.inHotArea = function(x, y){
 		y >= (this.endTop) && y <= (this.endTop + this.endHeight)){
 		areaId = 2;
 	}
-
+	this.testIn.value = 4;
 	return areaId;
 }
 
