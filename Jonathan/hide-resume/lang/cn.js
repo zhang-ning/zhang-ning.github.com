@@ -5,12 +5,13 @@ define('lang.cn',function(){
     "gender" : "男",
     "location" : "北京",
     "work-year" : "六年",
-    "phone" : "hunter.dding@gmail.com",
+    "phone" : "18513815182",
+    "mail" : "hunter.dding@gmail.com",
     "welcome" : "欢迎阅读源代码,\n模块封装的风格受到了CommonJS规范的影响,\n模板引擎的实现受到了AngularJS的影响.\n更多精彩内容经请关注：@猎人丁丁,\n访问我的个人网站 http://besideriver.com",
     "introduce" : "对创建有用，易用的应用程序有兴趣，注重应用程序的用户体验的同时注重功能性,6年编程经验，喜欢用vim,tmux在ubuntu上开发,也爱git和node,两年前开始专注前端开发,对javascript动画，svg css3 html5都颇有了解,你可以通过访问我的个人网站了解我在这方面的技术水平.半年前通过使用Google AngularJS和D3开始接触javascript里的双向数据绑定和数据可视化.2个月前，我写了RiverJS,一个灵活小巧的前端框架,提供双向绑定和CMD的模块封装,它类似于AngularJS,但是体积更小.最近开始在npm上发布一些工具.",
     "works":[{
       "name":"文思海辉Tibco部门UX组",
-      "during":"2012.4-Now",
+      "during":"2012.4-2014.5",
       "info":"Tibco公司绝大部分产品的UX实现",
       "projects":[{
         "name":"Tibco Comunicate Manager",

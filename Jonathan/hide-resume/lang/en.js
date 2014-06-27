@@ -5,12 +5,13 @@ define('lang.en',function(){
     "gender" : "Male",
     "location" : "Beijing",
     "work-year" : "6 years",
-    "phone" : "hunter.dding@gmail.com",
+    "phone" : "18513815182",
+    "mail" : "hunter.dding@gmail.com",
     "welcome" : "Welcome to read source,\nPart of the module wrapping style is from CommonJS stand,\nand the template engine is effected by AngularJS.\nIf you want to know more,pleate fellow @hunterdding at twitter,\nand welcome to visit my website http://besideriver.com",
     "introduce" : "Hello,If you are search a guy who is not only good at UX work, but also have much power at server-side even mobile-end,I'm your guy.Let me take five minutes break to introduce myself.You can call me Jonathan.I have been programming for 6 years,and I like develop on ubuntu via vim and tmux, linux system is fantastic,I learned a lot from it,and I also like the life at Github,read and make a contributes to opensource software.You can find that I'm not ease to stop forward.Two years ago I just fall in love with javascript,and so care about the user experience.at that time I began to focus on the UX thing as a professonal fron-end developer,I joined many projects and more important build a lot compoments with html5,css3,svg under W3C standard.Half year ago I begin to touch two-way data-binding and data visulization in javascript through AngularJS and D3.And Two month ago I wrote RiverJS a small framework but have powerful features like what Angular supply,you can find it at bellow.For node,you also can find my opensource work at NPM by the author name jonathan-zhang.Now you have already know me a littel bit.Hope have opportunity work with you :)",
     "works":[{
       "name":"UX of Tibco in Pactera",
-      "during":"2012.4-Now",
+      "during":"2012.4-2012.5",
       "info":"All the Tibco product's UX work",
       "projects":[{
         "name":"Tibco Comunicate Manager",
