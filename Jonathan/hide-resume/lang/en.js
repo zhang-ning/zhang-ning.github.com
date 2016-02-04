@@ -25,6 +25,15 @@ define('lang.en',function(){
             "info": "类易企秀产品,核心开发,AngularJS,Mongodb,MySQL,Redis,Express,HttpProxy,安全防御，PHP CodeInteger"
         }]
     },{
+          "name": "淘宝UED",
+          "during": "2014.5-2014.6",
+          "info": "因家庭原因从杭州返京",
+          "projects": [{
+              "name": "有数",
+              "during": "1 month",
+              "info": "d3.js 自定义图表 kiss"
+          }]
+      },{
       "name":"UX of Tibco in Pactera",
       "during":"2012.4-2012.5",
       "info":"All the Tibco product's UX work",
