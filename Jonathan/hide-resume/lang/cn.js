@@ -35,7 +35,7 @@ define('lang.cn',function(){
           }]
       },{
       "name":"文思海辉Tibco部门UX组",
-      "during":"2012.4-2014.7",
+      "during":"2012.4-2014.5",
       "info":"Tibco公司绝大部分产品的UX实现",
       "projects":[{
         "name":"Tibco Comunicate Manager",
