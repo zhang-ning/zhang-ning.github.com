@@ -34,7 +34,7 @@ define('lang.cn',function(){
               "info": "d3.js 自定义图表 kiss"
           }]
       },{
-      "name":"文思海辉Tibco部门UX组",
+      "name":"Tibco中国研发中心",
       "during":"2012.4-2014.5",
       "info":"Tibco公司绝大部分产品的UX实现",
       "projects":[{

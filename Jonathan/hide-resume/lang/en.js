@@ -34,7 +34,7 @@ define('lang.en',function(){
               "info": "d3.js 自定义图表 kiss"
           }]
       },{
-      "name":"UX of Tibco in Pactera",
+      "name":"UX of Tibco CDC",
       "during":"2012.4-2012.5",
       "info":"All the Tibco product's UX work",
       "projects":[{
